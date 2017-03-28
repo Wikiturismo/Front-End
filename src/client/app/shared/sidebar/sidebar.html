@@ -4,13 +4,13 @@
             <ul class="nav nav-pills nav-stacked sidenav">
                 <li>
                     <a [routerLink]="['home']" class="website-name">
-                        Ani Theme
+                        Bienvenido,
                     </a>
                 </li>
                 <li>
                     <a [routerLink]="['home']" class="logo">
-                        <img src="assets/images/flat-avatar.png" class="user-avatar" />
-                        <p class="text-xs-center">Ani pascal</p>
+                        <img src="assets/images/user0.jpg" class="user-avatar" />
+                        <p class="text-xs-center">Miguel Bello</p>
                     </a>
                 </li>
                 <li>
@@ -19,7 +19,11 @@
                         <span>&nbsp; Home</span>
                     </a>
                 </li>
-                <li class="nested" [ngClass]="{'expand' : showMenu === 'pages' }">
+
+                <li>
+                  <a [routerLink]="['components']"><i class="fa fa-question-circle"></i><span>¿Que es WT?</span></a>
+                </li>
+                <!--<li class="nested" [ngClass]="{'expand' : showMenu === 'pages' }">
                     <a (click)="addExpandClass('pages')"><i class="fa fa-chevron-circle-down"></i><span>&nbsp;&nbsp; Pages</span></a>
                     <ul class="submenu">
                         <li>
@@ -29,13 +33,11 @@
                             <a [routerLink]="['blankpage']"><span>Blank Page</span></a>
                         </li>
                     </ul>
+                </li>-->
+                <li>
+                  <a [routerLink]="['components']"><i class="fa fa-phone"></i><span>Contactenos</span></a>
                 </li>
-                <li> 
-                    <a href='http://www.strapui.com/themes/ani-angular-2-bootstrap-4-theme/'>
-                        <i class="fa fa-shopping-cart"></i>
-                        <span>&nbsp; Ani Premium Theme</span>
-                    </a>
-                </li>
+
                 <li>
                     <a [routerLink]="['']"><i class="fa fa-sign-out"></i><span>&nbsp;&nbsp; Logout</span></a>
                 </li>
