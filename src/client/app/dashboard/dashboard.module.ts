@@ -12,11 +12,11 @@ import { SidebarComponent } from '../shared/index';
 
 @NgModule({
     imports: [
-        CommonModule,
+      CommonModule,
     	RouterModule,
     	HomeModule,
     	BSComponentModule,
-        BlankPageModule,
+      BlankPageModule,
     ],
     declarations: [DashboardComponent, SidebarComponent],
     exports: [DashboardComponent, SidebarComponent]
