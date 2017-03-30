@@ -10,18 +10,17 @@
 											     <div class="form-group" ng-class="{error: contactForm.name.$invalid}">
 											     <label>Nombre Completo</label>
 											     <input class="form-control" type="text" name="name" ng-model="user.name" required="required" placeholder="Aquí va tu nombre">
-											       <span class="help-block" ng-show="contactForm.name.$error.required">Requisito</span>
+
 											     </div>
 											     <div class="form-group" ng-class="{error: contactForm.email.$invalid}">
 												       <label>Correo</label>
 												       <input class="form-control" type="email" name="email" ng-model="user.email" required="required" placeholder="Aquí va tu correo electrónico">
-												       <span class="help-block" ng-show="contactForm.email.$error.required">Requisito</span>
-												       <span class="help-block" ng-show="contactForm.email.$error.email">Dirección de correo invalida</span>
+
 											     </div>
 										     <div class="form-group" ng-class="{error: contactForm.message.$invalid}">
 											       <label>¿Que necesitas?</label>
 											       <textarea class="form-control" rows="5" name="message" ng-model="user.body" required="required" placeholder="Dejanos aquí tu mensaje"></textarea>
-											       <span class="help-inline" ng-show="contactForm.message.$error.required">Requisitos</span>
+
 										     </div>
 
 												 <button class="btn btn-primary btn-lg btn-block" ng-click="send()" ng-disabled="contactForm.$invalid">Enviar</button>
