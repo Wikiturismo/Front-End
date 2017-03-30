@@ -5,71 +5,61 @@
 
 <!-- ...........................................FORMULARIO..................................-->
 				 <div class="col-lg-12 col-md-12 col-sm-12" ng-controller="ContactController">
-					   <div class="alert alert-danger" ng-show="error">
-					     <button class="close" data-dismiss="alert">x</button>
-					     <strong>Ouch!</strong> Ha ocurrido un error al enviar tu mensaje.
-					   </div>
-					   <div class="alert alert-success" ng-show="success">
-					     <button class="close" data-dismiss="alert">x</button>
-					     <strong>Listo! </strong> Tu mensaje ha sido enviado con éxito.
-					   </div>
+
 					   <form role="form" name="contactForm">
-					     <div class="form-group" ng-class="{error: contactForm.name.$invalid}">
-					     <label>Nombre Completo</label>
-					     <input class="form-control" type="text" name="name" ng-model="user.name" required="required" placeholder="Aquí va tu nombre">
-					       <span class="help-block" ng-show="contactForm.name.$error.required">Requisito</span>
-					     </div>
-					     <div class="form-group" ng-class="{error: contactForm.email.$invalid}">
-						       <label>Correo</label>
-						       <input class="form-control" type="email" name="email" ng-model="user.email" required="required" placeholder="Aquí va tu correo electrónico">
-						       <span class="help-block" ng-show="contactForm.email.$error.required">Requisito</span>
-						       <span class="help-block" ng-show="contactForm.email.$error.email">Dirección de correo invalida</span>
-					     </div>
-					     <div class="form-group" ng-class="{error: contactForm.message.$invalid}">
-						       <label>Message</label>
-						       <textarea class="form-control" rows="5" name="message" ng-model="user.body" required="required" placeholder="Dejanos aquí tu mensaje"></textarea>
-						       <span class="help-inline" ng-show="contactForm.message.$error.required">Requisito</span>
-					     </div>
-					     <button class="btn btn-primary btn-lg btn-block" ng-click="send()" ng-disabled="contactForm.$invalid">Send</button>
+											     <div class="form-group" ng-class="{error: contactForm.name.$invalid}">
+											     <label>Nombre Completo</label>
+											     <input class="form-control" type="text" name="name" ng-model="user.name" required="required" placeholder="Aquí va tu nombre">
+											       <span class="help-block" ng-show="contactForm.name.$error.required">Requisito</span>
+											     </div>
+											     <div class="form-group" ng-class="{error: contactForm.email.$invalid}">
+												       <label>Correo</label>
+												       <input class="form-control" type="email" name="email" ng-model="user.email" required="required" placeholder="Aquí va tu correo electrónico">
+												       <span class="help-block" ng-show="contactForm.email.$error.required">Requisito</span>
+												       <span class="help-block" ng-show="contactForm.email.$error.email">Dirección de correo invalida</span>
+											     </div>
+										     <div class="form-group" ng-class="{error: contactForm.message.$invalid}">
+											       <label>¿Que necesitas?</label>
+											       <textarea class="form-control" rows="5" name="message" ng-model="user.body" required="required" placeholder="Dejanos aquí tu mensaje"></textarea>
+											       <span class="help-inline" ng-show="contactForm.message.$error.required">Requisitos</span>
+										     </div>
+
+												 <button class="btn btn-primary btn-lg btn-block" ng-click="send()" ng-disabled="contactForm.$invalid">Enviar</button>
+
+												 <div class="alert alert-danger" ng-show="error">
+													 <button class="close" data-dismiss="alert">x</button>
+													 <strong>Ouch!</strong> Ha ocurrido un error al enviar tu mensaje.
+												 </div>
+												 <div class="alert alert-success" ng-show="success">
+													 <button class="close" data-dismiss="alert">x</button>
+													 <strong>Listo! </strong> Tu mensaje ha sido enviado con éxito.
+												 </div>
 					   </form>
  				 </div>
 
-
-
-
-<!--
-				<div class="card-header card-primary card-inverse">
-
-					<span class="card-title">Default Form</span>
-				</div>
-				<div class="card-block">
-					<form>
-						<div class="form-group">
-							<label for="exampleInputEmail1">Email address</label>
-							<input type="email" class="form-control" id="exampleInputEmail1" placeholder="Enter email">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputPassword1">Password</label>
-							<input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-						</div>
-						<div class="checkbox">
-							<label>
-								<input type="checkbox"> Remember me
-							</label>
-						</div>
-						<button type="submit" class="btn btn-secondary">Submit</button>
-					</form>
-				</div>
-
-				-->
-				 <!-- ...........................................FORMULARIO..................................-->
-
-
+				 <!-- ...........................................FINAL FORMULARIO..................................-->
 
 			</div>
 		</div>
 
+		<!-- ...........................................FACEBOOK.................................-->
+		<div class="col-md-12 col-lg-6 "  align="center">
 
-</div>
+			<div class="card">
+					<div class="card-block">
+
+
+								<div class="jumbotron m-b-0">
+										<h1 aling="center">¿Por qué contactarnos?</h1>
+										<p align="justify">No importa si quieres viajar, promocionar tu negocio o simplemente estás aquí por curiosidad, dejanos tu mensaje y nuestro equipo resolverá tus dudas. Podemos ayudarte en lo que necesites.</p>
+										<img src="assets/images/wtpng.png" align="middle" alt="Mountain View" style="width:280px;height:150px;">
+										<p aling="center"><a href="https://www.facebook.com/WikiTurismo-179399862568190/" target="_blank" class="btn btn-primary btn-lg" role="button">Siguenos en Facebook »</a>
+										</p>
+								</div>
+					</div>
+			</div>
+		</div>
+
+	</div>
 
 </div>

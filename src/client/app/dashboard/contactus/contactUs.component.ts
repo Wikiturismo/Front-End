@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 @Component({
 	moduleId: module.id,
     selector: 'contactus',
-    templateUrl: './contactUs.component.html'
+    templateUrl: './contact-Us.component.html'
 })
 
 export class ContactUSComponent {}
