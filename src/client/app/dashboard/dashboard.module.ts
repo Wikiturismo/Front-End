@@ -4,7 +4,7 @@ import { RouterModule } from '@angular/router';
 
 import { HomeModule } from './home/home.module';
 import { BlankPageModule } from './blank-page/blankPage.module';
-import { BSComponentModule } from './bs-component/bsComponent.module';
+import { ContactUSModule } from './contactus/contactUs.module';
 
 import { DashboardComponent } from './dashboard.component';
 
@@ -15,7 +15,7 @@ import { SidebarComponent } from '../shared/index';
       CommonModule,
     	RouterModule,
     	HomeModule,
-    	BSComponentModule,
+    	ContactUSModule,
       BlankPageModule,
     ],
     declarations: [DashboardComponent, SidebarComponent],
