@@ -7,7 +7,8 @@ import { UserInfoModule } from './user-info/UserInfo.module';
 import { ContactUSModule } from './contactus/contactUs.module';
 import { TopPostModule } from './top-post/topPost.module';
 import { DashboardComponent } from './dashboard.component';
-
+import { CommentsModule } from './comments/comments.module';
+import { GetPlacesModule } from './getplaces/getplaces.module';
 import { SidebarComponent } from '../shared/index';
 
 @NgModule({
@@ -17,7 +18,9 @@ import { SidebarComponent } from '../shared/index';
     	HomeModule,
     	ContactUSModule,
       	UserInfoModule,
-      	TopPostModule
+      	TopPostModule,
+        CommentsModule,
+        GetPlacesModule,
     ],
     declarations: [DashboardComponent, SidebarComponent],
     exports: [DashboardComponent, SidebarComponent]
