@@ -1,72 +1,20 @@
-<div class="container">
-  <h1>Comentarios Post</h1>
-  <!--POST 1-->
+ <h1 class="container" >Top Post</h1>
+<div class="container"  *ngFor="let place of places; let i = index">
+ 
+
   <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black">Cartagena de Indias</font></h3></a>
-     <p>Cartagena de Indias, oficialmente Distrito Turístico y Cultural de Cartagena de Indias abreviado Cartagena de Indias, D. T. y C., es la capital del departamento de Bolívar, Colombia. Fue fundada el 1.° de junio de 1533 por Pedro de Heredia. Desde 1991 Cartagena es un Distrito Turístico y Cultural. </p>
+     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black"> {{place.name}}</font></h3></a>
+     <p>{{place.description}}</p>
 
       <img width="50%" src="assets/images/cartagena-3.jpg">
   </div>
-  <!--POST 2-->
-  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black">Bogotá</font></h3></a>
-     <p>Aquí va la descripción </p>
 
-      <img width="50%" src="assets/images/bogota2.jpg">
-  </div>
-  <!--POST 3-->
-  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black">Ibagué</font></h3></a>
-    <p>Aquí va la descripción </p>
-
-      <img width="50%" src="assets/images/chicamocha1.jpg">
-  </div>
-  <!--POST 4-->
-  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black">Tunja</font></h3></a>
-    <p>Aquí va la descripción </p>
-      <img width="50%" src="assets/images/slider3.jpg">
-  </div>
-  <!--POST 5-->
-  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black">Chicamocha</font></h3></a>
-    <p>Aquí va la descripción </p>
-
-      <img width="50%" src="assets/images/chicamocha3.jpg">
-  </div>
-  <!--POST 6-->
-  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black">Barranquilla</font></h3></a>
-    <p>Aquí va la descripción </p>
-
-      <img width="50%" src="assets/images/chicamocha2.jpg">
-  </div>
-  <!--POST 6-->
-  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black">Cali</font></h3></a>
-     <p>Aquí va la descripción </p>
-
-      <img width="50%" src="assets/images/chicamocha1.jpg">
-  </div>
-  <!--POST 8-->
-  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black">Popayán</font></h3></a>
-    <p>Aquí va la descripción </p>
-      <img width="50%" src="assets/images/chicamocha4.jpg">
-  </div>
-  <!--POST 9-->
-  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black">Tuluá</font></h3></a>
-  <p>Aquí va la descripción </p>
-      <img width="50%" src="assets/images/slider3.jpg">
-  </div>
-  <!--POST 10-->
-  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black">Tenjo</font></h3></a>
-  <p>Aquí va la descripción </p>
-
-      <img width="50%" src="assets/images/cartagena-3.jpg">
-  </div>
+  
 
 
 </div>
+<ul>
+  <!--<div>{{departs}}</div>-->
+  <!--<li *ngFor="let place of places"> 		
+  	{{place.name}}</li>-->
+</ul>

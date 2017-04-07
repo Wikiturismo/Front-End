@@ -1,22 +1,23 @@
-<div class="container">
+
     <h1>Posts Sitios</h1>
+    <div class="container"   *ngFor="let Exp of Explace; let i = index">
     <!-- NOMBRE DEL SITIO-->
     <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-        <h3 class="card-title" style="text-align: center"><font color="black">Restaurante La Muralla</font></h3>
+        <h3 class="card-title" style="text-align: center"><font color="black">{{Exp.name}}</font></h3>
     </div>
     <!-- IMAGEN SITIO-->
     <img src="assets/images/cartagena-1.jpg" class="avatar img-circle" />
     <!-- FECHA DE PUBLICACION-->
     <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-        <p> Publicado el 29/04/2017 </p>
+        <p> {{Exp.publicationdate}} </p>
     </div>
     <!-- DESCRIPCION DEL SITIO-->
     <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-        <p> El resturante La Muralla se hubica en una zona historica de Cartagena, con años de servicio y un reconocimiento a nivel local que le dan una reputación de deliciosa comida y el mejor ambiente para cenar en la ciudad </p>
+        <p> {{Exp.description}}  </p>
     </div>
     <!-- DIRCCION-->
     <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-        <p> Dirección: Calle Falsa 123 </p>
+        <p> Dirección: {{Exp.address}}</p>
     </div>
     <!-- TIPO DE SERVICIO-->
     <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
@@ -24,11 +25,11 @@
     </div>
     <!-- VALORACION-->
     <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-        <p> Valoración: 4.3 </p>
+        <p> Valoración: {{Exp.valoration}} </p>
     </div>
     <!-- PRECIOS-->
     <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-        <p> Precios: $50.000 en adelante </p>
+        <p> Precios: {{Exp.entrycost}} </p>
     </div>
 
 <!-- COMENTARIOS-->

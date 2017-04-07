@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-
+import { CommonModule } from '@angular/common';
 import { UserInfoComponent } from './userInfo.component';
 
 @NgModule({
-    imports: [],
+    imports: [CommonModule],
     declarations: [UserInfoComponent],
     exports: [UserInfoComponent]
 })

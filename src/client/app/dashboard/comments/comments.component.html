@@ -1,14 +1,19 @@
-<div class="container">
-    <h1>Comentarios Post</h1>
+<h1 class="container">Comentarios Post</h1>
+<div class="container"   *ngFor="let CommPlace of CommsPlace; let i = index">
+    
 
     <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-        <h3 class="card-title" style="text-align: center"><font color="black">Cartagena de Indias</font></h3>
+        <h3 class="card-title" style="text-align: center"><font color="black">{{CommPlace.name}}</font></h3>
     </div>
 
 
         <!--IMAGEN TOP-->
 
     <img width="100%" src="assets/images/cartagena-3.jpg">
+	<!--<div   *ngFor="let comentario of CommPlace.commentplaces; let j = index">
+		<p> {{comentaio.id}}</p>
+		
+	</div>-->
 
 
     <!--COMENTARIOS-->
