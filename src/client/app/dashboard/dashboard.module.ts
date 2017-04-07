@@ -3,11 +3,12 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 import { HomeModule } from './home/home.module';
-import { BlankPageModule } from './blank-page/blankPage.module';
+import { UserInfoModule } from './user-info/UserInfo.module';
 import { ContactUSModule } from './contactus/contactUs.module';
-
+import { TopPostModule } from './top-post/topPost.module';
 import { DashboardComponent } from './dashboard.component';
-
+import { CommentsModule } from './comments/comments.module';
+import { GetPlacesModule } from './getplaces/getplaces.module';
 import { SidebarComponent } from '../shared/index';
 
 @NgModule({
@@ -16,7 +17,10 @@ import { SidebarComponent } from '../shared/index';
     	RouterModule,
     	HomeModule,
     	ContactUSModule,
-      BlankPageModule,
+      	UserInfoModule,
+      	TopPostModule,
+        CommentsModule,
+        GetPlacesModule,
     ],
     declarations: [DashboardComponent, SidebarComponent],
     exports: [DashboardComponent, SidebarComponent]

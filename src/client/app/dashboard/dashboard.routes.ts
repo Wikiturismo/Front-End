@@ -1,8 +1,11 @@
 import { Route } from '@angular/router';
 
 import { HomeRoutes } from './home/index';
-import { BlankPageRoutes } from './blank-page/index';
+import { UserInfoRoutes } from './user-info/index';
+import { TopPostRoutes } from './top-post/index';
 import { ContactUSRoutes } from './contactus/index';
+import { CommentsRoutes } from './comments/index';
+import { GetPlacesRoutes } from './getplaces/index';
 
 import { DashboardComponent } from './index';
 
@@ -13,7 +16,10 @@ export const DashboardRoutes: Route[] = [
     	children: [
 	    	...HomeRoutes,
 	    	...ContactUSRoutes,
-	    	...BlankPageRoutes
+	    	...UserInfoRoutes,
+	    	...TopPostRoutes,
+        ...CommentsRoutes,
+        ...GetPlacesRoutes,
     	]
   	}
 ];

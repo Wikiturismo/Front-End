@@ -1,0 +1,20 @@
+ <h1 class="container" >Top Post</h1>
+<div class="container"  *ngFor="let place of places; let i = index">
+ 
+
+  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
+     <a href="http://localhost:5555/dashboard/toppost"><h3 class="card-title" style="text-align: center"><font color="black"> {{place.name}}</font></h3></a>
+     <p>{{place.description}}</p>
+
+      <img width="50%" src="assets/images/cartagena-3.jpg">
+  </div>
+
+  
+
+
+</div>
+<ul>
+  <!--<div>{{departs}}</div>-->
+  <!--<li *ngFor="let place of places"> 		
+  	{{place.name}}</li>-->
+</ul>

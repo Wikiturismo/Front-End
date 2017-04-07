@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Config } from './shared/index';
+import { Http } from '@angular/http';
 
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
@@ -8,11 +9,16 @@ import { Config } from './shared/index';
 @Component({
   moduleId: module.id,
   selector: 'sd-app',
-  templateUrl: 'app.component.html',
+  templateUrl: 'app.component.html'
 })
 
+
+
+
+
 export class AppComponent {
-	constructor() {
-	  	console.log('Environment config', Config);
+  departs: string;
+	constructor(private http: Http ) {
+       http.get('http://localhost:3000/departs.json').subscribe(res => this.departs = res.json().data);
+      }
 	}
-}
