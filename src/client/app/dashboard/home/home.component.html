@@ -3,38 +3,15 @@
       <div class="row" style="text-align: center;">
         <img src="assets/images/wtpng.png" width="300" height="200"/>
         <h1>Wiki Turismo Colombia</h1>
+        <br>
       </div>
       <div class="row" style="text-align: center;">
-        <a href="Javascript:void(0);" class="btn btn-primary" >Top Lugares</a>
-        <a href="Javascript:void(0);" class="btn btn-primary">Top Ciudades</a>
+        <a [routerLink]="['toppost']" class="btn btn-primary">Top Lugares</a>
+        <a href="https://www.facebook.com" class="btn btn-primary">Top Ciudades</a>
+        <br><br> <!--Espaciado-->
       </div>
-        <!---EMPIEZA ACA-->
-        <!--<div class="row" style="text-align: center;">
-
-          <div class="row">
-            <div class="col-md-10">
-              <input type="hidden" name="search_param" value="name" id="search_param">
-	             <input type="text" class="form-control" name="q" placeholder="Search.." id="search_key" value="">
-             </div>
-             <div class="col-md-2">
-               <button class="btn btn-info" type="submit">  Buscar  </button>
-            </div>
-          </div>
-
-          <div class="row">
-            <div class="dropdown">
-              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-                <span class="caret"></span></button>
-                <ul class="dropdown-menu">
-                  <li><a href="#">HTML</a></li>
-                  <li><a href="#">CSS</a></li>
-                  <li><a href="#">JavaScript</a></li>
-                </ul>
-              </div>
-
-          </div>
-        </div>-->
-        <div class="input-group">
+<!--Barra de busqueda-->
+      <div class="input-group">
           <div class="input-group-btn search-panel">
 		          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 		              <span id="search_concept">Filtro</span>
@@ -51,7 +28,7 @@
 			<button class="btn btn-info" type="submit">  Buscar  </button>
 	</span>
 </div>
-        <!---Termina ACA-->
+      <!---Se Llama el componente de los post recientes-->
       </div>
       <recentpost-cmp></recentpost-cmp>
-            </div>
+      </div>

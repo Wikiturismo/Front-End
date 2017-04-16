@@ -1,15 +1,18 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
+import { Wikiservice } from '../../wiki.service';
+
 
 @Component({
 	moduleId: module.id,
     selector: 'top-post',
-    templateUrl: './top-post.component.html'
+    templateUrl: './top-post.component.html',
+    providers: [Wikiservice]
 })
 
 export class TopPostComponent {
 	places;
-	constructor(private http: Http ) {
-       http.get('http://localhost:3000/places/top.json').subscribe(res => this.places = res.json().data);
+	constructor(private wikiservice: Wikiservice) { 
+       this.wikiservice.getTopPlaces().subscribe(res => this.places = res.json().data);
       }
 }
