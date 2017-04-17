@@ -12,7 +12,7 @@ import { Wikiservice } from '../../wiki.service';
 export class CommentsComponent {
 	CommsPlace;
 	constructor(private wikiservice: Wikiservice) { 
-       this.wikiservice.getPlace99().subscribe(res => this.CommsPlace = res.json().data);
+       this.wikiservice.getPlace99Com().subscribe(res => this.CommsPlace = res);
       }
 
 }

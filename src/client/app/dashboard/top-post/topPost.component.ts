@@ -13,6 +13,6 @@ import { Wikiservice } from '../../wiki.service';
 export class TopPostComponent {
 	places;
 	constructor(private wikiservice: Wikiservice) { 
-       this.wikiservice.getTopPlaces().subscribe(res => this.places = res.json().data);
+       this.wikiservice.getTopPlaces().subscribe(res => this.places = res);
       }
 }

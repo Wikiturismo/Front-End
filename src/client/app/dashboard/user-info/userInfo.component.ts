@@ -12,6 +12,6 @@ import { Wikiservice } from '../../wiki.service';
 export class UserInfoComponent {
 	user;
 	constructor(private wikiservice: Wikiservice) { 
-       this.wikiservice.getUser2().subscribe(res => this.user = res.json().data);
+       this.wikiservice.getUser2().subscribe(res => this.user = res);
       }
 }

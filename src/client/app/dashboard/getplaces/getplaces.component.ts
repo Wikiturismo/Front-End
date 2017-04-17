@@ -12,6 +12,6 @@ import { Wikiservice } from '../../wiki.service';
 export class GetPlacesComponent {
 	Explace;
 	constructor(private wikiservice: Wikiservice) { 
-	this.wikiservice.getPlace99().subscribe(res => this.Explace = res.json().data);
+		this.wikiservice.getPlace99().subscribe(res => this.Explace = res);
 	}
 }
