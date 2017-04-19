@@ -1,15 +1,17 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
+import { Getplacesservice } from './Getplaces.service';
 
 @Component({
 	moduleId: module.id,
     selector: 'getplaces',
-    templateUrl: './getplaces.component.html'
+    templateUrl: './getplaces.component.html',
+    providers: [Getplacesservice]
 })
 
 export class GetPlacesComponent {
 	Explace;
-	constructor(private http: Http ) {
-       http.get('http://localhost:3000/places/name/NamePlace+1').subscribe(res => this.Explace = res.json().data);
-      }
+	constructor(private getplacesservice: Getplacesservice) { 
+		this.getplacesservice.getPlace99().subscribe(res => this.Explace = res);
+	}
 }

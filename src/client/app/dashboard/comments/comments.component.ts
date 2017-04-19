@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
+import { Commentsservice } from './comments.service';
 
 @Component({
 	moduleId: module.id,
     selector: 'comments',
-    templateUrl: './comments.component.html'
+    templateUrl: './comments.component.html',
+    providers: [Commentsservice]
 })
 
 export class CommentsComponent {
 	CommsPlace;
-	constructor(private http: Http ) {
-       http.get('http://localhost:3000/places/name/NamePlace+1').subscribe(res => this.CommsPlace = res.json().data);
+	constructor(private commentsservice: Commentsservice) { 
+       this.commentsservice.getPlace99Com().subscribe(res => this.CommsPlace = res);
       }
 
 }

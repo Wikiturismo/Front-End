@@ -17,8 +17,8 @@ import { Http } from '@angular/http';
 
 
 export class AppComponent {
-  departs: string;
+  /*departs: string;
 	constructor(private http: Http ) {
-       http.get('http://localhost:3000/departs.json').subscribe(res => this.departs = res.json().data);
-      }
+       http.get('http://localhost:3000/api/v1/departs.json').subscribe(res => this.departs = res.json().data);
+      }*/
 	}
