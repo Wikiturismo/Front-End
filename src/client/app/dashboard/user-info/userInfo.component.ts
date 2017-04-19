@@ -1,17 +1,17 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-import { Wikiservice } from '../../wiki.service';
+import { UserInfoservice } from './UserInfo.service';
 
 @Component({
 	moduleId: module.id,
     selector: 'user-info',
     templateUrl: './user-info.component.html',
-    providers: [Wikiservice]
+    providers: [UserInfoservice]
 })
 
 export class UserInfoComponent {
 	user;
-	constructor(private wikiservice: Wikiservice) { 
-       this.wikiservice.getUser2().subscribe(res => this.user = res);
+	constructor(private userInfoservice: UserInfoservice) { 
+       this.userInfoservice.getUser2().subscribe(res => this.user = res);
       }
 }

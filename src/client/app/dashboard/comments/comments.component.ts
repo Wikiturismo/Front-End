@@ -1,18 +1,18 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-import { Wikiservice } from '../../wiki.service';
+import { Commentsservice } from './comments.service';
 
 @Component({
 	moduleId: module.id,
     selector: 'comments',
     templateUrl: './comments.component.html',
-    providers: [Wikiservice]
+    providers: [Commentsservice]
 })
 
 export class CommentsComponent {
 	CommsPlace;
-	constructor(private wikiservice: Wikiservice) { 
-       this.wikiservice.getPlace99Com().subscribe(res => this.CommsPlace = res);
+	constructor(private commentsservice: Commentsservice) { 
+       this.commentsservice.getPlace99Com().subscribe(res => this.CommsPlace = res);
       }
 
 }
