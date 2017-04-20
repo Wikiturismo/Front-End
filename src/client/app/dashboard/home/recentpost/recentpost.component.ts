@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { Http } from '@angular/http';
-import { Wikiservice } from '../../../wiki.service';
+import { Recentpostservice } from './Recentpost.service';
 
 /**
 *	This class represents the lazy loaded HomeComponent.
@@ -10,14 +10,14 @@ import { Wikiservice } from '../../../wiki.service';
 	moduleId: module.id,
 	selector: 'recentpost-cmp',
 	templateUrl: 'recentpost.component.html',
-	providers: [Wikiservice]
+	providers: [Recentpostservice]
 })
 
 export class RecentPostComponent {
 	placesLast;
-	constructor(private wikiservice: Wikiservice) { 
+	constructor(private recentpostservice: Recentpostservice) { 
 	
     //this.heroService.getHeroes().then(heroes => this.heroes = heroes);
-	this.wikiservice.getLastPlaces().subscribe(res => this.placesLast = res);
+	this.recentpostservice.getLastPlaces().subscribe(res => this.placesLast = res);
 	}
 }
