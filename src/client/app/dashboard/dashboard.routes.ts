@@ -8,6 +8,7 @@ import { CommentsRoutes } from './comments/index';
 import { GetPlacesRoutes } from './getplaces/index';
 import { CreatePostRoutes } from './createpost/index';
 import { DashboardComponent } from './index';
+import { RandomPostRoutes } from './randompost/index';
 
 export const DashboardRoutes: Route[] = [
   	{
@@ -21,6 +22,7 @@ export const DashboardRoutes: Route[] = [
         ...CommentsRoutes,
         ...GetPlacesRoutes,
         ...CreatePostRoutes,
+        ...RandomPostRoutes,
     	]
   	}
 ];
