@@ -10,6 +10,8 @@ import { DashboardComponent } from './dashboard.component';
 import { CommentsModule } from './comments/comments.module';
 import { GetPlacesModule } from './getplaces/getplaces.module';
 import { SidebarComponent } from '../shared/index';
+import { CreatePostModule } from './createpost/createpost.module';
+import { RandomPostModule } from './randompost/randompost.module';
 
 @NgModule({
     imports: [
@@ -21,6 +23,8 @@ import { SidebarComponent } from '../shared/index';
       	TopPostModule,
         CommentsModule,
         GetPlacesModule,
+        CreatePostModule,
+        RandomPostModule,
     ],
     declarations: [DashboardComponent, SidebarComponent],
     exports: [DashboardComponent, SidebarComponent]

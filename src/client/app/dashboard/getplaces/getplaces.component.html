@@ -33,19 +33,46 @@
     </div>
 
 <!-- COMENTARIOS-->
-  <div class="col-md-2">
-    <img src="assets/images/user5.jpg" class="user-avatar" style="border: 3px solid yellow; display: block; margin: auto;" />
-  </div>
-  <div>
+
+  <div class="card card-default card-block">
     <h1>Comentarios al respecto del sitio</h1>
-  <div class="col-md-10">
+
+  <!--COMENTARIOS-->
+
+  <div class="col-md-15">
     <div class="card card-default card-block">
         <blockquote class="card-blockquote">
-        <h4 class="text-default">Esperanza Perez</h4>
+          <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="assets/images/user2.jpg" />
+        <h4 class="text-default">Kevin Mendez</h4>
             <p>La comida más deliciosa que probé en Cartagena la probé aquí, además es muy ameno el ambiente y la atención es igualmente ecelente, quedé fascinada </p>
             <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
         </blockquote>
     </div>
   </div>
+
+  <div class="col-md-15" style="text-align: center" >
+ <div class="card card-default card-block">
+     <blockquote class="card-blockquote">
+       <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="assets/images/user2.jpg" />
+     <h4 class="text-default" style="text-align: Left">Kevin Mendez</h4>
+         <textarea class="form-control" rows="4" name="message" ng-model="user.body" required="required" placeholder="Escribe aquì tu comentario respecto al sitio..."></textarea>
+         <input type="button" class="btn btn-primary" value="Publicar Comentario" >
+         <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
+     </blockquote>
+ </div>
 </div>
+
+</div>
+
+<br>   <!--espaciado-->
+<hr>
+<br>
+<div class="row" style="text-align: center;">
+  <a  a href="/dashboard/createpost" class="btn btn-primary">Crear un Post nuevo</a>
+</div>
+<br><br>
+
+
+<!--Creacion del post-->
+
 </div>
