@@ -9,8 +9,8 @@ import {Observable} from 'rxjs/Rx';
 export class RandomPostservice {
 	constructor(private http: Http) {
 	}
-	getTopPlaces() : Observable<RandomPostComponent[]> {
-		return this.http.get('http://localhost:3000/api/v1/places/top.json')
+	getRandomPlaces() : Observable<RandomPostComponent[]> {
+		return this.http.get('http://localhost:3000/api/v1/places/random.json')
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}

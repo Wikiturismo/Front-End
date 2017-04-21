@@ -12,7 +12,7 @@ import { RandomPostservice } from './randompost.service';
 
 export class RandomPostComponent {
 	places;
-	constructor(private RandomPostservice: RandomPostservice) {
-
+	constructor(private randomPostservice: RandomPostservice) {
+		this.randomPostservice.getRandomPlaces().subscribe(res => this.places = res);
       }
 }

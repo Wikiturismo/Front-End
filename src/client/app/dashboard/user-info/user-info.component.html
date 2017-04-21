@@ -13,7 +13,7 @@
 
           <h6><br><br><br><br>
             <br><br><br><br>
-            <br><br><br><br>{{usr.registdate}}</h6>
+            <br><br><br><br>{{usr.created_at}}</h6>
         </div>
       </div>
 
@@ -26,18 +26,18 @@
         </div>-->
         <h3>  Información Personal</h3>
 
-        <form class="form-horizontal" role="form">
+        <form class="form-horizontal" role="form" (ngSubmit)="updateUser()">
           <div class="form-group">
-            <label class="col-lg-3 control-label">Nombre de Usuario:</label>
+            <label class="col-lg-3 control-label">Nombre de Usuario: {{usr.name}}</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value={{usr.name}}>
+              <input class="form-control" type="text" value={{usr.name}}  required [(ngModel)]="userCreat.name" name="name"  #name="ngModel">
             </div>
           </div>
           <div class="form-group">
             <label class="col-lg-3 control-label">Tipo de usuario:</label>
             <div class="col-lg-8">
               <div class="input-group-btn search-panel">
-                  <select class="form-control" id="sel1">
+                  <select class="form-control"   required [(ngModel)]="userCreat.kind" name="kind"  id="sel1">
                   	<option>{{usr.kind}}</option>
                     <option>Dueño de Lugar</option>
                     <option>Turista</option>
@@ -47,15 +47,15 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Ubicación:</label>
+            <label class="col-lg-3 control-label">Ubicación: {{usr.ubication}} </label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value={{usr.ubication}}>
+              <input class="form-control" type="text" value={{usr.ubication}} required [(ngModel)]="userCreat.ubication" name="ubication">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Correo Electronico:</label>
+            <label class="col-lg-3 control-label">Correo Electronico: {{usr.mail}}</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value={{usr.mail}}>
+              <input class="form-control" type="text" value={{usr.mail}} [(ngModel)]="userCreat.mail"  name="mail" >
             </div>
           </div>
           <!--<div class="form-group">
@@ -85,7 +85,8 @@
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
-              <input type="button" class="btn btn-primary" value="Guardar Cambios">
+              <!--<input type="button" class="btn btn-primary" value="Guardar Cambios" onclick="updateUser()">-->
+              <button type="submit" class="btn btn-primary" (click)="updateUser" onclick="window.location.reload()">Guardar cambios</button>
               <span></span>
               <input type="reset" class="btn btn-default" value="Cancelar">
             </div>

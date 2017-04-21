@@ -11,7 +11,7 @@ export class Getplacesservice {
 	
 	}
 	getPlace99() : Observable<GetPlacesComponent[]> {
-		return this.http.get('http://localhost:3000/api/v1/places/name/NamePlace+99')
+		return this.http.get('http://localhost:3000/api/v1/places/name/hotel+taroa')
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
