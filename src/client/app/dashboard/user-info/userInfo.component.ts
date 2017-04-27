@@ -27,12 +27,8 @@ export class UserInfoComponent {
 					this.userCreat.mail=this.user[0].mail;
 					this.userCreat.ubication=this.user[0].ubication;
 					//console.log(this.userCreat);
-
 				}
-
 			);
-
-
 		}
 	updateUser() {
 

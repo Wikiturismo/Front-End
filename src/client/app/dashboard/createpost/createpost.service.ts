@@ -11,6 +11,11 @@ export class Createpostservice {
 	constructor(private http: Http) {
 
 	}
+	getCount() : Observable<CreatePostComponent[]> {
+		return this.http.get('http://localhost:3000/api/v1/places/count')
+		.map(this.extractData)
+		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}
 	createPost(place: Place) {
         let body = JSON.stringify( place);
         let headers = new Headers({ 'Content-Type': 'application/json' });

@@ -11,10 +11,17 @@ import {Place} from './place';
 })
 
 export class CreatePostComponent {
+	count=[];
 	postCreat = new Place(600, '', true, '','','','',undefined,10,undefined,2);
     errorMessage: string;
 	constructor(private createpostservice: Createpostservice) {
-
+		this.createpostservice.getCount().subscribe(
+			data =>{
+				this.count.push(data)
+				this.postCreat.id=this.count[0].count;
+				console.log(this.count)
+			}
+		);
 	}
 	createPost(){
 		if (!this.postCreat) { return; }
