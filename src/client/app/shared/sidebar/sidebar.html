@@ -1,5 +1,5 @@
 <aside id="sidebar">
-    <div class="sidenav-outer">
+    <div class="sidenav-outer"  *ngFor="let usr of user; let i = index">
         <div class="menu-body">
             <ul class="nav nav-pills nav-stacked sidenav">
                 <li>
@@ -8,9 +8,9 @@
                     </a>
                 </li>
                 <li>
-                    <a [routerLink]="['home']" class="logo">
-                        <img src="assets/images/user2.jpg" class="avatar img-circle" />
-                        <p class="text-xs-center">Kevin Mendez</p>
+                    <a [routerLink]="['userinfo']" class="logo">
+                        <img src="assets/images/user2.jpg" class="avatar img-circle" style="width:110px;height:110px;" />
+                        <p class="text-xs-center">{{usr.name}}</p>
                     </a>
                 </li>
                 <li>
@@ -19,9 +19,9 @@
                     </a>
                 </li>
 
-                <li>
+                <!--<li>
                     <a [routerLink]="['userinfo']"><i class="fa fa-user"></i><span>Mi Perfil</span></a>
-                </li>
+                </li>-->
                 <li>
                   <a [routerLink]="['comments']"><i class="fa fa-question-circle"></i><span>Comentarios Posts</span></a>
                 </li>
@@ -34,7 +34,7 @@
                     <a [routerLink]="['toppost']"><i class="fa fa-user"></i><span>Top Post</span></a>
                 </li>-->
 
-                
+
                 <li>
                   <a [routerLink]="['components']"><i class="fa fa-phone"></i><span>Contactenos</span></a>
                 </li>

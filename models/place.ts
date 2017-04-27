@@ -4,7 +4,6 @@ export class Place {
         public id: number,
         public name: string,
         public kind: string,
-        public ubication: string,
-        public registdate: string       
+        public ubication: string 
        ){}
 }
