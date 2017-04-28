@@ -24,7 +24,7 @@ export const DashboardRoutes: Route[] = [
         ...GetPlacesRoutes,
         ...CreatePostRoutes,
         ...RandomPostRoutes,
-        ...CreateTownRoutes,
+        ...CreateTownRoutes
 
     	]
   	}

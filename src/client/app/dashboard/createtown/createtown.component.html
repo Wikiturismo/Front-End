@@ -5,7 +5,7 @@
 
     		<h1>Crear Ciudad/Pueblo nuevo</h1>
 
-    		<form role="form" (ngSubmit)="createPost()">
+    		<form role="form" (ngSubmit)="createTown()">
 
     		    <!--<div class="form-group has-error">
     		        <label for="slug">Slug <span class="require">*</span> <small>(This field use in url path.)</small></label>
@@ -15,12 +15,12 @@
 						<div class="form-group">
  							 <label class="col-lg-3 control-label">Nombre de la Ciudad/Pueblo <span class="require">*</span></label>
  							 <div class="col-lg-8">
- 								 <input class="form-control" type="text" required [(ngModel)]="postCreat.name" name="name">
+ 								 <input class="form-control" type="text" required [(ngModel)]="TownCreat.name" name="name">
  							 </div>
  					 </div>
 					 <br><br>
             <div>
-              <label for="description">Agregar una imagen de la Ciudad/Pueblo <span class="require">*</span></label>
+              <label for="description">Agregar una imagen de la Ciudad/Pueblo</label>
 							 <input type="file" class="form-control">
 				     <br>
             </div>
@@ -28,31 +28,31 @@
             <div class="row">
                 <div class="col-md-6">
 									<div class="form-group">
-											<label class="control-label" for="time">Clima </label>
-											<select class="form-control"   required [(ngModel)]="postCreat.kind" name="kind">
-														<option value="Si">Calido</option>
-														<option value="No">Templado</option>
-														<option value="Si">Frio </option>
-														<option value="No">Paramo</option>
-														<option value="Si">Selva tropical	</option>
-														<option value="No">Tropical de estepa</option>
-														<option value="No">Tropical de desierto</option>
+											<label class="control-label" for="Clima">Clima </label>
+											<select class="form-control"   required [(ngModel)]="TownCreat.weather" name="weather">
+														<option value="Calido">Calido</option>
+														<option value="Templado">Templado</option>
+														<option value="Frio">Frio </option>
+														<option value="Paramo">Paramo</option>
+														<option value="Selva tropical">Selva tropical	</option>
+														<option value="Tropical de estepa">Tropical de estepa</option>
+														<option value="Tropical de desierto">Tropical de desierto</option>
 												</select>
 									</div>
                 </div>
                 <!-- Text input-->
                 <div class="col-md-6">
                     <div class="form-group">
-											<label class="control-label" for="date">Temperatura </label>
-											<input class="form-control" type="text" required [(ngModel)]="postCreat.address" name="address">
+											<label class="control-label" for="Temperatura">Temperatura </label>
+											<input class="form-control" type="number" required [(ngModel)]="TownCreat.avertemper" name="avertemper">
 										</div>
                 </div>
 
 								<div class="col-md-12">
 								<div class="col-md-6">
 										<div class="form-group">
-											<label class="control-label" for="date">Altitud </label>
-											<input class="form-control" type="text" required [(ngModel)]="postCreat.ubication" name="ubication">
+											<label class="control-label" for="Altitud">Altitud </label>
+											<input class="form-control" type="number" required [(ngModel)]="TownCreat.altitude" name="altitude">
 										</div>
 								</div>
 								</div>
@@ -60,8 +60,8 @@
 								<!-- Text input-->
                 <div class="col-md-6">
                     <div class="form-group">
-                        <label class="control-label" for="date">Departamento <span class="require">*</span></label>
-												<select class="form-control"   required [(ngModel)]="postCreat.depart_id" name="depart_id">
+                        <label class="control-label" for="Departamento">Departamento <span class="require">*</span></label>
+												<select class="form-control"   required [(ngModel)]="TownCreat.depart_id" name="depart_id">
 	                            <option value=0>Amazonas</option>
 	                            <option value=1>Antioquia</option>
 	                            <option value=2>Arauca</option>
@@ -100,25 +100,25 @@
                 <!-- Select Basic -->
 								<div class="col-md-6">
                     <div class="form-group">
-											<label class="control-label" for="date">Gentilicio </label>
-											<input class="form-control" type="text" required [(ngModel)]="postCreat.ubication" name="ubication">
+											<label class="control-label" for="Gentilicio">Gentilicio </label>
+											<input class="form-control" type="text" required [(ngModel)]="TownCreat.demonym" name="demonym">
 										</div>
                 </div>
 								<div class="col-md-6">
                     <div class="form-group">
-											<label class="control-label" for="time">Tiene Terminal? <span class="require">*</span></label>
-											<select class="form-control"   required [(ngModel)]="postCreat.kind" name="kind">
-														<option value="Si">Si</option>
-														<option value="No">No</option>
+											<label class="control-label" for="Terminal">Tiene Terminal? <span class="require">*</span></label>
+											<select class="form-control"   required [(ngModel)]="TownCreat.transpterminal" name="transpterminal">
+														<option value=true>Si</option>
+														<option value=true>No</option>
 												</select>
                     </div>
                 </div>
                 <!-- Select Basic -->
                 <div class="col-md-6">
-									<label class="control-label" for="time">Tiene Aeropuerto? <span class="require">*</span></label>
-									<select class="form-control"   required [(ngModel)]="postCreat.kind" name="kind">
-												<option value="Si">Si</option>
-												<option value="No">No</option>
+									<label class="control-label" for="Aeropuerto">Tiene Aeropuerto? <span class="require">*</span></label>
+									<select class="form-control"   required [(ngModel)]="postCreat.airport" name="airport">
+												<option value=true>Si</option>
+												<option value=true>No</option>
 										</select>
                 </div>
             </div>
