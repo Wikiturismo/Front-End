@@ -13,6 +13,7 @@ import { SidebarComponent } from '../shared/index';
 import { CreatePostModule } from './createpost/createpost.module';
 import { RandomPostModule } from './randompost/randompost.module';
 import { CreateTownModule } from './createtown/createtown.module';
+import { GetTownModule } from './getown/getown.module';
 
 
 @NgModule({
@@ -28,6 +29,7 @@ import { CreateTownModule } from './createtown/createtown.module';
         CreatePostModule,
         RandomPostModule,
         CreateTownModule,
+        GetTownModule,
     ],
     declarations: [DashboardComponent, SidebarComponent],
     exports: [DashboardComponent, SidebarComponent]
