@@ -12,6 +12,8 @@ import { GetPlacesModule } from './getplaces/getplaces.module';
 import { SidebarComponent } from '../shared/index';
 import { CreatePostModule } from './createpost/createpost.module';
 import { RandomPostModule } from './randompost/randompost.module';
+import { CreateTownModule } from './createtown/createtown.module';
+
 
 @NgModule({
     imports: [
@@ -25,6 +27,7 @@ import { RandomPostModule } from './randompost/randompost.module';
         GetPlacesModule,
         CreatePostModule,
         RandomPostModule,
+        CreateTownModule,
     ],
     declarations: [DashboardComponent, SidebarComponent],
     exports: [DashboardComponent, SidebarComponent]

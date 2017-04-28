@@ -9,6 +9,7 @@ import { GetPlacesRoutes } from './getplaces/index';
 import { CreatePostRoutes } from './createpost/index';
 import { DashboardComponent } from './index';
 import { RandomPostRoutes } from './randompost/index';
+import { CreateTownRoutes } from './createtown/index';
 
 export const DashboardRoutes: Route[] = [
   	{
@@ -23,6 +24,8 @@ export const DashboardRoutes: Route[] = [
         ...GetPlacesRoutes,
         ...CreatePostRoutes,
         ...RandomPostRoutes,
+        ...CreateTownRoutes,
+
     	]
   	}
 ];
