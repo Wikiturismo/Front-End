@@ -18,7 +18,7 @@ export class GetPlacesComponent {
 	comments;
 	errorMessage: string;
 	constructor(private getplacesservice: Getplacesservice) {
-		this.getplacesservice.getPlace99().subscribe(
+		this.getplacesservice.getPlace99("hotel taroa").subscribe(
 			res =>
 			 {
 				 this.Explace = res;

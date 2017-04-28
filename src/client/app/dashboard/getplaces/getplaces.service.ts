@@ -5,14 +5,19 @@ import {Subject} from "rxjs/Subject";
 import {BehaviorSubject} from "rxjs/Rx";
 import {Observable} from 'rxjs/Rx';
 import {Comment} from '../../../../../models/comment';
+import { URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class Getplacesservice {
 	constructor(private http: Http) {
 
 	}
-	getPlace99() : Observable<GetPlacesComponent[]> {
-		return this.http.get('http://localhost:3000/api/v1/places/name?q=hotel+taroa')
+	getPlace99(name: string) : Observable<GetPlacesComponent[]> {
+		name = name.split(' ').join('+');
+		let params: URLSearchParams = new URLSearchParams();
+		params.set('q', name);
+		let url = "http://localhost:3000/api/v1/places/name";
+		return this.http.get(url, { search: params })
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
