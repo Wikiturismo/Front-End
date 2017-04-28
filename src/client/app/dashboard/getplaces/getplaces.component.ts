@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { Getplacesservice } from './Getplaces.service';
 import {Comment} from './comment';
+import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 
 @Component({
 	moduleId: module.id,
@@ -28,7 +29,7 @@ export class GetPlacesComponent {
 				 this.CommentCreat.depart_id = this.Explace[0].depart_id;
 			 }
 			 );
-		this.getplacesservice.getComments().subscribe(
+		this.getplacesservice.getComments("hotel taroa").subscribe(
 	 			res =>
 	 			 {
 	 				 this.comments = res;

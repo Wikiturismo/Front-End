@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { GetPlacesComponent } from './getplaces.component';
+import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 import {Subject} from "rxjs/Subject";
 import {BehaviorSubject} from "rxjs/Rx";
 import {Observable} from 'rxjs/Rx';
@@ -12,6 +13,10 @@ export class Getplacesservice {
 	constructor(private http: Http) {
 
 	}
+	getName(name: string) : Observable<RecentPostComponent[]>{
+		console.log(this.name);
+		return this.name
+	}
 	getPlace99(name: string) : Observable<GetPlacesComponent[]> {
 		name = name.split(' ').join('+');
 		let params: URLSearchParams = new URLSearchParams();
@@ -21,10 +26,12 @@ export class Getplacesservice {
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
-	getComments() : Observable<GetPlacesComponent[]> {
-		//name = name.replace(" ","%20");
-		//var ruta = 'http://localhost:3000/api/v1/places/comments?q='+name;
-		return this.http.get('http://localhost:3000/api/v1/places/comments?q=hotel%20taroa')
+	getComments(name: string) : Observable<GetPlacesComponent[]> {
+		name = name.split(' ').join('+');
+		let params: URLSearchParams = new URLSearchParams();
+		params.set('q', name);
+		let url = "http://localhost:3000/api/v1/places/comments";
+		return this.http.get(url, { search: params })
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
