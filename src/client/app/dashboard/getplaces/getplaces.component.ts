@@ -28,10 +28,11 @@ export class GetPlacesComponent {
 				 this.CommentCreat.depart_id = this.Explace[0].depart.id;
 			 }
 			 );
-		this.getplacesservice.getComments("hotel taroa").subscribe(
+		this.getplacesservice.getComments().subscribe(
 	 			res =>
 	 			 {
 	 				 this.comments = res;
+					 console.log(this.comments[0].user.id);
 	 			 }
 	 			 );
 		this.getplacesservice.getCountComments().subscribe(

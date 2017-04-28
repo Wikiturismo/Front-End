@@ -21,12 +21,14 @@ export class Getplacesservice {
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
-	getComments(name: string) : Observable<GetPlacesComponent[]> {
-		name = name.split(' ').join('+');
-		let params: URLSearchParams = new URLSearchParams();
-		params.set('q', name);
-		let url = "http://localhost:3000/api/v1/places/comments";
-		return this.http.get(url, { search: params })
+	//name: string como para
+	getComments() : Observable<GetPlacesComponent[]> {
+		//name = name.split(' ').join('+');
+		//let params: URLSearchParams = new URLSearchParams();
+		//params.set('q', name);
+		//let url = "http://localhost:3000/api/v1/places/comments";
+		//return this.http.get(url, { search: params })
+		return this.http.get('http://localhost:3000/api/v1/places/comments?q=hotel%20taroa&sort=id%20ASC&columns=id,%20content,%20user')
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}

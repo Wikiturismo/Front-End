@@ -13,7 +13,7 @@ export class Createtownservice {
 	}
 	getCountTowns() : Observable<CreateTownComponent[]> {
 		return this.http.get('http://localhost:3000/api/v1/towns/count')
-		.map(this.extractDataCount)
+		.map(this.extractData)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
 	NewTown(town: Town) {
