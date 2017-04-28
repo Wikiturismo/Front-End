@@ -32,7 +32,7 @@ export class Getplacesservice {
 	}
 	getCountComments() : Observable<GetPlacesComponent[]> {
 		return this.http.get('http://localhost:3000/api/v1/commentplaces/count')
-		.map(this.extractDataCount)
+		.map(this.extractData)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
 	NewComment(comment: Comment) {
@@ -49,13 +49,6 @@ export class Getplacesservice {
 			//console.log(body);
 			return body.data || {};
 	}
-	private extractDataCount(res: Response) {
-			let body = res.json();
-			//console.log("servicio");
-			//console.log(body);
-			return body || {};
-	}
-
 	private handleError(error: Response) {
 			console.error(error);
 			return Observable.throw(error.json().error || 'Server Error');

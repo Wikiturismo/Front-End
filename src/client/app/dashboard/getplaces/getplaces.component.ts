@@ -23,9 +23,9 @@ export class GetPlacesComponent {
 			 {
 				 this.Explace = res;
 				 this.namePlace = this.Explace[0].name;
-				 this.CommentCreat.town_id = this.Explace[0].town_id;
+				 this.CommentCreat.town_id = this.Explace[0].town.id;
 				 this.CommentCreat.place_id = this.Explace[0].id;
-				 this.CommentCreat.depart_id = this.Explace[0].depart_id;
+				 this.CommentCreat.depart_id = this.Explace[0].depart.id;
 			 }
 			 );
 		this.getplacesservice.getComments("hotel taroa").subscribe(
