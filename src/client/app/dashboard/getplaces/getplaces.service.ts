@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { GetPlacesComponent } from './getplaces.component';
-import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 import {Subject} from "rxjs/Subject";
 import {BehaviorSubject} from "rxjs/Rx";
 import {Observable} from 'rxjs/Rx';
@@ -12,10 +11,6 @@ import { URLSearchParams } from '@angular/http';
 export class Getplacesservice {
 	constructor(private http: Http) {
 
-	}
-	getName(name: string) : Observable<RecentPostComponent[]>{
-		console.log(this.name);
-		return this.name
 	}
 	getPlace99(name: string) : Observable<GetPlacesComponent[]> {
 		name = name.split(' ').join('+');

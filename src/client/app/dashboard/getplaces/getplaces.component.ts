@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { Getplacesservice } from './Getplaces.service';
 import {Comment} from './comment';
-import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 
 @Component({
 	moduleId: module.id,
