@@ -1,13 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { GetPlacesComponent } from './getplaces.component';
+import { GetTownComponent } from './getown.component';
 import { FormsModule }   from '@angular/forms';
 
 @NgModule({
     imports: [CommonModule,
     FormsModule],
-    declarations: [GetPlacesComponent],
-    exports: [GetPlacesComponent]
+    declarations: [GetTownComponent],
+    exports: [GetTownComponent]
 })
 
-export class GetPlacesModule { }
+export class GetTownModule { }

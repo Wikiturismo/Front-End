@@ -6,39 +6,45 @@
 
 
 							<div class="jumbotron jumbotron-fluid">
-    <h1>Posts Sitios</h1>
+    <h1>Ciudades o pueblos</h1>
     <div class="container"  *ngFor="let Exp of Explace; let i = index" >
       <div class="container"  >
     <!-- NOMBRE DEL SITIO-->
+
         <div class="card-header card-info card-inverse" style="background:#918a8a;">
             <h3 class="card-title" style="text-align: center"><font color="black">{{Exp.name}}</font></h3>
         </div>
         <!-- IMAGEN SITIO-->
-          <img src="assets/images/cartagena-3.jpg" class="img-fluid" alt="Responsive image">
-        <!-- FECHA DE PUBLICACION-->
+        <img src="assets/images/cartagena-1.jpg" class="img-fluid" alt="Responsive image">
+
 
         <!-- DESCRIPCION DEL SITIO-->
         <div class="card-header card-info card-inverse" style="background:#ffe500;">
             <p> {{Exp.description}}  </p>
         </div>
-        <!-- DIRCCION-->
+        <!-- Weather-->
         <div class="card-header card-info card-inverse" style="background:#ffe500;">
-            <p> Dirección: {{Exp.address}}</p>
+            <p> Clima: {{Exp.weather}}</p>
         </div>
-        <!-- TIPO DE SERVICIO-->
+        <!--Gentilicio-->
+        <div class="card-header card-info card-inverse" style="background:#ffe500;">
+            <p> Gentilicio: {{Exp.demonym}}</p>
+        </div>
+        <!-- Altitud-->
         <div class="card-header card-info card-inverse" style="background:#57ace5;">
-            <p> Ubication: {{Exp.ubication}} </p>
+            <p> Altitud: {{Exp.altitude}} </p>
         </div>
         <!-- VALORACION-->
         <div class="card-header card-info card-inverse" style="background:#57ace5;">
-            <p> Valoración: {{Exp.valoration}} </p>
+            <p> Aeropuerto: {{Exp.airport}} </p>
         </div>
         <!-- PRECIOS-->
         <div class="card-header card-info card-inverse" style="background:#f7363c;">
-            <p> Precios: {{Exp.entrycost}} </p>
+            <p> Terminal: {{Exp.transpterminal}} </p>
         </div>
+        <!-- FECHA DE PUBLICACION-->
         <div class="card-header card-info card-inverse" style="background:#f7363c;">
-            <p> Tipo de lugar: {{Exp.kind}} </p>
+            <p> Temperatura promedio:  {{Exp.avertemper}} </p>
         </div>
       </div>
 <!-- COMENTARIOS-->
@@ -52,7 +58,7 @@
     <div class="card card-default card-block">
         <blockquote class="card-blockquote">
           <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="assets/images/user2.jpg" />
-        <h4 class="text-default">{{comment.user.id}}</h4>
+        <h4 class="text-default">Kevin Mendez</h4>
             <p>{{comment.content}}</p>
             <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
         </blockquote>
@@ -85,7 +91,7 @@
 <hr>
 <br>
 <div class="row" style="text-align: center;">
-  <a  a href="/dashboard/createpost" class="btn btn-primary">Crear un Post nuevo</a>
+  <a  a href="/dashboard/createtown" class="btn btn-primary">Crear una ciudad/pueblo nuevo</a>
 </div>
 <br><br>
 

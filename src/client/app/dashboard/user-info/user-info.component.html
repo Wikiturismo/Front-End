@@ -1,3 +1,18 @@
+
+
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+		<div class="card" align="center">
+				<div class="card-block">
+
+
+							<div class="jumbotron jumbotron-fluid">
+
+
+								<div class="container">
+
 <div class="container"   *ngFor="let usr of user; let i = index">
     <h1>Información Personal</h1>
   	<hr>
@@ -28,9 +43,9 @@
 
         <form class="form-horizontal" role="form" (ngSubmit)="updateUser()">
           <div class="form-group">
-            <label class="col-lg-3 control-label">Nombre de Usuario: {{usr.name}}</label>
+            <label class="col-lg-3 control-label">Nombre de Usuario:</label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value={{usr.name}}  required [(ngModel)]="userCreat.name" name="name"  #name="ngModel">
+              <input class="form-control" type="text" required [(ngModel)]="userCreat.name" name="name"  #name="ngModel">
             </div>
           </div>
           <div class="form-group">
@@ -47,15 +62,15 @@
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Ubicación: {{usr.ubication}} </label>
+            <label class="col-lg-3 control-label">Ubicación: </label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value={{usr.ubication}} required [(ngModel)]="userCreat.ubication" name="ubication">
+              <input class="form-control" type="text" required [(ngModel)]="userCreat.ubication" name="ubication">
             </div>
           </div>
           <div class="form-group">
-            <label class="col-lg-3 control-label">Correo Electronico: {{usr.mail}}</label>
+            <label class="col-lg-3 control-label">Correo Electronico: </label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" value={{usr.mail}} [(ngModel)]="userCreat.mail"  name="mail" >
+              <input class="form-control" type="text" required [(ngModel)]="userCreat.mail"  name="mail" >
             </div>
           </div>
           <!--<div class="form-group">
@@ -96,3 +111,9 @@
   </div>
 </div>
 <hr>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
