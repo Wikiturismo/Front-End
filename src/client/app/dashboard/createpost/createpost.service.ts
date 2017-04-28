@@ -16,6 +16,11 @@ export class Createpostservice {
 		.map(this.extractData)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
+	getTowns() : Observable<CreatePostComponent[]>{
+		return this.http.get('http://localhost:3000/api/v1/towns?sort=name+ASC')
+		.map(this.extractData)
+		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}
 	createPost(place: Place) {
         let body = JSON.stringify( place);
         let headers = new Headers({ 'Content-Type': 'application/json' });
@@ -27,8 +32,8 @@ export class Createpostservice {
 
     private extractData(res: Response) {
         let body = res.json();
-        console.log("servicio");
-        console.log(body);
+        //console.log("servicio");
+        //console.log(body);
         return body.data || {};
     }
 
