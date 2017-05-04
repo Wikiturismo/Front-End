@@ -3,6 +3,7 @@ import { Http } from '@angular/http';
 import { UserInfoservice } from './UserInfo.service';
 //import {User} from '../../../../../models/user';
 import {User} from './user';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	moduleId: module.id,

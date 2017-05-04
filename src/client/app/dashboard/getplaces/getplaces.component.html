@@ -52,7 +52,7 @@
     <div class="card card-default card-block">
         <blockquote class="card-blockquote">
           <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="assets/images/user2.jpg" />
-        <h4 class="text-default">{{comment.user.id}}</h4>
+        <h4 class="text-default">{{comment.user.name}}</h4>
             <p>{{comment.content}}</p>
             <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
         </blockquote>
@@ -71,7 +71,9 @@
            <textarea rows="5" class="form-control" type="text" required [(ngModel)]="CommentCreat.content" name="content"></textarea>
          </div>
           <div class="form-group">
-              <button type="submit" class="btn btn-primary" onclick="window.location.reload()">Comentar</button>
+              <button type="submit" class="btn btn-primary">Comentar</button>
+              <!--<a routerLink="../toppost" class="btn btn-primary" >Top Lugares</a>-->
+              <!--<a  onclick="document.getElementById('myform').submit()" class="btn btn-primary" (click)="updateUser" routerLink="../toppost">Submit</a>-->
           </div>
          <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
           </form>
@@ -85,7 +87,8 @@
 <hr>
 <br>
 <div class="row" style="text-align: center;">
-  <a  a href="/dashboard/createpost" class="btn btn-primary">Crear un Post nuevo</a>
+  <!--<a  a href="/dashboard/createpost" class="btn btn-primary">Crear un Post nuevo</a>-->
+  <a routerLink="../createpost" class="btn btn-primary" >Crear un Post nuevo</a>
 </div>
 <br><br>
 

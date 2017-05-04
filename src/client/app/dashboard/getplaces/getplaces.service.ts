@@ -28,7 +28,7 @@ export class Getplacesservice {
 		//params.set('q', name);
 		//let url = "http://localhost:3000/api/v1/places/comments";
 		//return this.http.get(url, { search: params })
-		return this.http.get('http://localhost:3000/api/v1/places/comments?q=hotel%20taroa&sort=id%20ASC&columns=id,%20content,%20user')
+		return this.http.get('http://localhost:3000/api/v1/places/comments?q=hotel%20taroa&sort=id%20ASC')
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}

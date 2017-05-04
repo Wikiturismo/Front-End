@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { Getplacesservice } from './Getplaces.service';
 import {Comment} from './comment';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	moduleId: module.id,

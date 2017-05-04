@@ -16,8 +16,19 @@
       </div>
       <div class="row" style="text-align: center;">
         <!--<a [routerLink]="['toppost']" class="btn btn-primary">Top Lugares</a>-->
-        <a href="/dashboard/toppost" class="btn btn-primary">Top Lugares</a>
-        <a href="/dashboard/randompost" class="btn btn-primary">Post Aleatorios</a>
+        <!--<a href="/dashboard/toppost" class="btn btn-primary">Top Lugares</a>-->
+
+            <!--<a [routerLink]="[{ path: 'recentpost/recentpost', component: recentpost }]" style="background:#ffe500;"  class="btn btn-primary" >-->
+              <a routerLink="../toppost" class="btn btn-primary" >Top Lugares</a>
+                <!--<span>&nbsp; Top lugares</span>-->
+            <!--</a>-->
+
+            <!--<a [routerLink]="[{ path: 'recentpost/recentpost', component: recentpost }]" style="background:#ffe500;"  class="btn btn-primary" >-->
+              <a routerLink="../randompost" class="btn btn-primary" >Post Aleatorios</a>
+                <!--<span>&nbsp; Top lugares</span>-->
+            <!--</a>-->
+
+        <!--<a href="/dashboard/randompost" class="btn btn-primary">Post Aleatorios</a>-->
         <br><br> <!--Espaciado-->
       </div>
 <!--Barra de busqueda-->
