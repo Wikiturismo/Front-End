@@ -10,35 +10,35 @@
     <div class="container"  *ngFor="let Exp of Explace; let i = index" >
       <div class="container"  >
     <!-- NOMBRE DEL SITIO-->
-        <div class="card-header card-info card-inverse" style="background:#918a8a;">
-            <h3 class="card-title" style="text-align: center"><font color="black">{{Exp.name}}</font></h3>
+        <div class="card-header card-info card-inverse" style="background:#0AA1CA;">
+            <h2 class="card-title" style="text-align: center; font-size: 2.2em;"><font color="black">{{Exp.name}}</font></h2>
         </div>
         <!-- IMAGEN SITIO-->
           <img src="assets/images/cartagena-3.jpg" class="img-fluid" alt="Responsive image">
         <!-- FECHA DE PUBLICACION-->
 
         <!-- DESCRIPCION DEL SITIO-->
-        <div class="card-header card-info card-inverse" style="background:#ffe500;">
+        <div class="card-header card-info card-inverse" style="background:#FFFFFF;">
             <p> {{Exp.description}}  </p>
         </div>
         <!-- DIRCCION-->
-        <div class="card-header card-info card-inverse" style="background:#ffe500;">
-            <p> Dirección: {{Exp.address}}</p>
+        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
+            <p > Dirección: {{Exp.address}}</p>
         </div>
         <!-- TIPO DE SERVICIO-->
-        <div class="card-header card-info card-inverse" style="background:#57ace5;">
-            <p> Ubication: {{Exp.ubication}} </p>
-        </div>
-        <!-- VALORACION-->
-        <div class="card-header card-info card-inverse" style="background:#57ace5;">
-            <p> Valoración: {{Exp.valoration}} </p>
+        <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
+            <p> Ubicación: {{Exp.ubication}} </p>
         </div>
         <!-- PRECIOS-->
-        <div class="card-header card-info card-inverse" style="background:#f7363c;">
+        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
             <p> Precios: {{Exp.entrycost}} </p>
         </div>
-        <div class="card-header card-info card-inverse" style="background:#f7363c;">
+        <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
             <p> Tipo de lugar: {{Exp.kind}} </p>
+        </div>
+        <!-- VALORACION-->
+        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
+            <p> Valoración: {{Exp.valoration}} </p>
         </div>
       </div>
 <!-- COMENTARIOS-->
@@ -52,7 +52,7 @@
     <div class="card card-default card-block">
         <blockquote class="card-blockquote">
           <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="assets/images/user2.jpg" />
-        <h4 class="text-default">{{comment.user.name}}</h4>
+        <h4 class="text-default"  style= "text-align: left">{{comment.user.name}}</h4>
             <p>{{comment.content}}</p>
             <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
         </blockquote>
