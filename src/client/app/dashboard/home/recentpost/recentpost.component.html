@@ -13,18 +13,11 @@
                                   <a routerLink="../getplaces"><h3 class="card-title" style="text-align: center"><font color="black">{{placeL.name}}</font></h3></a>
                               </div>
                               <carousel class="mini-carousel" interval="5000">
+                                <!--<div *ngFor="let img of placeL.imageplaces; let h = index" >
                                   <slide active="slide.active">
-                                    <img width="100%" src="assets/images/cartagena-1.jpg">
+                                    <img width="100%" src="{{img.path}}">
                                   </slide>
-                                  <slide>
-                                      <img width="100%" src="assets/images/cartagena-2.jpg">
-                                  </slide>
-                                  <slide>
-                                      <img width="100%" src="assets/images/cartagena-3.jpg">
-                                  </slide>
-                                  <slide>
-                                      <img width="100%" src="assets/images/cartagena-4.jpg">
-                                  </slide>
+                                </div>-->
                               </carousel>
                                 <br>
                                 <br>

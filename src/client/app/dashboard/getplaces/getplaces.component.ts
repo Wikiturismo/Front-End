@@ -39,8 +39,7 @@ export class GetPlacesComponent {
 		this.getplacesservice.getCountComments().subscribe(
 		 			data =>{
 		 				this.counter.push(data)
-		 				this.CommentCreat.id=this.counter[0].count;
-		 				console.log(this.counter);
+		 				this.CommentCreat.id=this.counter[0].count+1;
 		 				//console.log(this.postCreat);
 		 			}
 		 		);

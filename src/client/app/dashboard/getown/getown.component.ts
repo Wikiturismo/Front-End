@@ -27,7 +27,7 @@ export class GetTownComponent {
 				 this.CommentCreat.depart_id = this.Explace[0].depart.id;
 			 }
 			 );
-		this.getownservice.getComments("tunja").subscribe(
+		this.getownservice.getComments().subscribe(
 	 			res =>
 	 			 {
 	 				 this.comments = res;
@@ -36,7 +36,7 @@ export class GetTownComponent {
 				 this.getownservice.getCountComments().subscribe(
 		 		 			data =>{
 		 		 				this.counter.push(data)
-		 		 				this.CommentCreat.id=this.counter[0].count;
+		 		 				this.CommentCreat.id=this.counter[0].count+1;
 		 		 				//console.log(this.postCreat);
 		 		 			}
 		 		 		);

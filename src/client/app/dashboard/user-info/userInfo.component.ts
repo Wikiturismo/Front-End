@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,Input} from '@angular/core';
 import { Http } from '@angular/http';
 import { UserInfoservice } from './UserInfo.service';
 //import {User} from '../../../../../models/user';
@@ -14,11 +14,15 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 export class UserInfoComponent {
 	user = [];
+	file = undefined;
+	fileName = undefined;
+	formData = new FormData();
 	//created_at;
 	//name;
 	userCreat = new User(undefined, '', '', '','');
   errorMessage: string;
-	constructor(private userInfoservice: UserInfoservice) {
+	constructor(private http: Http,
+		private userInfoservice: UserInfoservice) {
 			this.userInfoservice.getUser2().subscribe(
 				data =>{
 					this.user.push(data)
@@ -31,8 +35,16 @@ export class UserInfoComponent {
 				}
 			);
 		}
+		fileEvent(fileInput: any){
+	    this.file = fileInput.target.files[0];
+			this.formData.append('image', this.file);
+			this.formData.append('user_id',this.userCreat.id);
+		}
+		userImage(form: any){
+			this.http.post('http://localhost:3000/api/v1/imageusers', this.formData).subscribe()
+		}
 	updateUser() {
-
+		this.userImage(this.formData);
         if (!this.userCreat) { return; }
         this.userInfoservice.updateUser(this.userCreat)
             .subscribe(

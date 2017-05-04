@@ -19,7 +19,7 @@ export class CreateTownComponent {
 		this.createtownservice.getCountTowns().subscribe(
 		 			data =>{
 		 				this.counter.push(data)
-		 				this.TownCreat.id=this.counter[0].count;
+		 				this.TownCreat.id=this.counter[0].count+1;
 		 				//console.log(this.counter);
 		 				//console.log(this.postCreat);
 		 			}
