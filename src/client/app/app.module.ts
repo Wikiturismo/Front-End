@@ -5,7 +5,7 @@ import { RouterModule } from '@angular/router';
 import { HttpModule } from '@angular/http';
 import { AppComponent } from './app.component';
 import { routes } from './app.routes';
-
+import { Angular2TokenService } from 'angular2-token';
 import { LoginModule } from './login/login.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { SharedModule } from './shared/shared.module';
@@ -25,6 +25,7 @@ import { SharedModule } from './shared/shared.module';
 		provide: APP_BASE_HREF,
 		useValue: '<%= APP_BASE %>'
 	}],
+	
 	bootstrap: [AppComponent]
 
 })

@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { Config } from './shared/index';
 import { Http } from '@angular/http';
+import {Angular2TokenService} from "angular2-token";
+/*import {environment} from "../../environments/environment"; */
 
 /**
  * This class represents the main application component. Within the @Routes annotation is the configuration of the
@@ -13,12 +15,7 @@ import { Http } from '@angular/http';
 })
 
 
-
-
-
 export class AppComponent {
-  /*departs: string;
-	constructor(private http: Http ) {
-       http.get('http://localhost:3000/api/v1/departs.json').subscribe(res => this.departs = res.json().data);
-      }*/
-	}
+
+
+}
