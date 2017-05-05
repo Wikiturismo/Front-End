@@ -9,12 +9,14 @@
                 </li>
                 <li>
                     <a [routerLink]="['userinfo']" class="logo">
-                        <img src="assets/images/user2.jpg" class="avatar img-circle" style="width:110px;height:110px;" />
+                      <li *ngFor="let img of imgen">
+                        <img style="width:110px;height:110px;" src="{{img.image.url}}" class="avatar img-circle" />
+                      </li>
                         <p class="text-xs-center">{{usr.name}}</p>
                     </a>
                 </li>
                 <li>
-                    <a [routerLink]="['home']" style="background:#ffe500;" ><i class="fa fa-home"></i>
+                    <a [routerLink]="['home']" style="background:#FFBF15;" ><i class="fa fa-home"></i>
                         <span>&nbsp; Home</span>
                     </a>
                 </li>
@@ -27,14 +29,17 @@
                 </li>-->
 
                 <li>
-                  <a [routerLink]="['getplaces']" style="background:#ffe500;"><i class="fa fa-question-circle"></i><span>Sitios</span></a>
+                  <a [routerLink]="['departments']" style="background:#FFBF15;"><i class="fa fa-question-circle"></i><span>Departamentos</span></a>
                 </li>
+                <!--<li>
+                  <a [routerLink]="['gettown']" style="background:#FFBF15;"><i class="fa fa-question-circle"></i><span>Pueblos</span></a>
+                </li>-->
                 <li>
-                  <a [routerLink]="['gettown']" style="background:#57ace5;"><i class="fa fa-question-circle"></i><span >Ciudades/Pueblos</span></a>
+                  <a [routerLink]="['toptown']" style="background:#0AA1CA;"><i class="fa fa-question-circle"></i><span >Ciudades/Pueblos</span></a>
                 </li>
 
                 <li>
-                  <a [routerLink]="['createpost']" style="background:#57ace5;"><i class="fa fa-question-circle"></i><span>Crear Post</span></a>
+                  <a [routerLink]="['createpost']" style="background:#0AA1CA;"><i class="fa fa-question-circle"></i><span>Crear Post</span></a>
                 </li>
 
                 <li>

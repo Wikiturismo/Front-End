@@ -1,0 +1,34 @@
+<div class="row">
+    <div >
+
+    <div class="card" align="center" >
+        <div class="card-block">
+
+
+              <div class="jumbotron jumbotron-fluid">
+ <h1 >Departamentos</h1>
+</div>
+</div>
+</div>
+<div  *ngFor="let dep of departs; let i = index" style=" margin-left: 30px" >
+
+
+  <div  style="background:#f5f5f5; float:left; width: 200px; height: 200px; margin: 5px">
+     <h1 style="text-align: center; font-size: 1.2em"><font color="black"> {{dep.name}}</font></h1>
+     <p style="font-size: 1.0em">Capital: {{dep.capital}}</p>
+  <!--<p>valoracion: {{place.valoration}}</p>-->
+      <img width="100%" src="assets/images/cartagena-3.jpg">
+  </div>
+
+
+
+
+</div>
+<ul>
+  <!--<div>{{departs}}</div>-->
+  <!--<li *ngFor="let place of places">
+    {{place.name}}</li>-->
+</ul>
+
+</div>
+</div>

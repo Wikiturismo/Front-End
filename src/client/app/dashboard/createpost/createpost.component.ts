@@ -19,7 +19,7 @@ export class CreatePostComponent {
 		this.createpostservice.getCount().subscribe(
 			data =>{
 				this.counter.push(data)
-				this.postCreat.id=this.counter[0].count;
+				this.postCreat.id=this.counter[0].count+1;
 				//console.log(this.counter[0].count);
 				//console.log(this.postCreat);
 			}

@@ -1,8 +1,9 @@
-import { Component } from '@angular/core';
+import { Component,Input} from '@angular/core';
 import { Http } from '@angular/http';
 import { UserInfoservice } from './UserInfo.service';
 //import {User} from '../../../../../models/user';
 import {User} from './user';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	moduleId: module.id,
@@ -13,30 +14,56 @@ import {User} from './user';
 
 export class UserInfoComponent {
 	user = [];
+	file = undefined;
+	fileName = undefined;
+	formData = new FormData();
+	imagec=0;
+	imgen;
 	//created_at;
 	//name;
 	userCreat = new User(undefined, '', '', '','');
   errorMessage: string;
-	constructor(private userInfoservice: UserInfoservice) {
+	constructor(private http: Http,
+		private userInfoservice: UserInfoservice) {
 			this.userInfoservice.getUser2().subscribe(
 				data =>{
 					this.user.push(data)
 					this.userCreat.id=this.user[0].id;
 					this.userCreat.name=this.user[0].name;
 					this.userCreat.kind=this.user[0].kind;
-					this.userCreat.mail=this.user[0].mail;
+					this.userCreat.email=this.user[0].email;
 					this.userCreat.ubication=this.user[0].ubication;
+					console.log(this.user[0].imageusers.length);
+					this.imgen=this.user[0].imageusers;
+					this.imagec=this.user[0].imageusers.length;
 					//console.log(this.userCreat);
 				}
 			);
 		}
+		fileEvent(fileInput: any){
+	    this.file = fileInput.target.files[0];
+			this.formData.append('image', this.file);
+			this.formData.append('user_id',this.userCreat.id);
+			console.log(this.formData);
+		}
+		userImage(form: any){
+			console.log(this.imagec);
+			if(this.imagec==0){
+				console.log("post");
+				this.http.post('http://localhost:3000/api/v1/imageusers', this.formData).subscribe()
+			}else{
+				console.log("patch");
+				this.http.patch('http://localhost:3000/api/v1/imageusers/1', this.formData).subscribe()
+			}
+		}
 	updateUser() {
-
+		this.userImage(this.formData);
         if (!this.userCreat) { return; }
         this.userInfoservice.updateUser(this.userCreat)
             .subscribe(
             user => this.userCreat,
             error => this.errorMessage = <any>error);
+
     }
 
 		//this.userInfoservice.getUser2().subscribe( res=> this.user=res.JSON().data);

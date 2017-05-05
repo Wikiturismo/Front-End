@@ -10,22 +10,15 @@
                       <div *ngFor="let placeL of placesLast; let i = index" >
                             <!--<slide active="slide.active" >-->
                               <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
-                                  <a href="dashboard/getplaces"><h3 class="card-title" style="text-align: center"><font color="black">{{placeL.name}}</font></h3></a>
+                                  <a routerLink="../getplaces" (click) ="goPlace(placeL.name)" ><h3 class="card-title" style="text-align: center"><font color="black">{{placeL.name}}</font></h3></a>
                               </div>
-                              <carousel class="mini-carousel" interval="5000">
-                                  <slide active="slide.active">
-                                    <img width="100%" src="assets/images/cartagena-1.jpg">
-                                  </slide>
-                                  <slide>
-                                      <img width="100%" src="assets/images/cartagena-2.jpg">
-                                  </slide>
-                                  <slide>
-                                      <img width="100%" src="assets/images/cartagena-3.jpg">
-                                  </slide>
-                                  <slide>
-                                      <img width="100%" src="assets/images/cartagena-4.jpg">
-                                  </slide>
-                              </carousel>
+                              <div class="carousel">
+                                 <ul class="slides">
+                                   <li *ngFor="let img of placeL.imageplaces">
+                                     <img src="{{img.image.url}}">
+                                   </li>
+                                 </ul>
+                               </div>
                                 <br>
                                 <br>
                                 <div class="row">
@@ -36,11 +29,6 @@
                                                 </h5>
                                                 <p>{{placeL.description}}</p>
                                             </div>
-
-
-
-
-
                                                 </div>
                                             </div>
                                         </div>

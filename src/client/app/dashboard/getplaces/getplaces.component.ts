@@ -2,23 +2,38 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { Getplacesservice } from './Getplaces.service';
 import {Comment} from './comment';
+import { Router, ActivatedRoute } from '@angular/router';
+import { RecentPostComponent } from '../home/recentpost/recentpost.component';
+import { RandomPostComponent } from '../randompost/randompost.component';
+import { TopPostComponent } from '../top-post/topPost.component';
+
 
 @Component({
 	moduleId: module.id,
     selector: 'getplaces',
     templateUrl: './getplaces.component.html',
     providers: [Getplacesservice]
+
 })
 
 export class GetPlacesComponent {
 	counter=[];
+	paramname;
 	Explace;
 	namePlace : String;
 	CommentCreat = new Comment(undefined,true,'',undefined,undefined,2,undefined,);
 	comments;
 	errorMessage: string;
 	constructor(private getplacesservice: Getplacesservice) {
-		this.getplacesservice.getPlace99("hotel taroa").subscribe(
+		if(RecentPostComponent.nombrePlace!=''){
+			this.paramname = RecentPostComponent.nombrePlace;
+		}else if(RandomPostComponent.nombrePlace!=''){
+			this.paramname = RandomPostComponent.nombrePlace;
+		}else if(TopPostComponent.nombrePlace!=''){
+			this.paramname = TopPostComponent.nombrePlace;
+		}
+
+		this.getplacesservice.getPlace99(this.paramname).subscribe(
 			res =>
 			 {
 				 this.Explace = res;
@@ -28,7 +43,7 @@ export class GetPlacesComponent {
 				 this.CommentCreat.depart_id = this.Explace[0].depart.id;
 			 }
 			 );
-		this.getplacesservice.getComments().subscribe(
+		this.getplacesservice.getComments(this.paramname).subscribe(
 	 			res =>
 	 			 {
 	 				 this.comments = res;
@@ -38,11 +53,12 @@ export class GetPlacesComponent {
 		this.getplacesservice.getCountComments().subscribe(
 		 			data =>{
 		 				this.counter.push(data)
-		 				this.CommentCreat.id=this.counter[0].count;
-		 				console.log(this.counter);
+		 				this.CommentCreat.id=this.counter[0].count+1;
 		 				//console.log(this.postCreat);
 		 			}
 		 		);
+			RecentPostComponent.nombrePlace='';
+			RandomPostComponent.nombrePlace='';
 	}
 
 	createComment(){

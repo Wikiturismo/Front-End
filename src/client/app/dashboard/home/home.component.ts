@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-
+import { Router, ActivatedRoute } from '@angular/router';
 /**
 *	This class represents the lazy loaded HomeComponent.
 */

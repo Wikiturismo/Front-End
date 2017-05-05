@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { GetPlacesComponent } from './getplaces.component';
+import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 import {Subject} from "rxjs/Subject";
 import {BehaviorSubject} from "rxjs/Rx";
 import {Observable} from 'rxjs/Rx';
@@ -9,10 +10,16 @@ import { URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class Getplacesservice {
+	nombre;
 	constructor(private http: Http) {
-
+	}
+	sendName(name: string){
+		this.nombre=name;
+		console.log(this.nombre);
+		return this.nombre;
 	}
 	getPlace99(name: string) : Observable<GetPlacesComponent[]> {
+		console.log(this.nombre);
 		name = name.split(' ').join('+');
 		let params: URLSearchParams = new URLSearchParams();
 		params.set('q', name);
@@ -21,14 +28,13 @@ export class Getplacesservice {
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
-	//name: string como para
-	getComments() : Observable<GetPlacesComponent[]> {
-		//name = name.split(' ').join('+');
-		//let params: URLSearchParams = new URLSearchParams();
-		//params.set('q', name);
-		//let url = "http://localhost:3000/api/v1/places/comments";
-		//return this.http.get(url, { search: params })
-		return this.http.get('http://localhost:3000/api/v1/places/comments?q=hotel%20taroa&sort=id%20ASC&columns=id,%20content,%20user')
+	getComments(name: string) : Observable<GetPlacesComponent[]> {
+		name = name.split(' ').join('+');
+		let params: URLSearchParams = new URLSearchParams();
+		params.set('q', name);
+		params.set('sort', 'id+ASC')
+		let url = "http://localhost:3000/api/v1/places/comments";
+		return this.http.get(url, { search: params })
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}

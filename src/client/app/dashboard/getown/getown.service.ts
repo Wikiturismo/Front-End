@@ -21,12 +21,12 @@ export class GetTownservice {
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
-	getComments(name: string) : Observable<GetTownComponent[]> {
-		name = name.split(' ').join('+');
-		let params: URLSearchParams = new URLSearchParams();
-		params.set('q', name);
-		let url = "http://localhost:3000/api/v1/towns/comments";
-		return this.http.get(url, { search: params })
+	getComments() : Observable<GetTownComponent[]> {
+		//name = name.split(' ').join('+');
+		//let params: URLSearchParams = new URLSearchParams();
+		//params.set('q', name);
+		//let url = "http://localhost:3000/api/v1/towns/comments";
+		return this.http.get('http://localhost:3000/api/v1/towns/comments?q=tunja&sort=id%20ASC')
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}

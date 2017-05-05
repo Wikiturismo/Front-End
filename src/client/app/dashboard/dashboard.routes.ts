@@ -11,6 +11,8 @@ import { DashboardComponent } from './index';
 import { RandomPostRoutes } from './randompost/index';
 import { CreateTownRoutes } from './createtown/index';
 import { GetTownRoutes } from './getown/index';
+import { DepartmentsRoutes } from './departments/index';
+import { ToptownRoutes } from './toptown/index';
 
 export const DashboardRoutes: Route[] = [
   	{
@@ -27,6 +29,8 @@ export const DashboardRoutes: Route[] = [
         ...RandomPostRoutes,
         ...CreateTownRoutes,
         ...GetTownRoutes,
+        ...DepartmentsRoutes,
+        ...ToptownRoutes,
 
     	]
   	}
