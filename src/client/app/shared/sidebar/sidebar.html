@@ -9,7 +9,9 @@
                 </li>
                 <li>
                     <a [routerLink]="['userinfo']" class="logo">
-                        <img src="assets/images/user2.jpg" class="avatar img-circle" style="width:110px;height:110px;" />
+                      <li *ngFor="let img of imgen">
+                        <img style="width:110px;height:110px;" src="{{img.image.url}}" class="avatar img-circle" />
+                      </li>
                         <p class="text-xs-center">{{usr.name}}</p>
                     </a>
                 </li>

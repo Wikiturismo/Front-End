@@ -11,11 +11,13 @@ import { Sidebarservice } from './sidebar.service';
 
 export class SidebarComponent {
 	user = [];
+	imgen;
 	errorMessage: string;
 	constructor(private sidebarservice: Sidebarservice) {
 			this.sidebarservice.getUser2().subscribe(
 				data =>{
 					this.user.push(data)
+					this.imgen=this.user[0].imageusers;
 				}
 			);
 		}

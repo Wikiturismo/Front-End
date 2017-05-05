@@ -20,7 +20,9 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-          <img src="assets/images/user2.jpg" class="avatar img-circle" />
+          <li *ngFor="let img of imgen">
+            <img style="width:130px;height:130px;" src="{{img.image.url}}" class="avatar img-circle" />
+          </li>
           <!--<img src="//placehold.it/100" class="avatar img-circle" alt="avatar">-->
           <h6><br>Subir una foto diferente...</h6>
 
@@ -70,7 +72,7 @@
           <div class="form-group">
             <label class="col-lg-3 control-label">Correo Electronico: </label>
             <div class="col-lg-8">
-              <input class="form-control" type="text" required [(ngModel)]="userCreat.mail"  name="mail" >
+              <input class="form-control" type="text" required [(ngModel)]="userCreat.email" name="email" >
             </div>
           </div>
           <!--<div class="form-group">
@@ -102,7 +104,7 @@
             <div class="col-md-8">
               <!--<input type="button" class="btn btn-primary" value="Guardar Cambios" onclick="updateUser()">-->
               <!--<button type="submit" class="btn btn-primary" (click)="updateUser" routerLink="../toppost">Guardar cambios</button>-->
-              <button type="submit" class="btn btn-primary" (click)="updateUser" onclick="window.location.reload()">Guardar cambios</button>
+              <button type="submit" class="btn btn-primary" (click)="updateUser">Guardar cambios</button>
               <!--<a routerLink="../toppost" onclick="document.getElementById('myform').submit()" class="btn btn-primary" (click)="updateUser">Submit</a>-->
               <span></span>
               <input type="reset" class="btn btn-default" value="Cancelar">
