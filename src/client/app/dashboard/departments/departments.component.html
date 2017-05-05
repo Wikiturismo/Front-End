@@ -1,20 +1,23 @@
 <div class="row">
-    <div class="col-md-8 col-md-offset-2">
+    <div >
 
-    <div class="card" align="center">
+    <div class="card" align="center" >
         <div class="card-block">
 
 
               <div class="jumbotron jumbotron-fluid">
- <h1 class="container" >Departamentos</h1>
-<div class="container"  *ngFor="let dep of departs; let i = index">
+ <h1 >Departamentos</h1>
+</div>
+</div>
+</div>
+<div  *ngFor="let dep of departs; let i = index" style=" margin-left: 30px" >
 
 
-  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
-     <h1 class="card-title" style="text-align: center"><font color="black"> {{dep.name}}</font></h1>
-     <p>Capital: {{dep.capital}}</p>
+  <div  style="background:#f5f5f5; float:left; width: 200px; height: 200px; margin: 5px">
+     <h1 style="text-align: center; font-size: 1.2em"><font color="black"> {{dep.name}}</font></h1>
+     <p style="font-size: 1.0em">Capital: {{dep.capital}}</p>
   <!--<p>valoracion: {{place.valoration}}</p>-->
-      <img width="50%" src="assets/images/cartagena-3.jpg">
+      <img width="100%" src="assets/images/cartagena-3.jpg">
   </div>
 
 
@@ -26,8 +29,6 @@
   <!--<li *ngFor="let place of places">
     {{place.name}}</li>-->
 </ul>
-</div>
-</div>
-</div>
+
 </div>
 </div>
