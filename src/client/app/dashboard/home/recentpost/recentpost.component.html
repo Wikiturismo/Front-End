@@ -10,7 +10,7 @@
                       <div *ngFor="let placeL of placesLast; let i = index" >
                             <!--<slide active="slide.active" >-->
                               <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
-                                  <a routerLink="../getplaces"><h3 class="card-title" style="text-align: center"><font color="black">{{placeL.name}}</font></h3></a>
+                                  <a routerLink="../getplaces" (click) ="goPlace(placeL.name)" ><h3 class="card-title" style="text-align: center"><font color="black">{{placeL.name}}</font></h3></a>
                               </div>
                               <carousel class="mini-carousel" interval="5000">
                                 <!--<div *ngFor="let img of placeL.imageplaces; let h = index" >
