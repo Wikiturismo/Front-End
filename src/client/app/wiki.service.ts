@@ -1,19 +1,17 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { RecentPostComponent } from './dashboard/home/recentpost/recentpost.component';
 import { CommentsComponent } from './dashboard/comments/comments.component';
 import { GetPlacesComponent } from './dashboard/getplaces/getplaces.component';
 import { TopPostComponent } from './dashboard/top-post/TopPost.component';
 import { UserInfoComponent } from './dashboard/user-info/userinfo.component';
-import {Subject} from "rxjs/Subject";
-import {BehaviorSubject} from "rxjs/Rx";
 import {Observable} from 'rxjs/Rx';
 
 @Injectable()
 export class Wikiservice {
 	//placesLast1;
 	constructor(private http: Http) {
-	
+
 	}
 	getLastPlaces() : Observable<RecentPostComponent[]> {
 		return this.http.get('http://localhost:3000/api/v1/places/last.json')

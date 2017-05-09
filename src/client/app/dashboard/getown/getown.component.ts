@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { GetTownservice } from './getown.service';
 import {Commenttowns} from './commenttown';
+import { ToptownComponent } from '../toptown/toptown.component';
 
 @Component({
 	moduleId: module.id,
@@ -18,31 +18,30 @@ export class GetTownComponent {
 	comments;
 	errorMessage: string;
 	constructor(private getownservice: GetTownservice) {
-		this.getownservice.getPlace99("tunja").subscribe(
-			res =>
-			 {
+		console.log(ToptownComponent.nombreTown);
+		this.getownservice.getTowns(ToptownComponent.nombreTown).subscribe(
+			res => {
 				 this.Explace = res;
 				 this.namePlace = this.Explace[0].name;
 				 this.CommentCreat.town_id = this.Explace[0].id;
 				 this.CommentCreat.depart_id = this.Explace[0].depart.id;
 			 }
 			 );
-		this.getownservice.getComments().subscribe(
-	 			res =>
-	 			 {
+		this.getownservice.getComments(ToptownComponent.nombreTown).subscribe(
+	 			res => {
 	 				 this.comments = res;
 	 			 }
 	 			 );
 				 this.getownservice.getCountComments().subscribe(
-		 		 			data =>{
-		 		 				this.counter.push(data)
+		 		 			data => {
+		 		 				this.counter.push(data);
 		 		 				this.CommentCreat.id=this.counter[0].count+1;
 		 		 				//console.log(this.postCreat);
 		 		 			}
 		 		 		);
 	}
 
-	createComment(){
+	createComment() {
 		if (!this.CommentCreat) { return; }
 		this.getownservice.NewComment(this.CommentCreat)
 				.subscribe(

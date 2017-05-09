@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { Sidebarservice } from './sidebar.service';
 
 @Component({
@@ -15,8 +14,8 @@ export class SidebarComponent {
 	errorMessage: string;
 	constructor(private sidebarservice: Sidebarservice) {
 			this.sidebarservice.getUser2().subscribe(
-				data =>{
-					this.user.push(data)
+				data => {
+					this.user.push(data);
 					this.imgen=this.user[0].imageusers;
 				}
 			);

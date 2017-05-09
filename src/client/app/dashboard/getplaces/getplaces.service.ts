@@ -1,9 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { GetPlacesComponent } from './getplaces.component';
-import { RecentPostComponent } from '../home/recentpost/recentpost.component';
-import {Subject} from "rxjs/Subject";
-import {BehaviorSubject} from "rxjs/Rx";
 import {Observable} from 'rxjs/Rx';
 import {Comment} from '../../../../../models/comment';
 import { URLSearchParams } from '@angular/http';
@@ -23,7 +20,7 @@ export class Getplacesservice {
 		name = name.split(' ').join('+');
 		let params: URLSearchParams = new URLSearchParams();
 		params.set('q', name);
-		let url = "http://localhost:3000/api/v1/places/name";
+		let url = 'http://localhost:3000/api/v1/places/name';
 		return this.http.get(url, { search: params })
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
@@ -32,8 +29,8 @@ export class Getplacesservice {
 		name = name.split(' ').join('+');
 		let params: URLSearchParams = new URLSearchParams();
 		params.set('q', name);
-		params.set('sort', 'id+ASC')
-		let url = "http://localhost:3000/api/v1/places/comments";
+		params.set('sort', 'id+ASC');
+		let url = 'http://localhost:3000/api/v1/places/comments';
 		return this.http.get(url, { search: params })
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));

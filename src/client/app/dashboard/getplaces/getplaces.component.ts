@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { Getplacesservice } from './Getplaces.service';
 import {Comment} from './comment';
-import { Router, ActivatedRoute } from '@angular/router';
 import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 import { RandomPostComponent } from '../randompost/randompost.component';
 import { TopPostComponent } from '../top-post/topPost.component';
@@ -25,17 +23,16 @@ export class GetPlacesComponent {
 	comments;
 	errorMessage: string;
 	constructor(private getplacesservice: Getplacesservice) {
-		if(RecentPostComponent.nombrePlace!=''){
+		if(RecentPostComponent.nombrePlace!=='') {
 			this.paramname = RecentPostComponent.nombrePlace;
-		}else if(RandomPostComponent.nombrePlace!=''){
+		}else if(RandomPostComponent.nombrePlace!=='') {
 			this.paramname = RandomPostComponent.nombrePlace;
-		}else if(TopPostComponent.nombrePlace!=''){
+		}else if(TopPostComponent.nombrePlace!=='') {
 			this.paramname = TopPostComponent.nombrePlace;
 		}
 
 		this.getplacesservice.getPlace99(this.paramname).subscribe(
-			res =>
-			 {
+			res => {
 				 this.Explace = res;
 				 this.namePlace = this.Explace[0].name;
 				 this.CommentCreat.town_id = this.Explace[0].town.id;
@@ -44,15 +41,14 @@ export class GetPlacesComponent {
 			 }
 			 );
 		this.getplacesservice.getComments(this.paramname).subscribe(
-	 			res =>
-	 			 {
+	 			res => {
 	 				 this.comments = res;
 					 console.log(this.comments[0].user.id);
 	 			 }
 	 			 );
 		this.getplacesservice.getCountComments().subscribe(
-		 			data =>{
-		 				this.counter.push(data)
+		 			data => {
+		 				this.counter.push(data);
 		 				this.CommentCreat.id=this.counter[0].count+1;
 		 				//console.log(this.postCreat);
 		 			}
@@ -61,7 +57,7 @@ export class GetPlacesComponent {
 			RandomPostComponent.nombrePlace='';
 	}
 
-	createComment(){
+	createComment() {
 		if (!this.CommentCreat) { return; }
 		this.getplacesservice.NewComment(this.CommentCreat)
 				.subscribe(

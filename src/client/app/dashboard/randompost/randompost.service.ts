@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Response } from '@angular/http';
 import { RandomPostComponent } from './randompost.component';
-import {Subject} from "rxjs/Subject";
-import {BehaviorSubject} from "rxjs/Rx";
+
 import {Observable} from 'rxjs/Rx';
 
 @Injectable()

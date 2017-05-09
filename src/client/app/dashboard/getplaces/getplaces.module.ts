@@ -5,7 +5,6 @@ import { FormsModule }   from '@angular/forms';
 import { RouterModule } from '@angular/router';
 import { NameListService } from '../../shared/name-list/index';
 
-
 @NgModule({
     imports: [CommonModule,
     FormsModule,
@@ -21,5 +20,4 @@ export class GetPlacesModule {
           providers: [NameListService]
       };
   }
-
 }

@@ -6,6 +6,5 @@ export const GetPlacesRoutes: Route[] = [
 	{
 		path: 'getplaces',
 		component: GetPlacesComponent,
-		
 	}
 ];

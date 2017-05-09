@@ -1,9 +1,8 @@
-import { Component,Input} from '@angular/core';
+import { Component} from '@angular/core';
 import { Http } from '@angular/http';
 import { UserInfoservice } from './UserInfo.service';
 //import {User} from '../../../../../models/user';
 import {User} from './user';
-import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
 	moduleId: module.id,
@@ -26,8 +25,7 @@ export class UserInfoComponent {
 	constructor(private http: Http,
 		private userInfoservice: UserInfoservice) {
 			this.userInfoservice.getUser2().subscribe(
-				data =>{
-					this.user.push(data)
+				data => {
 					this.userCreat.id=this.user[0].id;
 					this.userCreat.name=this.user[0].name;
 					this.userCreat.kind=this.user[0].kind;
@@ -40,20 +38,18 @@ export class UserInfoComponent {
 				}
 			);
 		}
-		fileEvent(fileInput: any){
+		fileEvent(fileInput: any) {
 	    this.file = fileInput.target.files[0];
 			this.formData.append('image', this.file);
 			this.formData.append('user_id',this.userCreat.id);
 			console.log(this.formData);
 		}
-		userImage(form: any){
+		userImage(form: any) {
 			console.log(this.imagec);
-			if(this.imagec==0){
-				console.log("post");
-				this.http.post('http://localhost:3000/api/v1/imageusers', this.formData).subscribe()
-			}else{
-				console.log("patch");
-				this.http.patch('http://localhost:3000/api/v1/imageusers/1', this.formData).subscribe()
+			if(this.imagec===0) {
+				this.http.post('http://localhost:3000/api/v1/imageusers', this.formData).subscribe();
+			}else {
+				this.http.patch('http://localhost:3000/api/v1/imageusers/1', this.formData).subscribe();
 			}
 		}
 	updateUser() {

@@ -14,6 +14,7 @@ import { CreatePostModule } from './createpost/createpost.module';
 import { RandomPostModule } from './randompost/randompost.module';
 import { CreateTownModule } from './createtown/createtown.module';
 import { GetTownModule } from './getown/getown.module';
+import { GetDepartsModule } from './getdeparts/getdeparts.module';
 import { DepartmentsModule } from './departments/departments.module';
 import { ToptownModule } from './toptown/toptown.module';
 
@@ -32,6 +33,7 @@ import { ToptownModule } from './toptown/toptown.module';
         RandomPostModule,
         CreateTownModule,
         GetTownModule,
+        GetDepartsModule,
         DepartmentsModule,
         ToptownModule,
     ],

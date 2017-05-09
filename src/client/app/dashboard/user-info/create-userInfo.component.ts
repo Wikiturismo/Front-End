@@ -1,8 +1,6 @@
-import { Component, OnInit }  from '@angular/core';
-//import { ROUTER_DIRECTIVES } from '@angular/router';
-
+import { Component }  from '@angular/core';
 import {User} from '../../../../../models/user';
-import { UserInfoservice } from './userInfo.service'
+import { UserInfoservice } from './userInfo.service';
 
 @Component({
 	moduleId: module.id,
@@ -17,7 +15,7 @@ export class CreateUserInfoComponent {
 
     constructor(private userInfoservice: UserInfoservice) { }
 
-    updateUser() {            
+    updateUser() {
         if (!this.user) { return; }
         this.userInfoservice.updateUser(this.user)
             .subscribe(

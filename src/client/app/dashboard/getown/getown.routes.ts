@@ -4,7 +4,7 @@ import { GetTownComponent } from './index';
 
 export const GetTownRoutes: Route[] = [
 	{
-		path: 'gettown',
+		path: 'getown',
 		component: GetTownComponent,
 
 	}

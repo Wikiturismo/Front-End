@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { Departmentsservice } from './departments.service';
+import { Getdepartssservice } from '../getdeparts/Getdeparts.service';
 
 
 
@@ -8,13 +8,18 @@ import { Departmentsservice } from './departments.service';
 	moduleId: module.id,
     selector: 'departments',
     templateUrl: './departments.component.html',
-    providers: [Departmentsservice]
+    providers: [Departmentsservice,Getdepartssservice]
 })
 
 export class DepartmentsComponent {
+	static nombreDepart='';
 	departs;
-	constructor(private departmentsservice: Departmentsservice) {
+	constructor(private departmentsservice: Departmentsservice,private getdepartssservice: Getdepartssservice) {
        this.departmentsservice.getDepartments().subscribe(res => this.departs = res);
       }
+			goDepart(name: string) {
+				DepartmentsComponent.nombreDepart=name;
+				this.getdepartssservice.sendName(name);
+			}
 
 }

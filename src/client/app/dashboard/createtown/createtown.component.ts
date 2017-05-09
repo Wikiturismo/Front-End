@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { Createtownservice } from './createtown.service';
 import {Town} from './town';
 
@@ -17,8 +16,8 @@ export class CreateTownComponent {
 	errorMessage: string;
 	constructor(private createtownservice: Createtownservice) {
 		this.createtownservice.getCountTowns().subscribe(
-		 			data =>{
-		 				this.counter.push(data)
+		 			data => {
+		 				this.counter.push(data);
 		 				this.TownCreat.id=this.counter[0].count+1;
 		 				//console.log(this.counter);
 		 				//console.log(this.postCreat);
@@ -26,7 +25,7 @@ export class CreateTownComponent {
 		 		);
 	}
 
-	createTown(){
+	createTown() {
 		if (!this.TownCreat) { return; }
 		this.createtownservice.NewTown(this.TownCreat)
 				.subscribe(

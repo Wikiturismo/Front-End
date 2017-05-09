@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { RandomPostservice } from './randompost.service';
 import { Getplacesservice } from '../getplaces/Getplaces.service';
 
@@ -12,12 +11,12 @@ import { Getplacesservice } from '../getplaces/Getplaces.service';
 })
 
 export class RandomPostComponent {
-	places;
 	static nombrePlace='';
+	places;
 	constructor(private randomPostservice: RandomPostservice, private getplacesservice: Getplacesservice) {
 		this.randomPostservice.getRandomPlaces().subscribe(res => this.places = res);
       }
-			goPlace(name: string){
+			goPlace(name: string) {
 				RandomPostComponent.nombrePlace=name;
 				this.getplacesservice.sendName(name);
 			}
