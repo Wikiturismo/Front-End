@@ -31,7 +31,7 @@ export class GetTownservice {
 		let params: URLSearchParams = new URLSearchParams();
 		params.set('q', name);
 		params.set('sort', 'id+ASC');
-		let url = "http://localhost:3000/api/v1/towns/comments";
+		let url = 'http://localhost:3000/api/v1/towns/comments';
 		return this.http.get(url, { search: params })
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));

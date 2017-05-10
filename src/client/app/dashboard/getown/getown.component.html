@@ -36,11 +36,21 @@
         </div>
         <!-- VALORACION-->
         <div class="card-header card-info card-inverse" style="background:#FFFFFF;  text-align: left">
-            <p> Aeropuerto: {{Exp.airport}} </p>
+          <div *ngIf="Exp.airport== 0">
+            <p> Aeropuerto: No tiene </p>
+          </div>
+          <div *ngIf="Exp.airport== 1">
+            <p> Aeropuerto: Si tiene </p>
+          </div>
         </div>
         <!-- PRECIOS-->
         <div class="card-header card-info card-inverse" style="background:#008CFF;  text-align: left">
-            <p> Terminal: {{Exp.transpterminal}} </p>
+          <div *ngIf="Exp.transpterminal== 0">
+            <p> Aeropuerto: No tiene </p>
+          </div>
+          <div *ngIf="Exp.transpterminal== 1">
+            <p> Aeropuerto: Si tiene </p>
+          </div>
         </div>
         <!-- FECHA DE PUBLICACION-->
         <div class="card-header card-info card-inverse" style="background:#FFFFFF;  text-align: left">

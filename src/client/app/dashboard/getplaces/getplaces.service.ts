@@ -10,7 +10,7 @@ export class Getplacesservice {
 	nombre;
 	constructor(private http: Http) {
 	}
-	sendName(name: string){
+	sendName(name: string) {
 		this.nombre=name;
 		console.log(this.nombre);
 		return this.nombre;

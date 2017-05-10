@@ -9,6 +9,7 @@ import { Sidebarservice } from './sidebar.service';
 })
 
 export class SidebarComponent {
+	showMenu: string = '';
 	user = [];
 	imgen;
 	errorMessage: string;
@@ -20,8 +21,6 @@ export class SidebarComponent {
 				}
 			);
 		}
-
-	showMenu: string = '';
 	addExpandClass(element: any) {
 		if (element === this.showMenu) {
 			this.showMenu = '0';

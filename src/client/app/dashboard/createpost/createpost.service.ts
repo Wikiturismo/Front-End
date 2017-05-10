@@ -14,7 +14,7 @@ export class Createpostservice {
 		.map(this.extractData)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
-	getTowns() : Observable<CreatePostComponent[]> {	
+	getTowns() : Observable<CreatePostComponent[]> {
 		return this.http.get('http://localhost:3000/api/v1/towns?sort=name+ASC')
 		.map(this.extractData)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
