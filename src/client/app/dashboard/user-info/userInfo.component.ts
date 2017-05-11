@@ -18,14 +18,13 @@ export class UserInfoComponent {
 	formData = new FormData();
 	imagec=0;
 	imgen;
-	//created_at;
-	//name;
 	userCreat = new User(undefined, '', '', '','');
   errorMessage: string;
 	constructor(private http: Http,
 		private userInfoservice: UserInfoservice) {
 			this.userInfoservice.getUser2().subscribe(
 				data => {
+					this.user.push(data);
 					this.userCreat.id=this.user[0].id;
 					this.userCreat.name=this.user[0].name;
 					this.userCreat.kind=this.user[0].kind;
