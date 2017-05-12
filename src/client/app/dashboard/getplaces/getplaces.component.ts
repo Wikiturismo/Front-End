@@ -10,8 +10,29 @@ import { TopPostComponent } from '../top-post/topPost.component';
 	moduleId: module.id,
     selector: 'getplaces',
     templateUrl: './getplaces.component.html',
-    providers: [Getplacesservice]
-
+    providers: [Getplacesservice],
+		styles: [`
+	.carousel{
+	    overflow:hidden;
+	    width:100%;
+			height:500px;
+	}
+	.slides{
+	    list-style:none;
+	    position:relative;
+	}
+	.slides > li{
+	    position:relative;
+	    float:left;
+	}
+	.carousel img{
+	    display:block;
+	    width:100%;
+	    max-width:100%;
+			height:100%;
+	    max-height:500px;
+	}
+	  `]
 })
 
 export class GetPlacesComponent {

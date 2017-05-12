@@ -17,7 +17,13 @@
      <a routerLink="../getplaces" (click) ="goPlace(place.name)"><h3 class="card-title" style="text-align: center"><font color="black"> {{place.name}}</font></h3></a>
      <p>{{place.description}}</p>
 	<p>valoracion: {{place.valoration}}</p>
-      <img width="50%" src="assets/images/cartagena-3.jpg">
+  <carousel class="carousel" [interval]=2500 [noWrap]=false>
+    <slide *ngFor="let img of place.imageplaces; let index=index" [active]="img.active">
+      <img src="{{img.image.url}}" style="margin:auto;">
+    </slide>
+  </carousel>
+    <br>
+    <br>
   </div>
 
 

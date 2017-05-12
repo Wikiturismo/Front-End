@@ -16,7 +16,13 @@
     <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
       <a routerLink="../getdeparts" (click) ="goDepart(dep.name)"><h1 class="card-title" style="text-align: center; font-size: 1.2em"><font color="black"> {{dep.name}}</font></h1></a>
     </div>
-    <img width="100%" src="assets/images/cartagena-3.jpg">
+    <carousel class="carousel" [interval]=2500 [noWrap]=false>
+      <slide *ngFor="let img of dep.imagedeparts; let index=index" [active]="img.active">
+        <img src="{{img.image.url}}" style="margin:auto;">
+      </slide>
+    </carousel>
+      <br>
+      <br>
     <div class="row">
         <div class="col-md-12">
             <div class="card">

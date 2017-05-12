@@ -3,10 +3,11 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { CreatePostComponent } from './createpost.component';
 import {Observable} from 'rxjs/Rx';
 import {Place} from '../../../../../models/place';
+import { Router } from '@angular/router';
 
 @Injectable()
 export class Createpostservice {
-	constructor(private http: Http) {
+	constructor(private http: Http, private router: Router) {
 
 	}
 	getCount() : Observable<CreatePostComponent[]> {
@@ -23,6 +24,7 @@ export class Createpostservice {
         let body = JSON.stringify( place);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
+				this.router.navigate(['/dashboard/home']);
         return this.http.post(('http://localhost:3000/api/v1/places'), body, options)
             .map(this.extractData)
             .catch(this.handleError);

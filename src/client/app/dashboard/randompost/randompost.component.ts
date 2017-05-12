@@ -7,7 +7,29 @@ import { Getplacesservice } from '../getplaces/Getplaces.service';
 	moduleId: module.id,
     selector: 'randompost',
     templateUrl: './randompost.component.html',
-    providers: [RandomPostservice, Getplacesservice]
+    providers: [RandomPostservice, Getplacesservice],
+		styles: [`
+	.carousel{
+	    overflow:hidden;
+	    width:100%;
+			height:500px;
+	}
+	.slides{
+	    list-style:none;
+	    position:relative;
+	}
+	.slides > li{
+	    position:relative;
+	    float:left;
+	}
+	.carousel img{
+	    display:block;
+	    width:100%;
+	    max-width:100%;
+			height:100%;
+	    max-height:500px;
+	}
+	  `],
 })
 
 export class RandomPostComponent {
