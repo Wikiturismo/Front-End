@@ -12,6 +12,7 @@ import {Place} from './place';
 export class CreatePostComponent {
 	counter=[];
 	towns;
+	//selectedDepart= this.cities[1];;
 	postCreat = new Place(undefined, '', true, '','','','',undefined,10,undefined,2);
     errorMessage: string;
 	constructor(private createpostservice: Createpostservice) {
@@ -23,7 +24,7 @@ export class CreatePostComponent {
 				//console.log(this.postCreat);
 			}
 		);
-		this.createpostservice.getTowns().subscribe(
+		this.createpostservice.getTowns(1).subscribe(
 			data=> {this.towns= data;
 			console.log(this.towns);}
 		);
@@ -35,4 +36,11 @@ export class CreatePostComponent {
 				place => this.postCreat,
 				error => this.errorMessage = <any>error);
 	}
+
+  onChange(depart) {
+		this.createpostservice.getTowns(depart).subscribe(
+			data=> {this.towns= data;
+			console.log(this.towns);}
+		);
+  }
 }
