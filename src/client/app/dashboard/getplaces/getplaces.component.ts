@@ -56,6 +56,8 @@ export class GetPlacesComponent {
 			res => {
 				 this.Explace = res;
 				 this.namePlace = this.Explace[0].name;
+
+				 console.log(this.namePlace);
 				 this.CommentCreat.town_id = this.Explace[0].town.id;
 				 this.CommentCreat.place_id = this.Explace[0].id;
 				 this.CommentCreat.depart_id = this.Explace[0].depart.id;
@@ -64,7 +66,8 @@ export class GetPlacesComponent {
 		this.getplacesservice.getComments(this.paramname).subscribe(
 	 			res => {
 	 				 this.comments = res;
-					 console.log(this.comments[0].user.id);
+					 console.log(this.comments);
+					 //console.log(this.comments[0].user.id);
 	 			 }
 	 			 );
 		this.getplacesservice.getCountComments().subscribe(

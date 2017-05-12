@@ -7,7 +7,29 @@ import { ToptownComponent } from '../toptown/toptown.component';
 	moduleId: module.id,
     selector: 'getown',
     templateUrl: './getown.component.html',
-    providers: [GetTownservice]
+    providers: [GetTownservice],
+		styles: [`
+	.carousel{
+	    overflow:hidden;
+	    width:100%;
+			height:500px;
+	}
+	.slides{
+	    list-style:none;
+	    position:relative;
+	}
+	.slides > li{
+	    position:relative;
+	    float:left;
+	}
+	.carousel img{
+	    display:block;
+	    width:100%;
+	    max-width:100%;
+			height:100%;
+	    max-height:500px;
+	}
+	  `],
 })
 
 export class GetTownComponent {

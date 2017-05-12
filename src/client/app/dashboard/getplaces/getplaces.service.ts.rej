@@ -1,0 +1,9 @@
+diff a/src/client/app/dashboard/getplaces/getplaces.service.ts b/src/client/app/dashboard/getplaces/getplaces.service.ts	(rejected hunks)
+@@ -1,7 +1,6 @@
+ import { Injectable } from '@angular/core';
+ import { Http, Response, Headers, RequestOptions } from '@angular/http';
+ import { GetPlacesComponent } from './getplaces.component';
+-import {Subject} from "rxjs/Subject";
+ import {Observable} from 'rxjs/Rx';
+ import {Comment} from '../../../../../models/comment';
+ import { URLSearchParams } from '@angular/http';

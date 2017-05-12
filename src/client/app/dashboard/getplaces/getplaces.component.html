@@ -54,11 +54,11 @@
 
   <!--COMENTARIOS-->
 
-  <div class="col-md-15"  *ngFor="let comment of comments; let i = index">
+  <div class="col-md-15"  *ngFor="let comment of comments">
     <div class="card card-default card-block">
         <blockquote class="card-blockquote">
           <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="assets/images/user2.jpg" />
-        <h4 class="text-default"  style= "text-align: left">{{comment.user.name}}</h4>
+        <h4 class="text-default"  style= "text-align: left">{{comment.user_id}}</h4>
             <p>{{comment.content}}</p>
             <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
         </blockquote>

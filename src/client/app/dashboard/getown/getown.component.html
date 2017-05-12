@@ -15,7 +15,13 @@
             <h2 class="card-title" style="text-align: center; font-size: 2.2em;"><font color="black">{{Exp.name}}</font></h2>
         </div>
         <!-- IMAGEN SITIO-->
-        <img src="assets/images/cartagena-1.jpg" class="img-fluid" alt="Responsive image">
+        <carousel class="carousel" [interval]=2500 [noWrap]=false>
+          <slide *ngFor="let img of Exp.imagetowns; let index=index" [active]="img.active">
+            <img src="{{img.image.url}}" style="margin:auto;">
+          </slide>
+        </carousel>
+          <br>
+          <br>
 
 
         <!-- DESCRIPCION DEL SITIO-->
