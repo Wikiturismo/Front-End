@@ -4,6 +4,6 @@ export class User {
         public id: number,
         public name: string,
         public kind: string,
-        public ubication: string    
-       ){}
+        public ubication: string
+       ) {}
 }

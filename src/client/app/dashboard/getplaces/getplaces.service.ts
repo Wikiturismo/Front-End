@@ -4,6 +4,7 @@ import { GetPlacesComponent } from './getplaces.component';
 import {Observable} from 'rxjs/Rx';
 import {Comment} from '../../../../../models/comment';
 import { URLSearchParams } from '@angular/http';
+import {Place} from '../../../../../models/placeval';
 
 @Injectable()
 export class Getplacesservice {
@@ -39,6 +40,16 @@ export class Getplacesservice {
 		return this.http.get('http://localhost:3000/api/v1/commentplaces/count')
 		.map(this.extractData)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}
+	patchValoration(place: Place) : Observable<GetPlacesComponent[]> {
+		let body = JSON.stringify( place);
+		let headers = new Headers({ 'Content-Type': 'application/json' });
+		let options = new RequestOptions({ headers: headers});
+		let url = 'http://localhost:3000/api/v1/places/';
+		url+=place.id;
+		return this.http.patch(url, body, options)
+				.map(this.extractData)
+				.catch(this.handleError);
 	}
 	NewComment(comment: Comment) {
 		let body = JSON.stringify( comment);

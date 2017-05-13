@@ -18,6 +18,7 @@ export class UserInfoservice {
 
 	updateUser(user: User) {
         let body = JSON.stringify( user);
+				console.log(body);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
         return this.http.patch(('http://localhost:3000/api/v1/users/2'), body, options)

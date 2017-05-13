@@ -10,5 +10,5 @@ export class Town {
         public airport: boolean,
         public transpterminal: boolean,
         public depart_id: number
-       ){}
+       ) {}
 }
