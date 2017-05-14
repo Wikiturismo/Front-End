@@ -24,27 +24,27 @@
         <!-- FECHA DE PUBLICACION-->
 
         <!-- DESCRIPCION DEL SITIO-->
-        <div class="card-header card-info card-inverse" style="background:#FFFFFF;">
-            <p> {{Exp.description}}  </p>
+        <div class="card-header card-info card-inverse" style="background:#008CFF;">
+            <p> <b>{{Exp.description}}</b>  </p>
         </div>
         <!-- DIRCCION-->
-        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
-            <p > Dirección: {{Exp.address}}</p>
+        <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
+            <p > <b>Dirección:</b> {{Exp.address}}</p>
         </div>
         <!-- TIPO DE SERVICIO-->
-        <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
-            <p> Ubicación: {{Exp.ubication}} </p>
+        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
+            <p> <b>Ubicación:</b> {{Exp.ubication}} </p>
         </div>
         <!-- PRECIOS-->
-        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
-            <p> Precios: {{Exp.entrycost}} </p>
-        </div>
         <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
-            <p> Tipo de lugar: {{Exp.kind}} </p>
+            <p> <b>Precios:</b> {{Exp.entrycost}} </p>
+        </div>
+        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
+            <p> <b>Tipo de lugar:</b> {{Exp.kind}} </p>
         </div>
         <!-- VALORACION-->
-        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
-            <p> Valoración: {{Exp.valoration}} </p>
+        <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
+            <p> <b>Valoración:</b> </p>
             <star-rating-comp
             [id]="starRatingConfig.id"
             [rating]="starRatingConfig.rating"
@@ -69,6 +69,15 @@
             (onClick)="onClick($event)"
             (onRatingChange)="onRatingChange($event)"
           ></star-rating-comp>
+
+          <div style="display: block">
+      <canvas baseChart
+        [labels]="labels"
+        [datasets]="datasets"
+        [colors]="colorsEmptyObject"
+        [chartType]="type"
+        ></canvas>
+    </div>
         </div>
       </div>
 <!-- COMENTARIOS-->
@@ -78,11 +87,11 @@
 
   <!--COMENTARIOS-->
 
-  <div class="col-md-15"  *ngFor="let comment of comments">
+  <div class="col-md-15"  *ngFor="let comment of comments; let i = index">
     <div class="card card-default card-block">
         <blockquote class="card-blockquote">
           <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="assets/images/user2.jpg" />
-        <h4 class="text-default"  style= "text-align: left">{{comment.user_id}}</h4>
+        <h4 class="text-default" style="text-align: left">{{comment.user.name}}</h4>
             <p>{{comment.content}}</p>
             <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
         </blockquote>

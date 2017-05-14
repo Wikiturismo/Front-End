@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { Getplacesservice } from './Getplaces.service';
-import {Comment} from './comment';
+import { Comment } from './comment';
 import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 import { RandomPostComponent } from '../randompost/randompost.component';
 import { TopPostComponent } from '../top-post/topPost.component';
-import {Place} from './placeval';
+import { Place } from './placeval';
+import { Color } from 'ng2-charts';
+
 
 @Component({
 	moduleId: module.id,
@@ -36,15 +38,32 @@ import {Place} from './placeval';
 })
 
 export class GetPlacesComponent {
+	labels:string[] = ['Votos 1', 'Votos 2', 'Votos 3', 'Votos 4', 'Votos 5'];
+  data:number[] = [0,0,0,0,0];
+  type:string = 'doughnut';
+  colorsEmptyObject: Array<Color> = [{}];
+  datasets: any[] = [
+  {
+    data: this.data,
+    backgroundColor: [
+			'#FF2522',
+      '#FF9706',
+      '#FFFF3B',
+      '#0622FF',
+			'#1A8C19'
+    ]
+  }];
 	counter=[];
 	paramname;
 	Explace;
 	starRatingConfig;
 	namePlace : String;
-	placevalo= new Place(undefined,'',1,'','','','',undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined,undefined);
+	placevalo= new Place(undefined,'',1,'','','','',undefined,undefined,undefined,
+	undefined,undefined,undefined,undefined,undefined,undefined,undefined);
 	CommentCreat = new Comment(undefined,true,'',undefined,undefined,2,undefined,);
 	comments;
 	errorMessage: string;
+	//######constructor
 	constructor(private getplacesservice: Getplacesservice) {
 		if(RecentPostComponent.nombrePlace!=='') {
 			this.paramname = RecentPostComponent.nombrePlace;
@@ -76,6 +95,12 @@ export class GetPlacesComponent {
 				 this.placevalo.valfour = this.Explace[0].valfour;
 				 this.placevalo.valfive = this.Explace[0].valfive;
 
+				 this.data[0] = this.Explace[0].valone;
+				 this.data[1] = this.Explace[0].valtwo;
+				 this.data[2] = this.Explace[0].valthree;
+				 this.data[3] = this.Explace[0].valfour;
+				 this.data[4] = this.Explace[0].valfive;
+
 				 console.log(this.namePlace);
 				 this.CommentCreat.town_id = this.Explace[0].town.id;
 				 this.CommentCreat.place_id = this.Explace[0].id;
@@ -86,16 +111,16 @@ export class GetPlacesComponent {
 				this.starRatingConfig.rating = this.Explace[0].valoration;
 				this.starRatingConfig.showHalfStars = true;
 				this.starRatingConfig.numOfStars = 5;
-				this.starRatingConfig.size = "large";
-				this.starRatingConfig.space = "no";
+				this.starRatingConfig.size = 'large';
+				this.starRatingConfig.space = 'no';
 				this.starRatingConfig.disabled  = false;
-				this.starRatingConfig.starType = "svg";
-				this.starRatingConfig.labelPosition = "bottom";
+				this.starRatingConfig.starType = 'svg';
+				this.starRatingConfig.labelPosition = 'bottom';
 				this.starRatingConfig.labelText = this.starRatingConfig.rating;
 				this.starRatingConfig.labelVisible = true;
-				this.starRatingConfig.speed = "slow";
+				this.starRatingConfig.speed = 'slow';
 				this.starRatingConfig.hoverEnabled = true;
-				this.starRatingConfig.direction = "ltr";
+				this.starRatingConfig.direction = 'ltr';
 				this.starRatingConfig.step = 0.5;
 				this.starRatingConfig.readOnly = false;
 			 }
@@ -118,7 +143,7 @@ export class GetPlacesComponent {
 			RandomPostComponent.nombrePlace='';
 	}
 	getColor = (rating: number, numOfStars: number, staticColor?: any) => {
-		return staticColor || "ok";
+		return staticColor || 'ok';
 	};
 	getHalfStarVisible=(rating):boolean => {
 	 return Math.abs(rating % 1) > 0;
@@ -131,22 +156,23 @@ export class GetPlacesComponent {
 	};
 	onClick = ($event) => {
 		if($event.rating===1) {
-			console.log("puto1");
 			this.placevalo.valone+=1;
 		}else if($event.rating===2) {
-			console.log("puto2");
 			this.placevalo.valtwo+=1;
 		}else if($event.rating===3) {
-			console.log("puto3");
 			this.placevalo.valthree+=1;
 		}else if($event.rating===4) {
-			console.log("puto4");
 			this.placevalo.valfour+=1;
 		}else if($event.rating===5) {
-			console.log("puto5");
 			this.placevalo.valfive+=1;
 		}
-		this.placevalo.valoration=(this.placevalo.valone*1 + this.placevalo.valtwo*2 + this.placevalo.valthree*3 + this.placevalo.valfour*4 + this.placevalo.valfive*5)/(this.placevalo.valone + this.placevalo.valtwo + this.placevalo.valthree + this.placevalo.valfour + this.placevalo.valfive);
+		//calculating valoration
+		this.placevalo.valoration=(this.placevalo.valone*1 + this.placevalo.valtwo*2 +
+			this.placevalo.valthree*3 + this.placevalo.valfour*4 +
+			this.placevalo.valfive*5)/(this.placevalo.valone + this.placevalo.valtwo +
+				this.placevalo.valthree + this.placevalo.valfour + this.placevalo.valfive);
+		this.placevalo.valoration = +Number(this.placevalo.valoration).toFixed(2);
+
 		if (!this.placevalo) { return; }
 		this.getplacesservice.patchValoration(this.placevalo)
 				.subscribe(

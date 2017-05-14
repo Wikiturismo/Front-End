@@ -26,41 +26,41 @@
 
         <!-- DESCRIPCION DEL SITIO-->
         <div class="card-header card-info card-inverse" style="background:#FFFFFF;">
-            <p> {{Exp.description}}  </p>
+            <p> <b>{{Exp.description}}</b>  </p>
         </div>
         <!-- Weather-->
         <div class="card-header card-info card-inverse" style="background:#008CFF;  text-align: left">
-            <p> Clima: {{Exp.weather}}</p>
+            <p> <b>Clima:</b> {{Exp.weather}}</p>
         </div>
         <!--Gentilicio-->
         <div class="card-header card-info card-inverse" style="background:#FFFFFF;  text-align: left">
-            <p> Gentilicio: {{Exp.demonym}}</p>
+            <p> <b>Gentilicio:</b> {{Exp.demonym}}</p>
         </div>
         <!-- Altitud-->
         <div class="card-header card-info card-inverse" style="background:#008CFF;  text-align: left">
-            <p> Altitud: {{Exp.altitude}} </p>
+            <p> <b>Altitud:</b> {{Exp.altitude}} </p>
         </div>
-        <!-- VALORACION-->
+        <!-- Aeropuerto-->
         <div class="card-header card-info card-inverse" style="background:#FFFFFF;  text-align: left">
           <div *ngIf="Exp.airport== 0">
-            <p> Aeropuerto: No tiene </p>
+            <p> <b>Aeropuerto:</b> No tiene </p>
           </div>
           <div *ngIf="Exp.airport== 1">
-            <p> Aeropuerto: Si tiene </p>
+            <p> <b>Aeropuerto:</b> Si tiene </p>
           </div>
         </div>
-        <!-- PRECIOS-->
+        <!-- Terminal-->
         <div class="card-header card-info card-inverse" style="background:#008CFF;  text-align: left">
           <div *ngIf="Exp.transpterminal== 0">
-            <p> Aeropuerto: No tiene </p>
+            <p> <b>Terminal:</b> No tiene </p>
           </div>
           <div *ngIf="Exp.transpterminal== 1">
-            <p> Aeropuerto: Si tiene </p>
+            <p> <b>Terminal:</b> Si tiene </p>
           </div>
         </div>
-        <!-- FECHA DE PUBLICACION-->
+        <!-- Temperatura-->
         <div class="card-header card-info card-inverse" style="background:#FFFFFF;  text-align: left">
-            <p> Temperatura promedio:  {{Exp.avertemper}} </p>
+            <p> <b>Temperatura promedio:</b>  {{Exp.avertemper}} </p>
         </div>
       </div>
 <!-- COMENTARIOS-->
