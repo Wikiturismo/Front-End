@@ -1,18 +1,15 @@
-<div class="row">
-    <div >
+<div class="row" style="float: left; width: 100%;">
+    <div style="float: left; width: 100%;">
 
-    <div class="card" align="center" >
+    <div class="card" align="center" style="float: left; width: 100%;">
         <div class="card-block">
 
 
-              <div class="jumbotron jumbotron-fluid">
+              <div class="jumbotron jumbotron-fluid" style="float: left; width: 100%;">
  <h1 >Departamentos</h1>
-</div>
-</div>
-</div>
 <div  *ngFor="let dep of departs; let i = index" style=" margin-left: 30px" >
 
-  <div  style="background:#f5f5f5; float:left; width: 200px; height: 200px; margin: 5px">
+  <div  style="background:#f5f5f5; float:left; width: 180px; height: 180px; margin: 5px">
     <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
       <a routerLink="../getdeparts" (click) ="goDepart(dep.name)"><h1 class="card-title" style="text-align: center; font-size: 1.2em"><font color="black"> {{dep.name}}</font></h1></a>
     </div>
@@ -45,6 +42,8 @@
   <!--<li *ngFor="let place of places">
     {{place.name}}</li>-->
 </ul>
-
+</div>
+</div>
+</div>
 </div>
 </div>

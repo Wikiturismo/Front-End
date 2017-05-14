@@ -43,8 +43,9 @@
             <p> <b>Tipo de lugar:</b> {{Exp.kind}} </p>
         </div>
         <!-- VALORACION-->
-        <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
+        <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left; float: left; width: 100%;">
             <p> <b>Valoración:</b> </p>
+            <div style="display: inline-block; float: left;">
             <star-rating-comp
             [id]="starRatingConfig.id"
             [rating]="starRatingConfig.rating"
@@ -69,8 +70,8 @@
             (onClick)="onClick($event)"
             (onRatingChange)="onRatingChange($event)"
           ></star-rating-comp>
-
-          <div style="display: block">
+        </div>
+          <div style="display: inline-block; float: right; width:55%;">
       <canvas baseChart
         [labels]="labels"
         [datasets]="datasets"
