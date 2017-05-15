@@ -35,11 +35,38 @@ import { Getplacesservice } from '../getplaces/Getplaces.service';
 export class TopPostComponent {
 	static nombrePlace='';
 	places;
+	starRatingConfig;
 	constructor(private topPostservice: TopPostservice, private getplacesservice: Getplacesservice) {
-       this.topPostservice.getTopPlaces().subscribe(res => this.places = res);
+       this.topPostservice.getTopPlaces().subscribe(
+				 res => {
+					 this.places = res;
+
+					 this.starRatingConfig = {};
+
+					this.starRatingConfig.id = 1221;
+					this.starRatingConfig.showHalfStars = true;
+					this.starRatingConfig.numOfStars = 5;
+					this.starRatingConfig.size = 'large';
+					this.starRatingConfig.space = 'no';
+					this.starRatingConfig.disabled  = false;
+					this.starRatingConfig.starType = 'svg';
+					this.starRatingConfig.labelPosition = 'bottom';
+					this.starRatingConfig.labelVisible = true;
+					this.starRatingConfig.speed = 'slow';
+					this.starRatingConfig.hoverEnabled = false;
+					this.starRatingConfig.direction = 'ltr';
+					this.starRatingConfig.step = 0.5;
+					this.starRatingConfig.readOnly = true;
+				 });
       }
 			goPlace(name: string) {
 				TopPostComponent.nombrePlace=name;
 				this.getplacesservice.sendName(name);
-			}
+			};
+			getColor = (rating: number, numOfStars: number, staticColor?: any) => {
+				return staticColor || 'ok';
+			};
+			getHalfStarVisible=(rating):boolean => {
+			 return Math.abs(rating % 1) > 0;
+			};
 }

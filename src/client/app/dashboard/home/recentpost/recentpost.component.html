@@ -14,16 +14,14 @@
                               </div>
                               <carousel class="carousel" [interval]=2500 [noWrap]=false>
                                 <slide *ngFor="let img of placeL.imageplaces; let index=index" [active]="img.active">
-                                  <img src="{{img.image.url}}" style="margin:auto;">
+                                  <img routerLink="../getplaces" (click) ="goPlace(placeL.name)" src="{{img.image.url}}" style="margin:auto;">
                                 </slide>
                               </carousel>
-                                <br>
-                                <br>
-                                <div class="row">
+                                <div routerLink="../getplaces" (click) ="goPlace(placeL.name)" class="row">
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-header card-default">
-                                                <h5 class="card-title"> Descripcion
+                                                <h5 class="card-title"> Descripción
                                                 </h5>
                                                 <p>{{placeL.description}}</p>
                                             </div>

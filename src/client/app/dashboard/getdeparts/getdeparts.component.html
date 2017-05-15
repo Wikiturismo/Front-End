@@ -14,11 +14,9 @@
             <h2 class="card-title" style="text-align: center; font-size: 2.2em;"><font color="black">{{Exp.name}}</font></h2>
         </div>
         <!-- IMAGEN SITIO-->
-        <carousel class="carousel" [interval]=2500 [noWrap]=false>
-          <slide *ngFor="let img of Exp.imagedeparts; let index=index" [active]="img.active">
-            <img src="{{img.image.url}}" style="margin:auto;">
-          </slide>
-        </carousel>
+          <div *ngFor="let img of Exp.imagedeparts; let index=index">
+            <img src="{{img.image.url}}" style="width:75%">
+          </div>
           <br>
           <br>
 
