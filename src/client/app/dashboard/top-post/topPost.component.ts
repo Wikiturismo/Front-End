@@ -9,26 +9,26 @@ import { Getplacesservice } from '../getplaces/Getplaces.service';
     templateUrl: './top-post.component.html',
     providers: [TopPostservice,Getplacesservice],
 		styles: [`
-	.carousel{
-	    overflow:hidden;
-	    width:100%;
-			height:500px;
-	}
-	.slides{
-	    list-style:none;
-	    position:relative;
-	}
-	.slides > li{
-	    position:relative;
-	    float:left;
-	}
-	.carousel img{
-	    display:block;
-	    width:100%;
-	    max-width:100%;
-			height:100%;
-	    max-height:500px;
-	}
+			.carousel{
+			    overflow:hidden;
+			    width:100%;
+					height:400px;
+			}
+			.slides{
+			    list-style:none;
+			    position:relative;
+			}
+			.slides > li{
+			    position:relative;
+			    float:left;
+			}
+			.carousel img{
+			    display:block;
+			    width:600px;
+			    max-width:600px;
+					height:400px;
+			    max-height:400px;
+			}
 	  `],
 })
 
