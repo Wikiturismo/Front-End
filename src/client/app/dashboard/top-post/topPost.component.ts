@@ -33,7 +33,7 @@ import { Getplacesservice } from '../getplaces/Getplaces.service';
 })
 
 export class TopPostComponent {
-	static nombrePlace='';
+	static idPlace=undefined;
 	places;
 	starRatingConfig;
 	constructor(private topPostservice: TopPostservice, private getplacesservice: Getplacesservice) {
@@ -59,9 +59,8 @@ export class TopPostComponent {
 					this.starRatingConfig.readOnly = true;
 				 });
       }
-			goPlace(name: string) {
-				TopPostComponent.nombrePlace=name;
-				this.getplacesservice.sendName(name);
+			goPlace(id: number) {
+				TopPostComponent.idPlace=id;
 			};
 			getColor = (rating: number, numOfStars: number, staticColor?: any) => {
 				return staticColor || 'ok';

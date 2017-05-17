@@ -54,8 +54,8 @@ export class GetPlacesComponent {
     ]
   }];
 	counter=[];
-	paramname;
-	Explace;
+	paramid;
+	Explace=[];
 	starRatingConfig;
 	namePlace : String;
 	placevalo= new Place(undefined,'',1,'','','','',undefined,undefined,undefined,
@@ -65,17 +65,17 @@ export class GetPlacesComponent {
 	errorMessage: string;
 	//######constructor
 	constructor(private getplacesservice: Getplacesservice) {
-		if(RecentPostComponent.nombrePlace!=='') {
-			this.paramname = RecentPostComponent.nombrePlace;
-		}else if(RandomPostComponent.nombrePlace!=='') {
-			this.paramname = RandomPostComponent.nombrePlace;
-		}else if(TopPostComponent.nombrePlace!=='') {
-			this.paramname = TopPostComponent.nombrePlace;
+		if(RecentPostComponent.idPlace!==undefined) {
+			this.paramid = RecentPostComponent.idPlace;
+		}else if(RandomPostComponent.idPlace!==undefined) {
+			this.paramid = RandomPostComponent.idPlace;
+		}else if(TopPostComponent.idPlace!==undefined) {
+			this.paramid = TopPostComponent.idPlace;
 		}
 
-		this.getplacesservice.getPlace99(this.paramname).subscribe(
+		this.getplacesservice.getPlace99(this.paramid).subscribe(
 			res => {
-				 this.Explace = res;
+				 this.Explace[0] = res;
 				 this.namePlace = this.Explace[0].name;
 
 				 this.placevalo.id = this.Explace[0].id;
@@ -101,7 +101,6 @@ export class GetPlacesComponent {
 				 this.data[3] = this.Explace[0].valfour;
 				 this.data[4] = this.Explace[0].valfive;
 
-				 console.log(this.namePlace);
 				 this.CommentCreat.town_id = this.Explace[0].town.id;
 				 this.CommentCreat.place_id = this.Explace[0].id;
 				 this.CommentCreat.depart_id = this.Explace[0].depart.id;
@@ -125,7 +124,7 @@ export class GetPlacesComponent {
 				this.starRatingConfig.readOnly = false;
 			 }
 			 );
-		this.getplacesservice.getComments(this.paramname).subscribe(
+		this.getplacesservice.getComments(this.paramid).subscribe(
 	 			res => {
 	 				 this.comments = res;
 					 console.log(this.comments);
@@ -139,8 +138,9 @@ export class GetPlacesComponent {
 		 				//console.log(this.postCreat);
 		 			}
 		 		);
-			RecentPostComponent.nombrePlace='';
-			RandomPostComponent.nombrePlace='';
+			RecentPostComponent.idPlace=undefined;
+			RandomPostComponent.idPlace=undefined;
+			TopPostComponent.idPlace=undefined;
 	}
 	getColor = (rating: number, numOfStars: number, staticColor?: any) => {
 		return staticColor || 'ok';

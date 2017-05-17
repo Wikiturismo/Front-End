@@ -36,13 +36,12 @@ import { Getplacesservice } from '../../getplaces/Getplaces.service';
 })
 
 export class RecentPostComponent {
-	static nombrePlace='';
+	static idPlace=undefined;
 	placesLast;
 	constructor(private recentpostservice: Recentpostservice, private getplacesservice: Getplacesservice) {
 	this.recentpostservice.getLastPlaces().subscribe(res => this.placesLast = res);
 	}
-	goPlace(name: string) {
-		RecentPostComponent.nombrePlace=name;
-		this.getplacesservice.sendName(name);
+	goPlace(id: number) {
+		RecentPostComponent.idPlace=id;
 	}
 }

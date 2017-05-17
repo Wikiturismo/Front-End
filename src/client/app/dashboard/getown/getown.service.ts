@@ -3,36 +3,22 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { GetTownComponent } from './getown.component';
 import {Observable} from 'rxjs/Rx';
 import {Commenttowns} from '../../../../../models/commenttown';
-import { URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class GetTownservice {
-	nombre;
 	constructor(private http: Http) {
-
 	}
-	sendName(name: string) {
-		this.nombre=name;
-		console.log(this.nombre);
-		return this.nombre;
-	}
-	getTowns(name: string) : Observable<GetTownComponent[]> {
-		console.log(this.nombre);
-		name = name.split(' ').join('+');
-		let params: URLSearchParams = new URLSearchParams();
-		params.set('q', name);
-		let url = 'http://localhost:3000/api/v1/towns/name';
-		return this.http.get(url, { search: params })
+	getTowns(id: number) : Observable<GetTownComponent[]> {
+		let url = 'http://localhost:3000/api/v1/towns/';
+		url+=id;
+		return this.http.get(url)
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
-	getComments(name: string) : Observable<GetTownComponent[]> {
-		name = name.split(' ').join('+');
-		let params: URLSearchParams = new URLSearchParams();
-		params.set('q', name);
-		params.set('sort', 'id+ASC');
-		let url = 'http://localhost:3000/api/v1/towns/comments';
-		return this.http.get(url, { search: params })
+	getComments(id: number) : Observable<GetTownComponent[]> {
+		let url = 'http://localhost:3000/api/v1/towns/comments?q=';
+		url+=id;
+		return this.http.get(url)
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}

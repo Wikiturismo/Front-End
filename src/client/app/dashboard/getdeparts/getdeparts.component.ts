@@ -35,12 +35,12 @@ import { DepartmentsComponent } from '../departments/departments.component';
 
 export class GetDepartsComponent {
 	counter=[];
-	Explace;
+	Explace=[];
 	errorMessage: string;
 	constructor(private getdepartsservice: Getdepartssservice) {
-		this.getdepartsservice.getDepart(DepartmentsComponent.nombreDepart).subscribe(
+		this.getdepartsservice.getDepart(DepartmentsComponent.idDepart).subscribe(
 			res => {
-				 this.Explace = res;
+				 this.Explace[0] = res;
 			 }
 			 );
 	}

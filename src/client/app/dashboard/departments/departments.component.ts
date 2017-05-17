@@ -34,14 +34,13 @@ import { Getdepartssservice } from '../getdeparts/Getdeparts.service';
 })
 
 export class DepartmentsComponent {
-	static nombreDepart='';
+	static idDepart=undefined;
 	departs;
 	constructor(private departmentsservice: Departmentsservice,private getdepartssservice: Getdepartssservice) {
        this.departmentsservice.getDepartments().subscribe(res => this.departs = res);
       }
-			goDepart(name: string) {
-				DepartmentsComponent.nombreDepart=name;
-				this.getdepartssservice.sendName(name);
+			goDepart(id: number) {
+				DepartmentsComponent.idDepart=id;
 			}
 
 }

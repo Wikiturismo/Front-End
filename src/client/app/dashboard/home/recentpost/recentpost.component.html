@@ -10,14 +10,15 @@
                       <div *ngFor="let placeL of placesLast; let i = index" >
                             <!--<slide active="slide.active" >-->
                               <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
-                                  <a routerLink="../getplaces" (click) ="goPlace(placeL.name)" ><h3 class="card-title" style="text-align: center"><font color="black">{{placeL.name}}</font></h3></a>
+                                  <a routerLink="../getplaces" (click) ="goPlace(placeL.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>{{placeL.name}}</b></font></h3></a>
                               </div>
                               <carousel class="carousel" [interval]=2500 [noWrap]=false>
                                 <slide *ngFor="let img of placeL.imageplaces; let index=index" [active]="img.active">
-                                  <img routerLink="../getplaces" (click) ="goPlace(placeL.name)" src="{{img.image.url}}" style="margin:auto;">
+                                  <a routerLink="../getplaces" (click) ="goPlace(placeL.id)"><img src="{{img.image.url}}" style="margin:auto;"></a>
                                 </slide>
                               </carousel>
-                                <div routerLink="../getplaces" (click) ="goPlace(placeL.name)" class="row">
+                              <a routerLink="../getplaces" (click) ="goPlace(placeL.id)">
+                                <div class="row">
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-header card-default">
@@ -28,6 +29,7 @@
                                                 </div>
                                             </div>
                                         </div>
+                                      </a>
                           <!--  </slide>-->
 
 </div>

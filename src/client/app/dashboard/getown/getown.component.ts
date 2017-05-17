@@ -34,22 +34,22 @@ import { ToptownComponent } from '../toptown/toptown.component';
 
 export class GetTownComponent {
 	counter=[];
-	Explace;
+	Explace=[];
 	namePlace : String;
 	CommentCreat = new Commenttowns(undefined,true,'',undefined,2,undefined,);
 	comments;
 	errorMessage: string;
 	constructor(private getownservice: GetTownservice) {
-		console.log(ToptownComponent.nombreTown);
-		this.getownservice.getTowns(ToptownComponent.nombreTown).subscribe(
+		console.log(ToptownComponent.idTown);
+		this.getownservice.getTowns(ToptownComponent.idTown).subscribe(
 			res => {
-				 this.Explace = res;
+				 this.Explace[0] = res;
 				 this.namePlace = this.Explace[0].name;
 				 this.CommentCreat.town_id = this.Explace[0].id;
 				 this.CommentCreat.depart_id = this.Explace[0].depart.id;
 			 }
 			 );
-		this.getownservice.getComments(ToptownComponent.nombreTown).subscribe(
+		this.getownservice.getComments(ToptownComponent.idTown).subscribe(
 	 			res => {
 	 				 this.comments = res;
 	 			 }

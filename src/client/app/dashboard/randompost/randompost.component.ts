@@ -33,13 +33,12 @@ import { Getplacesservice } from '../getplaces/Getplaces.service';
 })
 
 export class RandomPostComponent {
-	static nombrePlace='';
+	static idPlace=undefined;
 	places;
 	constructor(private randomPostservice: RandomPostservice, private getplacesservice: Getplacesservice) {
 		this.randomPostservice.getRandomPlaces().subscribe(res => this.places = res);
       }
-			goPlace(name: string) {
-				RandomPostComponent.nombrePlace=name;
-				this.getplacesservice.sendName(name);
+			goPlace(id: number) {
+				RandomPostComponent.idPlace=id;
 			}
 }
