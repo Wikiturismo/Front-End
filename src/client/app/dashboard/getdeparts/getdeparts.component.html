@@ -28,6 +28,21 @@
         <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
             <p> <b>Gentilicio:</b> {{Exp.demonym}} </p>
         </div>
+        <div class="card-header card-info card-inverse" style="background:#008CFF; width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
+            <p> <b>Ultimas ciudades o pueblos agregados:</b></p>
+            <div class="container"  *ngFor="let last of LastTowns; let k = index" >
+              <div  style="background:#f5f5f5; display:flex; width: 180px; height: 180px; margin: 5px; flex-wrap: wrap; justify-content: center;">
+                <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
+                  <a routerLink="../getown" (click) ="goTown(last.id)"><h1 class="card-title" style="text-align: center; font-size: 1.2em"><font color="black"> <b>{{last.name}}</b></font></h1></a>
+                </div>
+                <carousel class="carousel" [interval]=2500 [noWrap]=false>
+                  <slide *ngFor="let img of last.imagetowns; let index=index" [active]="img.active">
+                    <a routerLink="../getown" (click) ="goTown(last.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 100px; max-height: 100px;"></a>
+                  </slide>
+                </carousel>
+              </div>
+            </div>
+        </div>
       </div>
 
 </div>

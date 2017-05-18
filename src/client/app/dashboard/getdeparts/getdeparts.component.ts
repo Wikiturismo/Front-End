@@ -34,8 +34,10 @@ import { DepartmentsComponent } from '../departments/departments.component';
 })
 
 export class GetDepartsComponent {
+	static idTown=undefined;
 	counter=[];
 	Explace=[];
+	LastTowns;
 	errorMessage: string;
 	constructor(private getdepartsservice: Getdepartssservice) {
 		this.getdepartsservice.getDepart(DepartmentsComponent.idDepart).subscribe(
@@ -43,5 +45,13 @@ export class GetDepartsComponent {
 				 this.Explace[0] = res;
 			 }
 			 );
+			 this.getdepartsservice.getLastTowns(DepartmentsComponent.idDepart).subscribe(
+	 			res => {
+	 				 this.LastTowns = res;
+	 			 }
+	 			 );
+	}
+	goTown(id: number) {
+		GetDepartsComponent.idTown=id;
 	}
 }

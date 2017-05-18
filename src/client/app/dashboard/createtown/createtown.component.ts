@@ -43,7 +43,7 @@ export class CreateTownComponent {
 		console.log(this.formData);
 	}
 	townImage(form: any) {
-			this.http.post('http://localhost:3000/api/v1/imageplaces', this.formData).subscribe();
+			this.http.post('http://localhost:3000/api/v1/imagetowns', this.formData).subscribe();
 	}
 	createTown() {
 		this.townImage(this.formData);

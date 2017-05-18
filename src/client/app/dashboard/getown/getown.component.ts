@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { GetTownservice } from './getown.service';
 import {Commenttowns} from './commenttown';
 import { ToptownComponent } from '../toptown/toptown.component';
+import { GetDepartsComponent } from '../getdeparts/getdeparts.component';
 
 @Component({
 	moduleId: module.id,
@@ -33,15 +34,22 @@ import { ToptownComponent } from '../toptown/toptown.component';
 })
 
 export class GetTownComponent {
+	static idPlace=undefined;
 	counter=[];
 	Explace=[];
 	namePlace : String;
 	CommentCreat = new Commenttowns(undefined,true,'',undefined,2,undefined,);
 	comments;
+	paramid;
+	LastPlaces;
 	errorMessage: string;
 	constructor(private getownservice: GetTownservice) {
-		console.log(ToptownComponent.idTown);
-		this.getownservice.getTowns(ToptownComponent.idTown).subscribe(
+		if(ToptownComponent.idTown!==undefined) {
+			this.paramid = ToptownComponent.idTown;
+		}else if(GetDepartsComponent.idTown!==undefined) {
+			this.paramid = GetDepartsComponent.idTown;
+		}
+		this.getownservice.getTowns(this.paramid).subscribe(
 			res => {
 				 this.Explace[0] = res;
 				 this.namePlace = this.Explace[0].name;
@@ -49,20 +57,26 @@ export class GetTownComponent {
 				 this.CommentCreat.depart_id = this.Explace[0].depart.id;
 			 }
 			 );
-		this.getownservice.getComments(ToptownComponent.idTown).subscribe(
+		this.getownservice.getComments(this.paramid).subscribe(
 	 			res => {
 	 				 this.comments = res;
 	 			 }
 	 			 );
-				 this.getownservice.getCountComments().subscribe(
-		 		 			data => {
-		 		 				this.counter.push(data);
-		 		 				this.CommentCreat.id=this.counter[0].count+1;
-		 		 				//console.log(this.postCreat);
-		 		 			}
-		 		 		);
+		this.getownservice.getCountComments().subscribe(
+		 			data => {
+		 				this.counter.push(data);
+		 				this.CommentCreat.id=this.counter[0].count+1;
+		 				//console.log(this.postCreat);
+		 			}
+				);
+		this.getownservice.getLastPlaces(this.paramid).subscribe(
+					res => {
+		 	 				 this.LastPlaces = res;
+		 	 			 }
+		 	 			 );
+						 ToptownComponent.idTown=undefined;
+						 GetDepartsComponent.idTown=undefined;
 	}
-
 	createComment() {
 		if (!this.CommentCreat) { return; }
 		this.getownservice.NewComment(this.CommentCreat)
@@ -70,5 +84,8 @@ export class GetTownComponent {
 				commenttowns => this.CommentCreat,
 				error => this.errorMessage = <any>error);
 				console.log(this.CommentCreat);
+	}
+	goPlace(id: number) {
+		GetTownComponent.idPlace=id;
 	}
 }

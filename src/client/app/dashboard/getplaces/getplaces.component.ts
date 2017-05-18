@@ -4,6 +4,7 @@ import { Comment } from './comment';
 import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 import { RandomPostComponent } from '../randompost/randompost.component';
 import { TopPostComponent } from '../top-post/topPost.component';
+import { GetTownComponent } from '../getown/getown.component';
 import { Place } from './placeval';
 import { Valoration } from './valoration';
 import { Color } from 'ng2-charts';
@@ -75,6 +76,8 @@ export class GetPlacesComponent {
 			this.paramid = RandomPostComponent.idPlace;
 		}else if(TopPostComponent.idPlace!==undefined) {
 			this.paramid = TopPostComponent.idPlace;
+		}else if(GetTownComponent.idPlace!==undefined) {
+			this.paramid = GetTownComponent.idPlace;
 		}
 
 		this.getplacesservice.getPlace99(this.paramid).subscribe(
@@ -164,6 +167,7 @@ export class GetPlacesComponent {
 			RecentPostComponent.idPlace=undefined;
 			RandomPostComponent.idPlace=undefined;
 			TopPostComponent.idPlace=undefined;
+			GetTownComponent.idPlace=undefined;
 	}
 	getColor = (rating: number, numOfStars: number, staticColor?: any) => {
 		return staticColor || 'ok';

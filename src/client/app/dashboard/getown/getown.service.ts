@@ -3,10 +3,19 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { GetTownComponent } from './getown.component';
 import {Observable} from 'rxjs/Rx';
 import {Commenttowns} from '../../../../../models/commenttown';
+import { URLSearchParams } from '@angular/http';
 
 @Injectable()
 export class GetTownservice {
 	constructor(private http: Http) {
+	}
+	getLastPlaces(depart_id: number) : Observable<GetTownComponent[]> {
+		let params: URLSearchParams = new URLSearchParams();
+		params.set('q', String(depart_id));
+		let url = 'http://localhost:3000/api/v1/places/lastbytown';
+		return this.http.get(url, { search: params })
+		.map(res => (<Response>res).json().data)
+		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
 	getTowns(id: number) : Observable<GetTownComponent[]> {
 		let url = 'http://localhost:3000/api/v1/towns/';
