@@ -19,10 +19,15 @@ export class Createtownservice {
 		let body = JSON.stringify( town);
 		let headers = new Headers({ 'Content-Type': 'application/json' });
 		let options = new RequestOptions({ headers: headers });
-		this.router.navigate(['/dashboard/home']);
+		//this.router.navigate(['/dashboard/home']);
 		return this.http.post(('http://localhost:3000/api/v1/towns'), body, options)
 				.map(this.extractData)
 				.catch(this.handleError);
+	}
+	getCountImages() : Observable<CreateTownComponent[]> {
+		return this.http.get('http://localhost:3000/api/v1/imagetowns/count')
+		.map(this.extractData)
+		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
 	private extractData(res: Response) {
 			let body = res.json();

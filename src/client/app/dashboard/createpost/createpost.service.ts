@@ -24,19 +24,22 @@ export class Createpostservice {
         let body = JSON.stringify( place);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-				this.router.navigate(['/dashboard/home']);
+				//this.router.navigate(['/dashboard/home']);
         return this.http.post(('http://localhost:3000/api/v1/places'), body, options)
             .map(this.extractData)
             .catch(this.handleError);
     }
-
+		getCountImages() : Observable<CreatePostComponent[]> {
+			return this.http.get('http://localhost:3000/api/v1/imageplaces/count')
+			.map(this.extractData)
+			.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+		}
     private extractData(res: Response) {
         let body = res.json();
         //console.log("servicio");
         //console.log(body);
         return body.data || {};
     }
-
     private handleError(error: Response) {
         console.error(error);
         return Observable.throw(error.json().error || 'Server Error');

@@ -45,7 +45,7 @@
         <!-- VALORACION-->
         <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left; float: left; width: 100%;">
             <p> <b>Valoración:</b> </p>
-            <div style="display: inline-block; float: left;">
+            <div style="display: inline-block; float: left; width:300px;">
             <star-rating-comp
             [id]="starRatingConfig.id"
             [rating]="starRatingConfig.rating"
@@ -70,6 +70,13 @@
             (onClick)="onClick($event)"
             (onRatingChange)="onRatingChange($event)"
           ></star-rating-comp>
+          <div *ngIf="starRatingConfig.disabled == false">
+            <p style="text-align:center;"><b>NO</b> has votado en "{{Exp.name}}".</p>
+          </div>
+          <div *ngIf="starRatingConfig.disabled == true">
+            <p style="text-align:center;">Ya has votado en "{{Exp.name}}"" con:</p>
+            <p style="text-align:center;"> <b>{{valor[0].val}} estrella</b></p>
+          </div>
         </div>
           <div style="display: inline-block; float: right; width:55%;">
       <canvas baseChart

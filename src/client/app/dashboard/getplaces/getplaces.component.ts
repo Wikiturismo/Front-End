@@ -5,6 +5,7 @@ import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 import { RandomPostComponent } from '../randompost/randompost.component';
 import { TopPostComponent } from '../top-post/topPost.component';
 import { Place } from './placeval';
+import { Valoration } from './valoration';
 import { Color } from 'ng2-charts';
 
 
@@ -53,7 +54,9 @@ export class GetPlacesComponent {
 			'#1A8C19'
     ]
   }];
+	valor;
 	counter=[];
+	countval=[];
 	paramid;
 	Explace=[];
 	starRatingConfig;
@@ -61,6 +64,7 @@ export class GetPlacesComponent {
 	placevalo= new Place(undefined,'',1,'','','','',undefined,undefined,undefined,
 	undefined,undefined,undefined,undefined,undefined,undefined,undefined);
 	CommentCreat = new Comment(undefined,true,'',undefined,undefined,2,undefined,);
+	valora = new Valoration(undefined,undefined,undefined,2);
 	comments;
 	errorMessage: string;
 	//######constructor
@@ -79,6 +83,9 @@ export class GetPlacesComponent {
 				 this.namePlace = this.Explace[0].name;
 
 				 this.placevalo.id = this.Explace[0].id;
+				 //valoration
+				 this.valora.place_id = this.Explace[0].id;
+				 //valoration
 				 this.placevalo.name = this.Explace[0].name;
 				 this.placevalo.description = this.Explace[0].description;
 				 this.placevalo.ubication = this.Explace[0].ubication;
@@ -112,7 +119,6 @@ export class GetPlacesComponent {
 				this.starRatingConfig.numOfStars = 5;
 				this.starRatingConfig.size = 'large';
 				this.starRatingConfig.space = 'no';
-				this.starRatingConfig.disabled  = false;
 				this.starRatingConfig.starType = 'svg';
 				this.starRatingConfig.labelPosition = 'bottom';
 				this.starRatingConfig.labelText = this.starRatingConfig.rating;
@@ -121,7 +127,18 @@ export class GetPlacesComponent {
 				this.starRatingConfig.hoverEnabled = true;
 				this.starRatingConfig.direction = 'ltr';
 				this.starRatingConfig.step = 0.5;
-				this.starRatingConfig.readOnly = false;
+			 this.getplacesservice.getVal(this.Explace[0].id,2).subscribe(
+					res => {
+						 this.valor = res;
+						 if(this.valor.length===0) {
+							 this.starRatingConfig.disabled  = false;
+							this.starRatingConfig.readOnly = false;
+						 }else {
+							 this.starRatingConfig.disabled  = true;
+							 this.starRatingConfig.readOnly = true;
+						 }
+					 }
+					 );
 			 }
 			 );
 		this.getplacesservice.getComments(this.paramid).subscribe(
@@ -138,6 +155,12 @@ export class GetPlacesComponent {
 		 				//console.log(this.postCreat);
 		 			}
 		 		);
+				this.getplacesservice.getCountVal().subscribe(
+				 			data => {
+				 				this.countval.push(data);
+				 				this.valora.id=this.countval[0].count+1;
+				 			}
+				 		);
 			RecentPostComponent.idPlace=undefined;
 			RandomPostComponent.idPlace=undefined;
 			TopPostComponent.idPlace=undefined;
@@ -166,6 +189,7 @@ export class GetPlacesComponent {
 		}else if($event.rating===5) {
 			this.placevalo.valfive+=1;
 		}
+		this.valora.val=$event.rating;
 		//calculating valoration
 		this.placevalo.valoration=(this.placevalo.valone*1 + this.placevalo.valtwo*2 +
 			this.placevalo.valthree*3 + this.placevalo.valfour*4 +
@@ -178,6 +202,11 @@ export class GetPlacesComponent {
 				.subscribe(
 				place => this.placevalo,
 				error => this.errorMessage = <any>error);
+		if (!this.valora) { return; }
+		this.getplacesservice.postVal(this.valora)
+					.subscribe(
+					valoration => this.valora,
+					error => this.errorMessage = <any>error);
 	};
 	createComment() {
 		if (!this.CommentCreat) { return; }
