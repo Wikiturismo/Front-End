@@ -1,3 +1,87 @@
+
+<div class="row" style="float: left; width: 100%;">
+    <div style="float: left; width: 100%;">
+
+    <div class="card" align="center" style="float: left; width: 100%;">
+        <div class="card-block">
+
+
+              <div class="jumbotron jumbotron-fluid" style="float: left; width: 100%;">
+ <h1 >Top Lugares</h1>
+<div *ngFor="let place of places; let i = index" style=" margin-left: 30px" >
+
+  <div  style="background:#f5f5f5; float:left; width: 320px;height: 420px; margin: 5px">
+    <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
+     <a routerLink="../getplaces" (click) ="goPlace(place.id)"><h3 class="card-title" style="text-align: center"><font color="black"> <b>{{place.name}}</b></font></h3></a>
+    </div>
+      <div>
+
+          <carousel class="carousel" [interval]=2500 [noWrap]=false>
+               <slide *ngFor="let img of place.imageplaces; let index=index" [active]="img.active">
+                 <a routerLink="../getplaces" (click) ="goPlace(place.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
+               </slide>
+            </carousel>
+
+      </div>
+      <a routerLink="../getplaces" (click) ="goPlace(place.id)">
+        <!--<div class="row">
+          <div class="col-md-12">
+              <div class="card">-->
+
+              <div class="row">
+                <div class="col-md-12">
+                    <div class="card">
+                            <div class="card-header card-default">
+                                <h5 class="card-title"> Valoración
+                                </h5>
+                                <star-rating-comp
+                                [id]="starRatingConfig.id"
+                                [rating]="place.valoration"
+                                [step]="starRatingConfig.step"
+                                [showHalfStars]="starRatingConfig.showHalfStars"
+                                [numOfStars]="starRatingConfig.numOfStars"
+                                [size]="starRatingConfig.size"
+                                [space]="starRatingConfig.space"
+                                [staticColor]="starRatingConfig.staticColor"
+                                [disabled]="starRatingConfig.disabled"
+                                [hoverEnabled]="starRatingConfig.hoverEnabled"
+                                [starType]="starRatingConfig.starType"
+                                [labelText]="place.valoration"
+                                [labelPosition]="starRatingConfig.labelPosition"
+                                [labelVisible]="starRatingConfig.labelVisible"
+                                [speed]="starRatingConfig.speed"
+                                [direction]="starRatingConfig.direction"
+                                [readOnly]="starRatingConfig.readOnly"
+                                [getColor]="getColor"
+                                [getHalfStarVisible]="getHalfStarVisible"
+                              ></star-rating-comp>
+                            </div>
+                              <div class="card-header card-default" style="
+                                  height:80px;
+                                  float:left;
+                                  overflow:hidden!important;
+                                  text-overflow: ellipsis;
+                                  ">
+                                  <h5 class="card-title"> Descripción
+                                  </h5>
+                                  <p  style="font-size: 0.9em;" > {{place.description}}</p>
+                              </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  <!--  </div>
+                </div>
+            </div>-->
+          </a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!--
 <div class="row">
     <div class="col-md-8 col-md-offset-2">
 
@@ -65,12 +149,12 @@
 
 </div>
 <ul>
-  <!--<div>{{departs}}</div>-->
+  <div>{{departs}}</div>-->
   <!--<li *ngFor="let place of places">
-  	{{place.name}}</li>-->
+  	{{place.name}}</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-</div>
+</div>-->

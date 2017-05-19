@@ -1,6 +1,57 @@
 
+<div class="row" style="float: left; width: 100%;">
+    <div style="float: left; width: 100%;">
 
-<div class="row">
+    <div class="card" align="center" style="float: left; width: 100%;">
+        <div class="card-block">
+
+
+              <div class="jumbotron jumbotron-fluid" style="float: left; width: 100%;">
+ <h1 >Post aleatorios</h1>
+<div *ngFor="let place of places; let i = index" style=" margin-left: 30px" >
+
+  <div  style="background:#f5f5f5; float:left; width: 320px;height: 280px; margin: 5px">
+    <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
+     <a routerLink="../getplaces" (click) ="goPlace(place.id)"><h3 class="card-title" style="text-align: center"><font color="black"> <b>{{place.name}}</b></font></h3></a>
+    </div>
+      <div>
+
+          <carousel class="carousel" [interval]=2500 [noWrap]=false>
+               <slide *ngFor="let img of place.imageplaces; let index=index" [active]="img.active">
+                 <a routerLink="../getplaces" (click) ="goPlace(place.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
+               </slide>
+            </carousel>
+
+      </div>
+      <a routerLink="../getplaces" (click) ="goPlace(place.id)">
+        <!--<div class="row">
+          <div class="col-md-12">
+              <div class="card">-->
+
+              <div class="card-header card-default" style="
+                  height:80px;
+                  float:left;
+                  overflow:hidden;
+                  text-overflow: ellipsis;
+                  ">
+                  <h5 class="card-title"> Descripción
+                  </h5>
+                  <p  style="font-size: 0.9em;" > {{place.description}}</p>
+              </div>
+
+                  <!--  </div>
+                </div>
+            </div>-->
+          </a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!--<div class="row">
     <div class="col-md-8 col-md-offset-2">
 
 		<div class="card" align="center">
@@ -9,7 +60,7 @@
 
 							<div class="jumbotron jumbotron-fluid">
 
- <h1 class="container" >Post aleatorios</h1>
+ <h1 class="container" ></h1>
 <div class="container"  *ngFor="let place of places; let i = index">
 
 
@@ -43,12 +94,12 @@
 
 </div>
 <ul>
-  <!--<div>{{departs}}</div>-->
-  <!--<li *ngFor="let place of places">
-  	{{place.name}}</li>-->
+  <div>{{departs}}</div>
+  <li *ngFor="let place of places">
+  	{{place.name}}</li>
 </ul>
 </div>
 </div>
 </div>
 </div>
-</div>
+</div>-->
