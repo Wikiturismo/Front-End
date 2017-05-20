@@ -3,6 +3,10 @@ import { GetTownservice } from './getown.service';
 import {Commenttowns} from './commenttown';
 import { ToptownComponent } from '../toptown/toptown.component';
 import { GetDepartsComponent } from '../getdeparts/getdeparts.component';
+import { GetPlacesComponent } from '../getplaces/getplaces.component';
+import { RecentPostComponent } from '../home/recentpost/recentpost.component';
+import { RandomPostComponent } from '../randompost/randompost.component';
+import { TopPostComponent } from '../top-post/topPost.component';
 
 @Component({
 	moduleId: module.id,
@@ -35,6 +39,7 @@ import { GetDepartsComponent } from '../getdeparts/getdeparts.component';
 
 export class GetTownComponent {
 	static idPlace=undefined;
+	static idDepart=undefined;
 	counter=[];
 	Explace=[];
 	namePlace : String;
@@ -48,6 +53,14 @@ export class GetTownComponent {
 			this.paramid = ToptownComponent.idTown;
 		}else if(GetDepartsComponent.idTown!==undefined) {
 			this.paramid = GetDepartsComponent.idTown;
+		}else if(RecentPostComponent.idTown!==undefined) {
+			this.paramid = RecentPostComponent.idTown;
+		}else if(GetPlacesComponent.idTown!==undefined) {
+			this.paramid = GetPlacesComponent.idTown;
+		}else if(RandomPostComponent.idTown!==undefined) {
+			this.paramid = RandomPostComponent.idTown;
+		}else if(TopPostComponent.idTown!==undefined) {
+			this.paramid = TopPostComponent.idTown;
 		}
 		this.getownservice.getTowns(this.paramid).subscribe(
 			res => {
@@ -76,6 +89,10 @@ export class GetTownComponent {
 		 	 			 );
 						 ToptownComponent.idTown=undefined;
 						 GetDepartsComponent.idTown=undefined;
+						 RecentPostComponent.idTown=undefined;
+						 GetPlacesComponent.idTown=undefined;
+						 RandomPostComponent.idTown=undefined;
+						 TopPostComponent.idTown=undefined;
 	}
 	createComment() {
 		if (!this.CommentCreat) { return; }
@@ -87,5 +104,8 @@ export class GetTownComponent {
 	}
 	goPlace(id: number) {
 		GetTownComponent.idPlace=id;
+	}
+	goDepart(id: number) {
+		GetTownComponent.idDepart=id;
 	}
 }

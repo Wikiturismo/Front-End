@@ -34,6 +34,8 @@ import { Getplacesservice } from '../getplaces/Getplaces.service';
 
 export class TopPostComponent {
 	static idPlace=undefined;
+	static idDepart=undefined;
+	static idTown=undefined;
 	places;
 	starRatingConfig;
 	constructor(private topPostservice: TopPostservice, private getplacesservice: Getplacesservice) {
@@ -62,6 +64,12 @@ export class TopPostComponent {
 			goPlace(id: number) {
 				TopPostComponent.idPlace=id;
 			};
+			goDepart(id: number) {
+				TopPostComponent.idDepart=id;
+			}
+			goTown(id: number) {
+				TopPostComponent.idTown=id;
+			}
 			getColor = (rating: number, numOfStars: number, staticColor?: any) => {
 				return staticColor || 'ok';
 			};

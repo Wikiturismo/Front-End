@@ -37,11 +37,19 @@ import { Getplacesservice } from '../../getplaces/Getplaces.service';
 
 export class RecentPostComponent {
 	static idPlace=undefined;
+	static idDepart=undefined;
+	static idTown=undefined;
 	placesLast;
 	constructor(private recentpostservice: Recentpostservice, private getplacesservice: Getplacesservice) {
 	this.recentpostservice.getLastPlaces().subscribe(res => this.placesLast = res);
 	}
 	goPlace(id: number) {
 		RecentPostComponent.idPlace=id;
+	}
+	goDepart(id: number) {
+		RecentPostComponent.idDepart=id;
+	}
+	goTown(id: number) {
+		RecentPostComponent.idTown=id;
 	}
 }

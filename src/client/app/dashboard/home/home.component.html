@@ -32,23 +32,26 @@
         <br><br> <!--Espaciado-->
       </div>
 <!--Barra de busqueda-->
+<form role="form" (ngSubmit)="search()">
       <div class="input-group" >
           <div class="input-group-btn search-panel" >
 		          <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 		              <span id="search_concept">Filtro</span>
 		          </button>
 		          <ul class="dropdown-menu" role="menu">
-			             <li><a href="#id"><i class="fa fa-angle-double-right" style="background:#488e4c;" ></i>Lugares</a></li>
-			             <li><a href="#name"><i class="fa fa-angle-double-right" style="background:#488e4c;" ></i> Ciudades</a></li>
-			             <li><a href="#description"><i class="fa fa-angle-double-right"style="background:#488e4c;" ></i>Establecimientos</a></li>
+			             <li><i class="fa fa-angle-double-right" style="background:#488e4c;"></i>Lugares</li>
+			             <li><i class="fa fa-angle-double-right" style="background:#488e4c;"></i> Ciudades</li>
+			             <li><i class="fa fa-angle-double-right"style="background:#488e4c;"></i>Establecimientos</li>
 		          </ul>
            </div>
-	<input type="hidden" name="search_param" value="name" id="search_param">
-	<input type="text" class="form-control" name="q" placeholder="Buscar..." id="search_key" value="">
+  <div class="form-group">
+    <input class="form-control" type="text" required [(ngModel)]="param" placeholder="Buscar..." name="searchKey">
+  </div>
 	<span class="input-group-btn">
-			<button class="btn btn-info" type="submit">  Buscar  </button>
+			<button  class="btn btn-primary" type="submit">  Buscar  </button>
 	</span>
 </div>
+</form>
       <!---Se Llama el componente de los post recientes-->
       </div>
       <recentpost-cmp style="background:#488e4c;"></recentpost-cmp>

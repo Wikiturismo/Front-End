@@ -38,8 +38,9 @@ import { Color } from 'ng2-charts';
 			}
 	  `]
 })
-
 export class GetPlacesComponent {
+	static idDepart=undefined;
+	static idTown=undefined;
 	labels:string[] = ['Votos 1', 'Votos 2', 'Votos 3', 'Votos 4', 'Votos 5'];
   data:number[] = [0,0,0,0,0];
   type:string = 'doughnut';
@@ -218,5 +219,11 @@ export class GetPlacesComponent {
 				.subscribe(
 				commentplaces => this.CommentCreat,
 				error => this.errorMessage = <any>error);
+	}
+	goDepart(id: number) {
+		GetPlacesComponent.idDepart=id;
+	}
+	goTown(id: number) {
+		GetPlacesComponent.idTown=id;
 	}
 }

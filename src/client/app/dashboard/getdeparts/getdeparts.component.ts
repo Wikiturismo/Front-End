@@ -1,7 +1,11 @@
 import { Component } from '@angular/core';
 import { Getdepartssservice } from './Getdeparts.service';
 import { DepartmentsComponent } from '../departments/departments.component';
-
+import { RecentPostComponent } from '../home/recentpost/recentpost.component';
+import { GetPlacesComponent } from '../getplaces/getplaces.component';
+import { GetTownComponent } from '../getown/getown.component';
+import { RandomPostComponent } from '../randompost/randompost.component';
+import { TopPostComponent } from '../top-post/topPost.component';
 
 @Component({
 	moduleId: module.id,
@@ -38,18 +42,38 @@ export class GetDepartsComponent {
 	counter=[];
 	Explace=[];
 	LastTowns;
+	paramid;
 	errorMessage: string;
 	constructor(private getdepartsservice: Getdepartssservice) {
-		this.getdepartsservice.getDepart(DepartmentsComponent.idDepart).subscribe(
+		if(DepartmentsComponent.idDepart!==undefined) {
+			this.paramid = DepartmentsComponent.idDepart;
+		}else if(RecentPostComponent.idDepart!==undefined) {
+			this.paramid = RecentPostComponent.idDepart;
+		}else if(GetPlacesComponent.idDepart!==undefined) {
+			this.paramid = GetPlacesComponent.idDepart;
+		}else if(GetTownComponent.idDepart!==undefined) {
+			this.paramid = GetTownComponent.idDepart;
+		}else if(RandomPostComponent.idDepart!==undefined) {
+			this.paramid = RandomPostComponent.idDepart;
+		}else if(TopPostComponent.idDepart!==undefined) {
+			this.paramid = TopPostComponent.idDepart;
+		}
+		this.getdepartsservice.getDepart(this.paramid).subscribe(
 			res => {
 				 this.Explace[0] = res;
 			 }
 			 );
-			 this.getdepartsservice.getLastTowns(DepartmentsComponent.idDepart).subscribe(
+			 this.getdepartsservice.getLastTowns(this.paramid).subscribe(
 	 			res => {
 	 				 this.LastTowns = res;
 	 			 }
 	 			 );
+		RecentPostComponent.idDepart=undefined;
+		DepartmentsComponent.idDepart=undefined;
+		GetPlacesComponent.idDepart=undefined;
+		GetTownComponent.idDepart=undefined;
+		RandomPostComponent.idDepart=undefined;
+		TopPostComponent.idDepart=undefined;
 	}
 	goTown(id: number) {
 		GetDepartsComponent.idTown=id;

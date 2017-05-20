@@ -34,11 +34,19 @@ import { Getplacesservice } from '../getplaces/Getplaces.service';
 
 export class RandomPostComponent {
 	static idPlace=undefined;
+	static idDepart=undefined;
+	static idTown=undefined;
 	places;
 	constructor(private randomPostservice: RandomPostservice, private getplacesservice: Getplacesservice) {
 		this.randomPostservice.getRandomPlaces().subscribe(res => this.places = res);
       }
 			goPlace(id: number) {
 				RandomPostComponent.idPlace=id;
+			}
+			goDepart(id: number) {
+				RandomPostComponent.idDepart=id;
+			}
+			goTown(id: number) {
+				RandomPostComponent.idTown=id;
 			}
 }

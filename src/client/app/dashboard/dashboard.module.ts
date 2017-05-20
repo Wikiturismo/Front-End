@@ -17,6 +17,7 @@ import { GetTownModule } from './getown/getown.module';
 import { GetDepartsModule } from './getdeparts/getdeparts.module';
 import { DepartmentsModule } from './departments/departments.module';
 import { ToptownModule } from './toptown/toptown.module';
+import { SearchModule } from './search/search.module';
 
 
 @NgModule({
@@ -36,6 +37,7 @@ import { ToptownModule } from './toptown/toptown.module';
         GetDepartsModule,
         DepartmentsModule,
         ToptownModule,
+        SearchModule,
     ],
     declarations: [DashboardComponent, SidebarComponent],
     exports: [DashboardComponent, SidebarComponent]

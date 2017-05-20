@@ -14,6 +14,7 @@ import { GetTownRoutes } from './getown/index';
 import { DepartmentsRoutes } from './departments/index';
 import { ToptownRoutes } from './toptown/index';
 import { GetDepartsRoutes } from './getdeparts/index';
+import { SearchRoutes } from './search/index';
 
 export const DashboardRoutes: Route[] = [
   	{
@@ -33,7 +34,7 @@ export const DashboardRoutes: Route[] = [
         ...GetDepartsRoutes,
         ...DepartmentsRoutes,
         ...ToptownRoutes,
-
+        ...SearchRoutes,
     	]
   	}
 ];
