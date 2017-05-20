@@ -14,7 +14,7 @@ export class HomeComponent {
 	static searchKey='';
 	static filter='';
 	param='';
-	paramfilter='';
+	paramfilter='Filtros';
 	constructor(private router: Router) {
 	}
 	search() {

@@ -69,8 +69,8 @@ export class GetPlacesComponent {
 	namePlace : String;
 	placevalo= new Place(undefined,'',1,'','','','',undefined,undefined,undefined,
 	undefined,undefined,undefined,undefined,undefined,undefined,undefined);
-	CommentCreat = new Comment(undefined,true,'',undefined,undefined,2,undefined,);
-	valora = new Valoration(undefined,undefined,undefined,2);
+	CommentCreat = new Comment(undefined,true,'',undefined,undefined,3,undefined,);
+	valora = new Valoration(undefined,undefined,undefined,3);
 	comments;
 	errorMessage: string;
 	//######constructor
@@ -137,7 +137,7 @@ export class GetPlacesComponent {
 				this.starRatingConfig.hoverEnabled = true;
 				this.starRatingConfig.direction = 'ltr';
 				this.starRatingConfig.step = 0.5;
-			 this.getplacesservice.getVal(this.Explace[0].id,2).subscribe(
+			 this.getplacesservice.getVal(this.Explace[0].id,3).subscribe(
 					res => {
 						 this.valor = res;
 						 if(this.valor.length===0) {
@@ -179,23 +179,30 @@ export class GetPlacesComponent {
 	 return Math.abs(rating % 1) > 0;
 	};
 	onHoverRatingChange = ($event) => {
-		console.log('onHoverRatingChange $event: ', $event);
+		//console.log('onHoverRatingChange $event: ', $event);
 	};
 	onRatingChange = ($event) => {
-		console.log('onRatingUpdated $event: ', $event);
+		//console.log('onRatingUpdated $event: ', $event);
 	};
 	onClick = ($event) => {
 		if($event.rating===1) {
 			this.placevalo.valone+=1;
+			this.data[0]=this.placevalo.valone;
 		}else if($event.rating===2) {
 			this.placevalo.valtwo+=1;
+			this.data[1]=this.placevalo.valtwo;
 		}else if($event.rating===3) {
 			this.placevalo.valthree+=1;
+			this.data[2]=this.placevalo.valthree;
 		}else if($event.rating===4) {
 			this.placevalo.valfour+=1;
+			this.data[3]=this.placevalo.valfour;
 		}else if($event.rating===5) {
 			this.placevalo.valfive+=1;
+			this.data[4]=this.placevalo.valfive;
 		}
+		this.valor[0]={};
+		this.valor[0].val=$event.rating;
 		this.valora.val=$event.rating;
 		//calculating valoration
 		this.placevalo.valoration=(this.placevalo.valone*1 + this.placevalo.valtwo*2 +
@@ -203,7 +210,11 @@ export class GetPlacesComponent {
 			this.placevalo.valfive*5)/(this.placevalo.valone + this.placevalo.valtwo +
 				this.placevalo.valthree + this.placevalo.valfour + this.placevalo.valfive);
 		this.placevalo.valoration = +Number(this.placevalo.valoration).toFixed(2);
-
+		//change star visualization
+		this.starRatingConfig.labelText = this.placevalo.valoration;
+		this.starRatingConfig.disabled  = true;
+		this.starRatingConfig.readOnly = true;
+		//change star visualization
 		if (!this.placevalo) { return; }
 		this.getplacesservice.patchValoration(this.placevalo)
 				.subscribe(

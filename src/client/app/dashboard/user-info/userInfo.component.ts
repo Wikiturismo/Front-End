@@ -18,6 +18,7 @@ export class UserInfoComponent {
 	formData = new FormData();
 	imagec=0;
 	imgen;
+	url;
 	userCreat = new User(undefined, '', '', '','');
   errorMessage: string;
 	constructor(private http: Http,
@@ -30,7 +31,7 @@ export class UserInfoComponent {
 					this.userCreat.kind=this.user[0].kind;
 					this.userCreat.email=this.user[0].email;
 					this.userCreat.ubication=this.user[0].ubication;
-					console.log(this.user[0].imageusers.length);
+					console.log(this.user[0].imageusers);
 					this.imgen=this.user[0].imageusers;
 					this.imagec=this.user[0].imageusers.length;
 					//console.log(this.userCreat);
@@ -41,14 +42,13 @@ export class UserInfoComponent {
 	    this.file = fileInput.target.files[0];
 			this.formData.append('image', this.file);
 			this.formData.append('user_id',this.userCreat.id);
-			console.log(this.formData);
 		}
 		userImage(form: any) {
-			console.log(this.imagec);
 			if(this.imagec===0) {
 				this.http.post('http://localhost:3000/api/v1/imageusers', this.formData).subscribe();
 			}else {
-				this.http.patch('http://localhost:3000/api/v1/imageusers/1', this.formData).subscribe();
+				this.url='http://localhost:3000/api/v1/imageusers/3';
+				this.http.patch(this.url, this.formData).subscribe();
 			}
 		}
 	updateUser() {

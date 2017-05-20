@@ -9,7 +9,7 @@ export class Sidebarservice {
 
 	}
 	getUser2() : Observable<SidebarComponent[]> {
-		return this.http.get('http://localhost:3000/api/v1/users/2')
+		return this.http.get('http://localhost:3000/api/v1/users/3')
 		.map(this.extractData)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
