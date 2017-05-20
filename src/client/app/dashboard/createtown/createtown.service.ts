@@ -21,7 +21,11 @@ export class Createtownservice {
 		let options = new RequestOptions({ headers: headers });
 		//this.router.navigate(['/dashboard/home']);
 		return this.http.post(('http://localhost:3000/api/v1/towns'), body, options)
-				.map(this.extractData)
+		.map((res: Response) => {
+			if (res.status===201) {
+				this.extractData;
+			}
+		})
 				.catch(this.handleError);
 	}
 	getCountImages() : Observable<CreateTownComponent[]> {

@@ -24,9 +24,12 @@ export class Createpostservice {
         let body = JSON.stringify( place);
         let headers = new Headers({ 'Content-Type': 'application/json' });
         let options = new RequestOptions({ headers: headers });
-				//this.router.navigate(['/dashboard/home']);
         return this.http.post(('http://localhost:3000/api/v1/places'), body, options)
-            .map(this.extractData)
+            .map((res: Response) => {
+							if (res.status===201) {
+								this.extractData;
+							}
+						})
             .catch(this.handleError);
     }
 		getCountImages() : Observable<CreatePostComponent[]> {

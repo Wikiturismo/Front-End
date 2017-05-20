@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Http } from '@angular/http';
 import { Createpostservice } from './createpost.service';
 import {Place} from './place';
+import { Router } from '@angular/router';
 
 @Component({
 	moduleId: module.id,
@@ -20,7 +21,7 @@ export class CreatePostComponent {
 	//selectedDepart= this.cities[1];;
 	postCreat = new Place(undefined, '', true, '','','','',undefined,10,undefined,2);
     errorMessage: string;
-	constructor(private http: Http, private createpostservice: Createpostservice) {
+	constructor(private http: Http, private createpostservice: Createpostservice,private router: Router) {
 		this.createpostservice.getCount().subscribe(
 			data => {
 				this.counter.push(data);
@@ -56,7 +57,8 @@ export class CreatePostComponent {
 		console.log(this.formData);
 	}
 	placeImage(form: any) {
-			this.http.post('http://localhost:3000/api/v1/imageplaces', this.formData).subscribe();
+			this.http.post('http://localhost:3000/api/v1/imageplaces', this.formData).subscribe(
+		() =>this.router.navigate(['/dashboard/home']));
 	}
   onChange(depart) {
 		this.createpostservice.getTowns(depart).subscribe(

@@ -53,7 +53,7 @@
                 <div class="col-md-6">
                     <div class="form-group">
 											<label class="control-label" for="Temperatura">Temperatura </label>
-											<input class="form-control" type="number" required [(ngModel)]="TownCreat.avertemper" name="avertemper">
+											<input class="form-control" type="number" required [(ngModel)]="TownCreat.avertemper" name="avertemper" min="-59" max=59>
 										</div>
                 </div>
 
@@ -61,7 +61,7 @@
 								<div class="col-md-6">
 										<div class="form-group">
 											<label class="control-label" for="Altitud">Altitud </label>
-											<input class="form-control" type="number" required [(ngModel)]="TownCreat.altitude" name="altitude">
+											<input class="form-control" type="number" min="0" max=5999 required [(ngModel)]="TownCreat.altitude" name="altitude">
 										</div>
 								</div>
 								</div>

@@ -201,7 +201,7 @@ export class GetPlacesComponent {
 			this.placevalo.valfive+=1;
 			this.data[4]=this.placevalo.valfive;
 		}
-		this.valor[0]={};
+		this.valor[0] = {};
 		this.valor[0].val=$event.rating;
 		this.valora.val=$event.rating;
 		//calculating valoration
