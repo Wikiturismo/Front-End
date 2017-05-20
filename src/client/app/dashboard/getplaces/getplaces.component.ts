@@ -5,6 +5,10 @@ import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 import { RandomPostComponent } from '../randompost/randompost.component';
 import { TopPostComponent } from '../top-post/topPost.component';
 import { GetTownComponent } from '../getown/getown.component';
+import { SearchComponent } from '../search/search.component';
+import { ToptownComponent } from '../toptown/toptown.component';
+import { GetDepartsComponent } from '../getdeparts/getdeparts.component';
+import { DepartmentsComponent } from '../departments/departments.component';
 import { Place } from './placeval';
 import { Valoration } from './valoration';
 import { Color } from 'ng2-charts';
@@ -79,6 +83,8 @@ export class GetPlacesComponent {
 			this.paramid = TopPostComponent.idPlace;
 		}else if(GetTownComponent.idPlace!==undefined) {
 			this.paramid = GetTownComponent.idPlace;
+		}else if(SearchComponent.idPlace!==undefined) {
+			this.paramid = SearchComponent.idPlace;
 		}
 
 		this.getplacesservice.getPlace99(this.paramid).subscribe(
@@ -165,10 +171,6 @@ export class GetPlacesComponent {
 				 				this.valora.id=this.countval[0].count+1;
 				 			}
 				 		);
-			RecentPostComponent.idPlace=undefined;
-			RandomPostComponent.idPlace=undefined;
-			TopPostComponent.idPlace=undefined;
-			GetTownComponent.idPlace=undefined;
 	}
 	getColor = (rating: number, numOfStars: number, staticColor?: any) => {
 		return staticColor || 'ok';
@@ -222,8 +224,20 @@ export class GetPlacesComponent {
 	}
 	goDepart(id: number) {
 		GetPlacesComponent.idDepart=id;
+		RecentPostComponent.idDepart=undefined;
+		DepartmentsComponent.idDepart=undefined;
+		GetTownComponent.idDepart=undefined;
+		RandomPostComponent.idDepart=undefined;
+		TopPostComponent.idDepart=undefined;
+		SearchComponent.idDepart=undefined;
 	}
 	goTown(id: number) {
 		GetPlacesComponent.idTown=id;
+		ToptownComponent.idTown=undefined;
+		GetDepartsComponent.idTown=undefined;
+		RecentPostComponent.idTown=undefined;
+		RandomPostComponent.idTown=undefined;
+		TopPostComponent.idTown=undefined;
+		SearchComponent.idTown=undefined;
 	}
 }

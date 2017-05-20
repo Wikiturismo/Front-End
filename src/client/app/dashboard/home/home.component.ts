@@ -12,13 +12,14 @@ import { Router } from '@angular/router';
 
 export class HomeComponent {
 	static searchKey='';
+	static filter='';
 	param='';
+	paramfilter='';
 	constructor(private router: Router) {
 	}
 	search() {
 		HomeComponent.searchKey=this.param;
-		console.log(this.param);
-		console.log(HomeComponent.searchKey);
+		HomeComponent.filter=this.paramfilter;
 		this.router.navigate(['/dashboard/search']);
 	}
 }

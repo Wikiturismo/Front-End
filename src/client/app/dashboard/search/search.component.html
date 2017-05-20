@@ -8,66 +8,144 @@
               <div class="jumbotron jumbotron-fluid" style="float: left; width: 100%;">
  <h1 >Buscador</h1>
 <div  style=" margin-left: 30px" >
-  <div class="card-header card-info card-inverse" style="background:#f5f5f5; width: 100%; float:left">
-    <h2 class="card-title" style="text-align: center"><font color="black">Se han encontrado un total de <b>{{len1+len2+len3}}</b> resultados para <b>"{{param}}"</b>.<br></font></h2>
-    <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 31%; margin:4px; float:left" >
-      <h2 class="card-title" style="text-align: center"><font color="black"><b>Departamentos</b><br></font></h2>
-      <br>
-      <h3 class="card-title" style="text-align: center"><font color="black">Se han encontrado: <b>{{len1}}</b> resultado(s)<br></font></h3>
-      <div *ngFor="let depart of Exdepart; let i = index" >
-            <!--<slide active="slide.active" >-->
-            <div  style="background:#f5f5f5; width: auto ;height: 175px; margin: 5px">
-              <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
-                  <a routerLink="../getdeparts" (click) ="goDepart(depart.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>{{depart.name}}</b></font></h3></a>
-              </div>
-              <carousel class="carousel" [interval]=2500 [noWrap]=false>
-                <slide *ngFor="let img of depart.imagedeparts; let index=index" [active]="img.active">
-                  <a routerLink="../getdeparts" (click) ="goDepart(depart.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
-                </slide>
-              </carousel>
-              <br>
-            </div>
+  <!--TODOS-->
+  <div *ngIf="all== true">
+      <div class="card-header card-info card-inverse" style="background:#f5f5f5; width: 100%; float:left">
+        <h2 class="card-title" style="text-align: center"><font color="black">Se han encontrado un total de <b>{{len1+len2+len3}}</b> resultados para <b>"{{param}}"</b>.<br></font></h2>
+        <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 31%; margin:4px; float:left" >
+          <h2 class="card-title" style="text-align: center"><font color="black"><b>Departamentos</b><br></font></h2>
+          <br>
+          <h3 class="card-title" style="text-align: center"><font color="black">Se han encontrado: <b>{{len1}}</b> resultado(s)<br></font></h3>
+          <div *ngFor="let depart of Exdepart; let i = index" >
+                <!--<slide active="slide.active" >-->
+                <div  style="background:#f5f5f5; width: auto ;height: 175px; margin: 5px">
+                  <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
+                      <a routerLink="../getdeparts" (click) ="goDepart(depart.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>{{depart.name}}</b></font></h3></a>
+                  </div>
+                  <carousel class="carousel" [interval]=2500 [noWrap]=false>
+                    <slide *ngFor="let img of depart.imagedeparts; let index=index" [active]="img.active">
+                      <a routerLink="../getdeparts" (click) ="goDepart(depart.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
+                    </slide>
+                  </carousel>
+                  <br>
+                </div>
+          </div>
+        </div>
+        <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 31%; margin:4px; float:left" >
+          <h2 class="card-title" style="text-align: center"><font color="black"><b>Ciudades o Pueblos</b><br></font></h2>
+          <br>
+          <h3 class="card-title" style="text-align: center"><font color="black">Se han encontrado: <b>{{len2}}</b> resultado(s)<br></font></h3>
+          <div *ngFor="let town of Extown; let i = index" >
+                <!--<slide active="slide.active" >-->
+                <div  style="background:#f5f5f5; width: auto ;height: 175px; margin: 5px">
+                  <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
+                      <a routerLink="../getown" (click) ="goTown(town.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>{{town.name}}</b></font></h3></a>
+                  </div>
+                  <carousel class="carousel" [interval]=2500 [noWrap]=false>
+                    <slide *ngFor="let img of town.imagetowns; let index=index" [active]="img.active">
+                      <a routerLink="../getown" (click) ="goTown(town.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
+                    </slide>
+                  </carousel>
+                  <br>
+                </div>
+          </div>
+        </div>
+        <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 31%; margin:5px; float:left" >
+          <h2 class="card-title" style="text-align: center"><font color="black"><b>Lugares</b><br></font></h2>
+          <br>
+          <h3 class="card-title" style="text-align: center"><font color="black">Se han encontrado: <b>{{len3}}</b> resultado(s)<br></font></h3>
+          <div *ngFor="let placeL of Explace; let i = index" >
+                <!--<slide active="slide.active" >-->
+                <div  style="background:#f5f5f5; width: auto ;height: 175px; margin: 5px">
+                  <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
+                      <a routerLink="../getplaces" (click) ="goPlace(placeL.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>{{placeL.name}}</b></font></h3></a>
+                  </div>
+                  <carousel class="carousel" [interval]=2500 [noWrap]=false>
+                    <slide *ngFor="let img of placeL.imageplaces; let index=index" [active]="img.active">
+                      <a routerLink="../getplaces" (click) ="goPlace(placeL.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
+                    </slide>
+                  </carousel>
+                  <br>
+                </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 31%; margin:4px; float:left" >
-      <h2 class="card-title" style="text-align: center"><font color="black"><b>Ciudades o Pueblos</b><br></font></h2>
-      <br>
-      <h3 class="card-title" style="text-align: center"><font color="black">Se han encontrado: <b>{{len2}}</b> resultado(s)<br></font></h3>
-      <div *ngFor="let town of Extown; let i = index" >
-            <!--<slide active="slide.active" >-->
-            <div  style="background:#f5f5f5; width: auto ;height: 175px; margin: 5px">
-              <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
-                  <a routerLink="../getown" (click) ="goTown(town.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>{{town.name}}</b></font></h3></a>
-              </div>
-              <carousel class="carousel" [interval]=2500 [noWrap]=false>
-                <slide *ngFor="let img of town.imagetowns; let index=index" [active]="img.active">
-                  <a routerLink="../getown" (click) ="goTown(town.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
-                </slide>
-              </carousel>
-              <br>
+    <!--Departamentos-->
+    <div *ngIf="dep== true && all== false ">
+        <div class="card-header card-info card-inverse" style="background:#f5f5f5; width: 100%; float:left">
+          <h2 class="card-title" style="text-align: center"><font color="black">Se han encontrado un total de <b>{{len1}}</b> resultados para <b>"{{param}}"</b>.<br></font></h2>
+          <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 100%; margin:4px; float:left" >
+            <h2 class="card-title" style="text-align: center"><font color="black"><b>Departamentos</b><br></font></h2>
+            <br>
+            <h3 class="card-title" style="text-align: center"><font color="black">Se han encontrado: <b>{{len1}}</b> resultado(s)<br></font></h3>
+            <div *ngFor="let depart of Exdepart; let i = index" >
+                  <!--<slide active="slide.active" >-->
+                  <div  style="background:#f5f5f5; width: auto ;height: 175px; margin: 5px">
+                    <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
+                        <a routerLink="../getdeparts" (click) ="goDepart(depart.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>{{depart.name}}</b></font></h3></a>
+                    </div>
+                    <carousel class="carousel" [interval]=2500 [noWrap]=false>
+                      <slide *ngFor="let img of depart.imagedeparts; let index=index" [active]="img.active">
+                        <a routerLink="../getdeparts" (click) ="goDepart(depart.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
+                      </slide>
+                    </carousel>
+                    <br>
+                  </div>
             </div>
+          </div>
+        </div>
       </div>
-    </div>
-    <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 31%; margin:5px; float:left" >
-      <h2 class="card-title" style="text-align: center"><font color="black"><b>Lugares</b><br></font></h2>
-      <br>
-      <h3 class="card-title" style="text-align: center"><font color="black">Se han encontrado: <b>{{len3}}</b> resultado(s)<br></font></h3>
-      <div *ngFor="let placeL of Explace; let i = index" >
-            <!--<slide active="slide.active" >-->
-            <div  style="background:#f5f5f5; width: auto ;height: 175px; margin: 5px">
-              <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
-                  <a routerLink="../getplaces" (click) ="goPlace(placeL.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>{{placeL.name}}</b></font></h3></a>
-              </div>
-              <carousel class="carousel" [interval]=2500 [noWrap]=false>
-                <slide *ngFor="let img of placeL.imageplaces; let index=index" [active]="img.active">
-                  <a routerLink="../getplaces" (click) ="goPlace(placeL.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
-                </slide>
-              </carousel>
+      <!--Ciudades-->
+      <div *ngIf="tow== true && all== false">
+          <div class="card-header card-info card-inverse" style="background:#f5f5f5; width: 100%; float:left">
+            <h2 class="card-title" style="text-align: center"><font color="black">Se han encontrado un total de <b>{{len2}}</b> resultados para <b>"{{param}}"</b>.<br></font></h2>
+            <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 100%; margin:4px; float:left" >
+              <h2 class="card-title" style="text-align: center"><font color="black"><b>Ciudades o Pueblos</b><br></font></h2>
               <br>
+              <h3 class="card-title" style="text-align: center"><font color="black">Se han encontrado: <b>{{len2}}</b> resultado(s)<br></font></h3>
+              <div *ngFor="let town of Extown; let i = index" >
+                    <!--<slide active="slide.active" >-->
+                    <div  style="background:#f5f5f5; width: auto ;height: 175px; margin: 5px">
+                      <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
+                          <a routerLink="../getown" (click) ="goTown(town.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>{{town.name}}</b></font></h3></a>
+                      </div>
+                      <carousel class="carousel" [interval]=2500 [noWrap]=false>
+                        <slide *ngFor="let img of town.imagetowns; let index=index" [active]="img.active">
+                          <a routerLink="../getown" (click) ="goTown(town.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
+                        </slide>
+                      </carousel>
+                      <br>
+                    </div>
+              </div>
             </div>
-      </div>
-    </div>
-  </div>
+          </div>
+        </div>
+        <!--TODOS-->
+        <div *ngIf="pla== true && all== false">
+            <div class="card-header card-info card-inverse" style="background:#f5f5f5; width: 100%; float:left">
+              <h2 class="card-title" style="text-align: center"><font color="black">Se han encontrado un total de <b>{{len3}}</b> resultados para <b>"{{param}}"</b>.<br></font></h2>
+              <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 100%; margin:5px; float:left" >
+                <h2 class="card-title" style="text-align: center"><font color="black"><b>Lugares</b><br></font></h2>
+                <br>
+                <h3 class="card-title" style="text-align: center"><font color="black">Se han encontrado: <b>{{len3}}</b> resultado(s)<br></font></h3>
+                <div *ngFor="let placeL of Explace; let i = index" >
+                      <!--<slide active="slide.active" >-->
+                      <div  style="background:#f5f5f5; width: auto ;height: 175px; margin: 5px">
+                        <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
+                            <a routerLink="../getplaces" (click) ="goPlace(placeL.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>{{placeL.name}}</b></font></h3></a>
+                        </div>
+                        <carousel class="carousel" [interval]=2500 [noWrap]=false>
+                          <slide *ngFor="let img of placeL.imageplaces; let index=index" [active]="img.active">
+                            <a routerLink="../getplaces" (click) ="goPlace(placeL.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
+                          </slide>
+                        </carousel>
+                        <br>
+                      </div>
+                </div>
+              </div>
+            </div>
+          </div>
 </div>
 </div>
 </div>

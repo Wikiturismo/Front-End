@@ -1,8 +1,12 @@
 import { Component } from '@angular/core';
 import { Departmentsservice } from './departments.service';
 import { Getdepartssservice } from '../getdeparts/Getdeparts.service';
-
-
+import { GetTownComponent } from '../getown/getown.component';
+import { GetPlacesComponent } from '../getplaces/getplaces.component';
+import { RecentPostComponent } from '../home/recentpost/recentpost.component';
+import { RandomPostComponent } from '../randompost/randompost.component';
+import { TopPostComponent } from '../top-post/topPost.component';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
 	moduleId: module.id,
@@ -41,6 +45,12 @@ export class DepartmentsComponent {
       }
 			goDepart(id: number) {
 				DepartmentsComponent.idDepart=id;
+				RecentPostComponent.idDepart=undefined;
+				GetPlacesComponent.idDepart=undefined;
+				GetTownComponent.idDepart=undefined;
+				RandomPostComponent.idDepart=undefined;
+				TopPostComponent.idDepart=undefined;
+				SearchComponent.idDepart=undefined;
 			}
 
 }

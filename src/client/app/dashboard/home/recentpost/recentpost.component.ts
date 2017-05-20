@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
 import { Recentpostservice } from './Recentpost.service';
 import { Getplacesservice } from '../../getplaces/Getplaces.service';
-
+import { RandomPostComponent } from '../../randompost/randompost.component';
+import { TopPostComponent } from '../../top-post/topPost.component';
+import { GetTownComponent } from '../../getown/getown.component';
+import { SearchComponent } from '../../search/search.component';
+import { ToptownComponent } from '../../toptown/toptown.component';
+import { GetDepartsComponent } from '../../getdeparts/getdeparts.component';
+import { GetPlacesComponent } from '../../getplaces/getplaces.component';
+import { DepartmentsComponent } from '../../departments/departments.component';
 /**
 *	This class represents the lazy loaded HomeComponent.
 */
@@ -45,11 +52,27 @@ export class RecentPostComponent {
 	}
 	goPlace(id: number) {
 		RecentPostComponent.idPlace=id;
+		RandomPostComponent.idPlace=undefined;
+		TopPostComponent.idPlace=undefined;
+		GetTownComponent.idPlace=undefined;
+		SearchComponent.idPlace=undefined;
 	}
 	goDepart(id: number) {
 		RecentPostComponent.idDepart=id;
+		DepartmentsComponent.idDepart=undefined;
+		GetPlacesComponent.idDepart=undefined;
+		GetTownComponent.idDepart=undefined;
+		RandomPostComponent.idDepart=undefined;
+		TopPostComponent.idDepart=undefined;
+		SearchComponent.idDepart=undefined;
 	}
 	goTown(id: number) {
 		RecentPostComponent.idTown=id;
+		ToptownComponent.idTown=undefined;
+		GetDepartsComponent.idTown=undefined;
+		GetPlacesComponent.idTown=undefined;
+		RandomPostComponent.idTown=undefined;
+		TopPostComponent.idTown=undefined;
+		SearchComponent.idTown=undefined;
 	}
 }

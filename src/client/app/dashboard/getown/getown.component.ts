@@ -7,6 +7,8 @@ import { GetPlacesComponent } from '../getplaces/getplaces.component';
 import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 import { RandomPostComponent } from '../randompost/randompost.component';
 import { TopPostComponent } from '../top-post/topPost.component';
+import { SearchComponent } from '../search/search.component';
+import { DepartmentsComponent } from '../departments/departments.component';
 
 @Component({
 	moduleId: module.id,
@@ -61,6 +63,8 @@ export class GetTownComponent {
 			this.paramid = RandomPostComponent.idTown;
 		}else if(TopPostComponent.idTown!==undefined) {
 			this.paramid = TopPostComponent.idTown;
+		}else if(SearchComponent.idTown!==undefined) {
+			this.paramid = SearchComponent.idTown;
 		}
 		this.getownservice.getTowns(this.paramid).subscribe(
 			res => {
@@ -87,12 +91,6 @@ export class GetTownComponent {
 		 	 				 this.LastPlaces = res;
 		 	 			 }
 		 	 			 );
-						 ToptownComponent.idTown=undefined;
-						 GetDepartsComponent.idTown=undefined;
-						 RecentPostComponent.idTown=undefined;
-						 GetPlacesComponent.idTown=undefined;
-						 RandomPostComponent.idTown=undefined;
-						 TopPostComponent.idTown=undefined;
 	}
 	createComment() {
 		if (!this.CommentCreat) { return; }
@@ -104,8 +102,18 @@ export class GetTownComponent {
 	}
 	goPlace(id: number) {
 		GetTownComponent.idPlace=id;
+		RecentPostComponent.idPlace=undefined;
+		RandomPostComponent.idPlace=undefined;
+		TopPostComponent.idPlace=undefined;
+		SearchComponent.idPlace=undefined;
 	}
 	goDepart(id: number) {
 		GetTownComponent.idDepart=id;
+		RecentPostComponent.idDepart=undefined;
+		DepartmentsComponent.idDepart=undefined;
+		GetPlacesComponent.idDepart=undefined;
+		RandomPostComponent.idDepart=undefined;
+		TopPostComponent.idDepart=undefined;
+		SearchComponent.idDepart=undefined;
 	}
 }

@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { Getdepartssservice } from './Getdeparts.service';
 import { DepartmentsComponent } from '../departments/departments.component';
-import { RecentPostComponent } from '../home/recentpost/recentpost.component';
-import { GetPlacesComponent } from '../getplaces/getplaces.component';
 import { GetTownComponent } from '../getown/getown.component';
+import { ToptownComponent } from '../toptown/toptown.component';
+import { GetPlacesComponent } from '../getplaces/getplaces.component';
+import { RecentPostComponent } from '../home/recentpost/recentpost.component';
 import { RandomPostComponent } from '../randompost/randompost.component';
 import { TopPostComponent } from '../top-post/topPost.component';
+import { SearchComponent } from '../search/search.component';
 
 @Component({
 	moduleId: module.id,
@@ -57,6 +59,10 @@ export class GetDepartsComponent {
 			this.paramid = RandomPostComponent.idDepart;
 		}else if(TopPostComponent.idDepart!==undefined) {
 			this.paramid = TopPostComponent.idDepart;
+		} else if(SearchComponent.idDepart!==undefined) {
+			this.paramid = SearchComponent.idDepart;
+		} else if(ToptownComponent.idDepart!==undefined) {
+			this.paramid = ToptownComponent.idDepart;
 		}
 		this.getdepartsservice.getDepart(this.paramid).subscribe(
 			res => {
@@ -68,14 +74,14 @@ export class GetDepartsComponent {
 	 				 this.LastTowns = res;
 	 			 }
 	 			 );
-		RecentPostComponent.idDepart=undefined;
-		DepartmentsComponent.idDepart=undefined;
-		GetPlacesComponent.idDepart=undefined;
-		GetTownComponent.idDepart=undefined;
-		RandomPostComponent.idDepart=undefined;
-		TopPostComponent.idDepart=undefined;
 	}
 	goTown(id: number) {
 		GetDepartsComponent.idTown=id;
+		ToptownComponent.idTown=undefined;
+		RecentPostComponent.idTown=undefined;
+		GetPlacesComponent.idTown=undefined;
+		RandomPostComponent.idTown=undefined;
+		TopPostComponent.idTown=undefined;
+		SearchComponent.idTown=undefined;
 	}
 }

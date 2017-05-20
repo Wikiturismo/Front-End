@@ -1,7 +1,14 @@
 import { Component } from '@angular/core';
 import { TopPostservice } from './topPost.service';
 import { Getplacesservice } from '../getplaces/Getplaces.service';
-
+import { RecentPostComponent } from '../home/recentpost/recentpost.component';
+import { RandomPostComponent } from '../randompost/randompost.component';
+import { GetTownComponent } from '../getown/getown.component';
+import { SearchComponent } from '../search/search.component';
+import { ToptownComponent } from '../toptown/toptown.component';
+import { GetDepartsComponent } from '../getdeparts/getdeparts.component';
+import { GetPlacesComponent } from '../getplaces/getplaces.component';
+import { DepartmentsComponent } from '../departments/departments.component';
 
 @Component({
 	moduleId: module.id,
@@ -63,12 +70,28 @@ export class TopPostComponent {
       }
 			goPlace(id: number) {
 				TopPostComponent.idPlace=id;
+				RecentPostComponent.idPlace=undefined;
+				RandomPostComponent.idPlace=undefined;
+				GetTownComponent.idPlace=undefined;
+				SearchComponent.idPlace=undefined;
 			};
 			goDepart(id: number) {
 				TopPostComponent.idDepart=id;
+				RecentPostComponent.idDepart=undefined;
+				DepartmentsComponent.idDepart=undefined;
+				GetPlacesComponent.idDepart=undefined;
+				GetTownComponent.idDepart=undefined;
+				RandomPostComponent.idDepart=undefined;
+				SearchComponent.idDepart=undefined;
 			}
 			goTown(id: number) {
 				TopPostComponent.idTown=id;
+				ToptownComponent.idTown=undefined;
+				GetDepartsComponent.idTown=undefined;
+				RecentPostComponent.idTown=undefined;
+				GetPlacesComponent.idTown=undefined;
+				RandomPostComponent.idTown=undefined;
+				SearchComponent.idTown=undefined;
 			}
 			getColor = (rating: number, numOfStars: number, staticColor?: any) => {
 				return staticColor || 'ok';
