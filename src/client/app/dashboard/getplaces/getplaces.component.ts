@@ -45,6 +45,8 @@ import { Color } from 'ng2-charts';
 export class GetPlacesComponent {
 	static idDepart=undefined;
 	static idTown=undefined;
+	static idGlobal=undefined;
+	static images=undefined;
 	labels:string[] = ['Votos 1', 'Votos 2', 'Votos 3', 'Votos 4', 'Votos 5'];
   data:number[] = [0,0,0,0,0];
   type:string = 'doughnut';
@@ -91,6 +93,7 @@ export class GetPlacesComponent {
 			res => {
 				 this.Explace[0] = res;
 				 this.namePlace = this.Explace[0].name;
+				 GetPlacesComponent.images = this.Explace[0].imageplaces;
 
 				 this.placevalo.id = this.Explace[0].id;
 				 //valoration
@@ -251,4 +254,10 @@ export class GetPlacesComponent {
 		TopPostComponent.idTown=undefined;
 		SearchComponent.idTown=undefined;
 	}
+
+	goUpdateImg(id: number) {
+		GetPlacesComponent.idGlobal=id;
+
+	}
+
 }

@@ -18,7 +18,7 @@ import { GetDepartsModule } from './getdeparts/getdeparts.module';
 import { DepartmentsModule } from './departments/departments.module';
 import { ToptownModule } from './toptown/toptown.module';
 import { SearchModule } from './search/search.module';
-
+import { ImgupdateModule } from './imgupdate/imgupdate.module';
 
 @NgModule({
     imports: [
@@ -38,6 +38,7 @@ import { SearchModule } from './search/search.module';
         DepartmentsModule,
         ToptownModule,
         SearchModule,
+        ImgupdateModule,
     ],
     declarations: [DashboardComponent, SidebarComponent],
     exports: [DashboardComponent, SidebarComponent]
