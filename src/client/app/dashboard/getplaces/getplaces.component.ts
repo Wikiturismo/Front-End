@@ -157,7 +157,7 @@ export class GetPlacesComponent {
 		this.getplacesservice.getComments(this.paramid).subscribe(
 	 			res => {
 	 				 this.comments = res;
-					 console.log(this.comments);
+					 //console.log(this.comments);
 					 //console.log(this.comments[0].user.id);
 	 			 }
 	 			 );

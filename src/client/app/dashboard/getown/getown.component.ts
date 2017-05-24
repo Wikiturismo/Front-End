@@ -42,6 +42,7 @@ import { DepartmentsComponent } from '../departments/departments.component';
 export class GetTownComponent {
 	static idPlace=undefined;
 	static idDepart=undefined;
+	static images=undefined;
 	counter=[];
 	Explace=[];
 	namePlace : String;
@@ -69,6 +70,8 @@ export class GetTownComponent {
 		this.getownservice.getTowns(this.paramid).subscribe(
 			res => {
 				 this.Explace[0] = res;
+				 GetTownComponent.images = this.Explace[0].imagetowns;
+				 //console.log("images: " + 	JSON.stringify(GetTownComponent.images));
 				 this.namePlace = this.Explace[0].name;
 				 this.CommentCreat.town_id = this.Explace[0].id;
 				 this.CommentCreat.depart_id = this.Explace[0].depart.id;
@@ -98,7 +101,7 @@ export class GetTownComponent {
 				.subscribe(
 				commenttowns => this.CommentCreat,
 				error => this.errorMessage = <any>error);
-				console.log(this.CommentCreat);
+				//console.log(this.CommentCreat);
 	}
 	goPlace(id: number) {
 		GetTownComponent.idPlace=id;

@@ -17,7 +17,7 @@
         <!-- IMAGEN SITIO-->
         <carousel class="carousel" [interval]=2500 [noWrap]=false>
           <slide *ngFor="let img of Exp.imagetowns; let index=index" [active]="img.active">
-            <img src="{{img.image.url}}" style="margin:auto;">
+            <a routerLink="../imgupdate"><img src="{{img.image.url}}" style="margin:auto;"></a>
           </slide>
         </carousel>
 

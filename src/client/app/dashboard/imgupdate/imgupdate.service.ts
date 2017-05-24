@@ -17,7 +17,7 @@ export class Imgupdateservice {
 	getPlace(id: number) : Observable<ImgupdateComponent[]> {
 		let url = 'http://localhost:3000/api/v1/places/';
 		url+=id;
-		console.log(url);
+		//console.log(url);
 		return this.http.get(url)
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
