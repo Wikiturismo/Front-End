@@ -50,6 +50,12 @@ export class GetTownservice {
 			//console.log(body);
 			return body.data || {};
 	}
+	getUser2() : Observable<GetTownComponent[]> {
+		return this.http.get('http://localhost:3000/api/v1/users/3')
+		// .map(res => (<Response>res).json().data)
+		.map(this.extractData)
+		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}
 	private handleError(error: Response) {
 			console.error(error);
 			return Observable.throw(error.json().error || 'Server Error');

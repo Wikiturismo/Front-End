@@ -44,6 +44,7 @@ export class GetTownComponent {
 	static idDepart=undefined;
 	static images=undefined;
 	counter=[];
+	user = [];
 	Explace=[];
 	namePlace : String;
 	CommentCreat = new Commenttowns(undefined,true,'',undefined,2,undefined,);
@@ -67,6 +68,11 @@ export class GetTownComponent {
 		}else if(SearchComponent.idTown!==undefined) {
 			this.paramid = SearchComponent.idTown;
 		}
+		this.getownservice.getUser2().subscribe(
+		 data => {
+			 this.user.push(data);
+		 }
+	 );
 		this.getownservice.getTowns(this.paramid).subscribe(
 			res => {
 				 this.Explace[0] = res;

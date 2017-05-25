@@ -81,5 +81,10 @@ export class Getplacesservice {
 			console.error(error);
 			return Observable.throw(error.json().error || 'Server Error');
 	}
-
+	getUser2() : Observable<GetPlacesComponent[]> {
+		return this.http.get('http://localhost:3000/api/v1/users/3')
+		// .map(res => (<Response>res).json().data)
+		.map(this.extractData)
+		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}
 }

@@ -104,9 +104,11 @@
 
   <div class="col-md-15" style="text-align: center" >
  <div class="card card-default card-block">
-     <blockquote class="card-blockquote">
-       <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="assets/images/user2.jpg" />
-     <h4 class="text-default" style="text-align: Left">Kevin Mendez</h4>
+   <blockquote class="card-blockquote" *ngFor="let usr of user; let i = index">
+     <div *ngFor="let img of usr.imageusers">
+       <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="{{img.image.url}}" />
+    </div>>
+     <h4 class="text-default" style="text-align: Left">{{usr.name}}</h4>
         <form role="form" (ngSubmit)="createComment()">
           <div class="form-group">
            <!--<textarea class="form-control" rows="4" required [(ngModel)]="CommentCreat.content" name="content"  placeholder="Escribe aquì tu comentario respecto al sitio..."></textarea>-->

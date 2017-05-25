@@ -43,6 +43,7 @@ import { Color } from 'ng2-charts';
 	  `]
 })
 export class GetPlacesComponent {
+	user = [];
 	static idDepart=undefined;
 	static idTown=undefined;
 	static idGlobal=undefined;
@@ -88,7 +89,11 @@ export class GetPlacesComponent {
 		}else if(SearchComponent.idPlace!==undefined) {
 			this.paramid = SearchComponent.idPlace;
 		}
-
+		this.getplacesservice.getUser2().subscribe(
+		 data => {
+			 this.user.push(data);
+		 }
+	 );
 		this.getplacesservice.getPlace99(this.paramid).subscribe(
 			res => {
 				 this.Explace[0] = res;
@@ -153,6 +158,7 @@ export class GetPlacesComponent {
 					 }
 					 );
 			 }
+
 			 );
 		this.getplacesservice.getComments(this.paramid).subscribe(
 	 			res => {
