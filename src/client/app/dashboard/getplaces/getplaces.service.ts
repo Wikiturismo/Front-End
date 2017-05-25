@@ -25,6 +25,13 @@ export class Getplacesservice {
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
+	getImageUser(id: number) : Observable<GetPlacesComponent[]> {
+		let url = 'http://localhost:3000/api/v1/users/images?q=';
+		url+=id;
+		return this.http.get(url)
+		.map(this.extractData)
+		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}
 	getCountComments() : Observable<GetPlacesComponent[]> {
 		return this.http.get('http://localhost:3000/api/v1/commentplaces/count')
 		.map(this.extractData)

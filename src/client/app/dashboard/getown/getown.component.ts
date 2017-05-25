@@ -9,6 +9,7 @@ import { RandomPostComponent } from '../randompost/randompost.component';
 import { TopPostComponent } from '../top-post/topPost.component';
 import { SearchComponent } from '../search/search.component';
 import { DepartmentsComponent } from '../departments/departments.component';
+import { Router } from '@angular/router';
 
 @Component({
 	moduleId: module.id,
@@ -40,6 +41,7 @@ import { DepartmentsComponent } from '../departments/departments.component';
 })
 
 export class GetTownComponent {
+	static lawea2=0;
 	static idPlace=undefined;
 	static idDepart=undefined;
 	static images=undefined;
@@ -52,7 +54,7 @@ export class GetTownComponent {
 	paramid;
 	LastPlaces;
 	errorMessage: string;
-	constructor(private getownservice: GetTownservice) {
+	constructor(private getownservice: GetTownservice, private router: Router) {
 		if(ToptownComponent.idTown!==undefined) {
 			this.paramid = ToptownComponent.idTown;
 		}else if(GetDepartsComponent.idTown!==undefined) {
@@ -106,7 +108,10 @@ export class GetTownComponent {
 		this.getownservice.NewComment(this.CommentCreat)
 				.subscribe(
 				commenttowns => this.CommentCreat,
-				error => this.errorMessage = <any>error);
+				error => this.errorMessage = <any>error,
+			() =>{this.router.navigate(['/dashboard/components']);
+			GetTownComponent.lawea2=1;}
+		)
 				//console.log(this.CommentCreat);
 	}
 	goPlace(id: number) {

@@ -12,6 +12,7 @@ import { DepartmentsComponent } from '../departments/departments.component';
 import { Place } from './placeval';
 import { Valoration } from './valoration';
 import { Color } from 'ng2-charts';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -44,6 +45,9 @@ import { Color } from 'ng2-charts';
 })
 export class GetPlacesComponent {
 	user = [];
+	static imagenxd = [];
+	//imagenxd = [];
+	static lawea=0;
 	static idDepart=undefined;
 	static idTown=undefined;
 	static idGlobal=undefined;
@@ -77,7 +81,7 @@ export class GetPlacesComponent {
 	comments;
 	errorMessage: string;
 	//######constructor
-	constructor(private getplacesservice: Getplacesservice) {
+	constructor(private getplacesservice: Getplacesservice,private router: Router) {
 		if(RecentPostComponent.idPlace!==undefined) {
 			this.paramid = RecentPostComponent.idPlace;
 		}else if(RandomPostComponent.idPlace!==undefined) {
@@ -163,10 +167,23 @@ export class GetPlacesComponent {
 		this.getplacesservice.getComments(this.paramid).subscribe(
 	 			res => {
 	 				 this.comments = res;
+					 for (let com of this.comments) {
+						    //console.log(com);
+								this.getplacesservice.getImageUser(com.user.id).subscribe(
+									data => {
+										GetPlacesComponent.imagenxd.push(data);
+										console.log(data);
+										//this.imagenxd.push(data);
+									}
+								);
+								//console.log(this.imagenxd);
+
+						}
 					 //console.log(this.comments);
 					 //console.log(this.comments[0].user.id);
 	 			 }
 	 			 );
+
 		this.getplacesservice.getCountComments().subscribe(
 		 			data => {
 		 				this.counter.push(data);
@@ -240,7 +257,10 @@ export class GetPlacesComponent {
 		this.getplacesservice.NewComment(this.CommentCreat)
 				.subscribe(
 				commentplaces => this.CommentCreat,
-				error => this.errorMessage = <any>error);
+				error => this.errorMessage = <any>error,
+			() =>{this.router.navigate(['/dashboard/components']);
+			GetPlacesComponent.lawea=1;}
+		)
 	}
 	goDepart(id: number) {
 		GetPlacesComponent.idDepart=id;
