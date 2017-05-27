@@ -20,7 +20,7 @@
       <!-- left column -->
       <div class="col-md-3">
         <div class="text-center">
-          <li *ngFor="let img of imgen">
+          <li *ngFor="let img of usr.imageusers">
             <img style="width:130px;height:130px;" src="{{img.image.url}}" class="avatar img-circle" />
           </li>
           <!--<img src="//placehold.it/100" class="avatar img-circle" alt="avatar">-->
@@ -28,9 +28,9 @@
 
           <input type="file" class="form-control" (change)="fileEvent($event)" />
 
-          <h6><br><br><br><br>
+          <!--<h6><br><br><br><br>
             <br><br><br><br>
-            <br><br><br><br>{{usr.created_at}}</h6>
+            <br><br><br><br>{{usr.created_at}}</h6>-->
         </div>
       </div>
 
@@ -93,18 +93,18 @@
               <input class="form-control" type="password" value="11111122333">
             </div>
           </div>
-          <div class="form-group">
+          <!--<div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
               <input type="button" class="btn btn-primary" value="Mis Publicaciones">
             </div>
-          </div>
+          </div>-->
           <div class="form-group">
             <label class="col-md-3 control-label"></label>
             <div class="col-md-8">
               <!--<input type="button" class="btn btn-primary" value="Guardar Cambios" onclick="updateUser()">-->
               <!--<button type="submit" class="btn btn-primary" (click)="updateUser" routerLink="../toppost">Guardar cambios</button>-->
-              <button type="submit" class="btn btn-primary" (click)="updateUser">Guardar cambios</button>
+              <button type="submit" class="btn btn-primary" (click)="updateUser" onclick="window.parent.location.reload()">Guardar cambios</button>
               <!--<a routerLink="../toppost" onclick="document.getElementById('myform').submit()" class="btn btn-primary" (click)="updateUser">Submit</a>-->
               <span></span>
               <input type="reset" class="btn btn-default" value="Cancelar">

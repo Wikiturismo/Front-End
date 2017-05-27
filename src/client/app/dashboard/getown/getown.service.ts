@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { GetTownComponent } from './getown.component';
-import {Subject} from "rxjs/Subject";
-import {BehaviorSubject} from "rxjs/Rx";
 import {Observable} from 'rxjs/Rx';
 import {Commenttowns} from '../../../../../models/commenttown';
 import { URLSearchParams } from '@angular/http';
@@ -10,23 +8,26 @@ import { URLSearchParams } from '@angular/http';
 @Injectable()
 export class GetTownservice {
 	constructor(private http: Http) {
-
 	}
-	getPlace99(name: string) : Observable<GetTownComponent[]> {
-		name = name.split(' ').join('+');
+	getLastPlaces(depart_id: number) : Observable<GetTownComponent[]> {
 		let params: URLSearchParams = new URLSearchParams();
-		params.set('q', name);
-		let url = "http://localhost:3000/api/v1/towns/name";
+		params.set('q', String(depart_id));
+		let url = 'http://localhost:3000/api/v1/places/lastbytown';
 		return this.http.get(url, { search: params })
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
-	getComments() : Observable<GetTownComponent[]> {
-		//name = name.split(' ').join('+');
-		//let params: URLSearchParams = new URLSearchParams();
-		//params.set('q', name);
-		//let url = "http://localhost:3000/api/v1/towns/comments";
-		return this.http.get('http://localhost:3000/api/v1/towns/comments?q=tunja&sort=id%20ASC')
+	getTowns(id: number) : Observable<GetTownComponent[]> {
+		let url = 'http://localhost:3000/api/v1/towns/';
+		url+=id;
+		return this.http.get(url)
+		.map(res => (<Response>res).json().data)
+		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
+	}
+	getComments(id: number) : Observable<GetTownComponent[]> {
+		let url = 'http://localhost:3000/api/v1/towns/comments?q=';
+		url+=id;
+		return this.http.get(url)
 		.map(res => (<Response>res).json().data)
 		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
@@ -48,6 +49,12 @@ export class GetTownservice {
 			//console.log("servicio");
 			//console.log(body);
 			return body.data || {};
+	}
+	getUser2() : Observable<GetTownComponent[]> {
+		return this.http.get('http://localhost:3000/api/v1/users/3')
+		// .map(res => (<Response>res).json().data)
+		.map(this.extractData)
+		.catch((error:any) => Observable.throw(error.json().error || 'Server error'));
 	}
 	private handleError(error: Response) {
 			console.error(error);

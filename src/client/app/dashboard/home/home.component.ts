@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 /**
 *	This class represents the lazy loaded HomeComponent.
 */
@@ -10,4 +10,16 @@ import { Router, ActivatedRoute } from '@angular/router';
 	templateUrl: 'home.component.html'
 })
 
-export class HomeComponent {}
+export class HomeComponent {
+	static searchKey='';
+	static filter='';
+	param='';
+	paramfilter='Filtros';
+	constructor(private router: Router) {
+	}
+	search() {
+		HomeComponent.searchKey=this.param;
+		HomeComponent.filter=this.paramfilter;
+		this.router.navigate(['/dashboard/search']);
+	}
+}

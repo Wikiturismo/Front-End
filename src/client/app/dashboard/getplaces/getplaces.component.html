@@ -14,31 +14,88 @@
             <h2 class="card-title" style="text-align: center; font-size: 2.2em;"><font color="black">{{Exp.name}}</font></h2>
         </div>
         <!-- IMAGEN SITIO-->
-          <img src="assets/images/cartagena-3.jpg" class="img-fluid" alt="Responsive image">
-        <!-- FECHA DE PUBLICACION-->
+        <carousel class="carousel" [interval]=2500 [noWrap]=false>
+          <slide *ngFor="let img of Exp.imageplaces; let index=index" [active]="img.active">
+            <a routerLink="../imgupdate" (click) ="goUpdateImg(Exp.id)"><img src="{{img.image.url}}" style="margin:auto;"></a>
+          </slide>
+        </carousel>
+        <br>
+        <br>
+        <!-- Referencias-->
+        <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
+          <div class="card-header card-info card-inverse" style="background:#f5f5f5; width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
+            <div class="card-header card-info card-inverse" style="background:#B9B8B8; width: 50%; display:flex; flex-wrap: wrap; justify-content: center;" >
+              <a routerLink="../getdeparts" (click) ="goDepart(Exp.depart.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>Departamento</b><br>{{Exp.depart.name}}</font></h3></a>
+            </div>
+            <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 50%; display:flex; flex-wrap: wrap; justify-content: center;" >
+              <a routerLink="../getown" (click) ="goTown(Exp.town.id)"><h3 class="card-title" style="text-align: center"><font color="black"><b>Ciudad/Pueblo</b><br>{{Exp.town.name}}</font></h3></a>
+            </div>
+          </div>
+        </div>
 
         <!-- DESCRIPCION DEL SITIO-->
-        <div class="card-header card-info card-inverse" style="background:#FFFFFF;">
-            <p> {{Exp.description}}  </p>
+        <div class="card-header card-info card-inverse" style="background:#008CFF;">
+            <p> <b>{{Exp.description}}</b></p>
         </div>
         <!-- DIRCCION-->
-        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
-            <p > Dirección: {{Exp.address}}</p>
+        <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
+            <p > <b>Dirección:</b> {{Exp.address}}</p>
         </div>
         <!-- TIPO DE SERVICIO-->
-        <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
-            <p> Ubicación: {{Exp.ubication}} </p>
+        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
+            <p> <b>Ubicación:</b> {{Exp.ubication}} </p>
         </div>
         <!-- PRECIOS-->
-        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
-            <p> Precios: {{Exp.entrycost}} </p>
-        </div>
         <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left">
-            <p> Tipo de lugar: {{Exp.kind}} </p>
+            <p> <b>Precios:</b> {{Exp.entrycost}} </p>
+        </div>
+        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
+            <p> <b>Tipo de lugar:</b> {{Exp.kind}} </p>
         </div>
         <!-- VALORACION-->
-        <div class="card-header card-info card-inverse" style="background:#008CFF; text-align: left">
-            <p> Valoración: {{Exp.valoration}} </p>
+        <div class="card-header card-info card-inverse" style="background:#FFFFFF; text-align: left; float: left; width: 100%;">
+            <p> <b>Valoración:</b> </p>
+            <div style="display: inline-block; float: left; width:300px;">
+            <star-rating-comp
+            [id]="starRatingConfig.id"
+            [rating]="starRatingConfig.rating"
+            [step]="starRatingConfig.step"
+            [showHalfStars]="starRatingConfig.showHalfStars"
+            [numOfStars]="starRatingConfig.numOfStars"
+            [size]="starRatingConfig.size"
+            [space]="starRatingConfig.space"
+            [staticColor]="starRatingConfig.staticColor"
+            [disabled]="starRatingConfig.disabled"
+            [hoverEnabled]="starRatingConfig.hoverEnabled"
+            [starType]="starRatingConfig.starType"
+            [labelText]="starRatingConfig.labelText"
+            [labelPosition]="starRatingConfig.labelPosition"
+            [labelVisible]="starRatingConfig.labelVisible"
+            [speed]="starRatingConfig.speed"
+            [direction]="starRatingConfig.direction"
+            [readOnly]="starRatingConfig.readOnly"
+            [getColor]="getColor"
+            [getHalfStarVisible]="getHalfStarVisible"
+            (onHoverRatingChange)="onHoverRatingChange($event)"
+            (onClick)="onClick($event)"
+            (onRatingChange)="onRatingChange($event)"
+          ></star-rating-comp>
+          <div *ngIf="starRatingConfig.disabled == false">
+            <p style="text-align:center;"><b>NO</b> has votado en "{{Exp.name}}".</p>
+          </div>
+          <div *ngIf="starRatingConfig.disabled == true">
+            <p style="text-align:center;">Ya has votado en "{{Exp.name}}" con:</p>
+            <p style="text-align:center;"> <b>{{valor[0].val}}</b></p>
+          </div>
+        </div>
+          <div style="display: inline-block; float: right; width:55%;">
+      <canvas baseChart
+        [labels]="labels"
+        [datasets]="datasets"
+        [colors]="colorsEmptyObject"
+        [chartType]="type"
+        ></canvas>
+    </div>
         </div>
       </div>
 <!-- COMENTARIOS-->
@@ -51,8 +108,10 @@
   <div class="col-md-15"  *ngFor="let comment of comments; let i = index">
     <div class="card card-default card-block">
         <blockquote class="card-blockquote">
-          <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="assets/images/user2.jpg" />
-        <h4 class="text-default"  style= "text-align: left">{{comment.user.name}}</h4>
+          <div *ngFor="let img of imagenxd">
+            <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="{{img.image.url}}" />
+         </div>
+        <h4 class="text-default" style="text-align: left">{{comment.user.name}}</h4>
             <p>{{comment.content}}</p>
             <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
         </blockquote>
@@ -62,9 +121,11 @@
 
   <div class="col-md-15" style="text-align: center" >
  <div class="card card-default card-block">
-     <blockquote class="card-blockquote">
-       <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="assets/images/user2.jpg" />
-     <h4 class="text-default" style="text-align: Left">Kevin Mendez</h4>
+     <blockquote class="card-blockquote" *ngFor="let usr of user; let i = index">
+       <div *ngFor="let img of usr.imageusers">
+         <img style='float:left;width:80px;height:80px; margin-right:10px; border: 3px solid black;' src="{{img.image.url}}" />
+      </div>
+     <h4 class="text-default" style="text-align: Left">{{usr.name}}</h4>
         <form role="form" (ngSubmit)="createComment()">
           <div class="form-group">
            <!--<textarea class="form-control" rows="4" required [(ngModel)]="CommentCreat.content" name="content"  placeholder="Escribe aquì tu comentario respecto al sitio..."></textarea>-->

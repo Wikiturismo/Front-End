@@ -14,9 +14,11 @@ import { CreatePostModule } from './createpost/createpost.module';
 import { RandomPostModule } from './randompost/randompost.module';
 import { CreateTownModule } from './createtown/createtown.module';
 import { GetTownModule } from './getown/getown.module';
+import { GetDepartsModule } from './getdeparts/getdeparts.module';
 import { DepartmentsModule } from './departments/departments.module';
 import { ToptownModule } from './toptown/toptown.module';
-
+import { SearchModule } from './search/search.module';
+import { ImgupdateModule } from './imgupdate/imgupdate.module';
 
 @NgModule({
     imports: [
@@ -32,8 +34,11 @@ import { ToptownModule } from './toptown/toptown.module';
         RandomPostModule,
         CreateTownModule,
         GetTownModule,
+        GetDepartsModule,
         DepartmentsModule,
         ToptownModule,
+        SearchModule,
+        ImgupdateModule,
     ],
     declarations: [DashboardComponent, SidebarComponent],
     exports: [DashboardComponent, SidebarComponent]

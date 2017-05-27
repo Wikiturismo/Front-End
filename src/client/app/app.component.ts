@@ -1,6 +1,4 @@
 import { Component } from '@angular/core';
-import { Config } from './shared/index';
-import { Http } from '@angular/http';
 //import {Angular2TokenService} from "angular2-token";
 /*import {environment} from "../../environments/environment"; */
 

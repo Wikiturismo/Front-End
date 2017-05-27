@@ -1,8 +1,14 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { Recentpostservice } from './Recentpost.service';
 import { Getplacesservice } from '../../getplaces/Getplaces.service';
-
+import { RandomPostComponent } from '../../randompost/randompost.component';
+import { TopPostComponent } from '../../top-post/topPost.component';
+import { GetTownComponent } from '../../getown/getown.component';
+import { SearchComponent } from '../../search/search.component';
+import { ToptownComponent } from '../../toptown/toptown.component';
+import { GetDepartsComponent } from '../../getdeparts/getdeparts.component';
+import { GetPlacesComponent } from '../../getplaces/getplaces.component';
+import { DepartmentsComponent } from '../../departments/departments.component';
 /**
 *	This class represents the lazy loaded HomeComponent.
 */
@@ -16,59 +22,57 @@ import { Getplacesservice } from '../../getplaces/Getplaces.service';
 .carousel{
     overflow:hidden;
     width:100%;
+		height:400px;
 }
 .slides{
     list-style:none;
     position:relative;
-    width:500%; /* Number of panes * 100% */
-    overflow:hidden; /* Clear floats */
-        /* Slide effect Animations*/
-    -moz-animation:carousel 16s infinite;
-    -webkit-animation:carousel 16s infinite;
-    animation:carousel 16s infinite;
 }
 .slides > li{
     position:relative;
     float:left;
-    width: 20%; /* 100 / number of panes */
 }
 .carousel img{
     display:block;
-    width:100%;
-    max-width:100%;
-}
-@keyframes carousel{
-    0%    { left:-5%; }
-    11%   { left:-5%; }
-    12.5% { left:-105%; }
-    23.5% { left:-105%; }
-    25%   { left:-205%; }
-    36%   { left:-205%; }
-    37.5% { left:-305%; }
-    48.5% { left:-305%; }
-    50%   { left:-405%; }
-    61%   { left:-405%; }
-    62.5% { left:-305%; }
-    73.5% { left:-305%; }
-    75%   { left:-205%; }
-    86%   { left:-205%; }
-    87.5% { left:-105%; }
-    98.5% { left:-105%; }
-    100%  { left:-5%; }
+    width:600px;
+    max-width:600px;
+		height:400px;
+    max-height:400px;
 }
   `],
 })
 
 export class RecentPostComponent {
+	static idPlace=undefined;
+	static idDepart=undefined;
+	static idTown=undefined;
 	placesLast;
-	static nombrePlace='';
 	constructor(private recentpostservice: Recentpostservice, private getplacesservice: Getplacesservice) {
-
-    //this.heroService.getHeroes().then(heroes => this.heroes = heroes);
 	this.recentpostservice.getLastPlaces().subscribe(res => this.placesLast = res);
 	}
-	goPlace(name: string){
-		RecentPostComponent.nombrePlace=name;
-		this.getplacesservice.sendName(name);
+	goPlace(id: number) {
+		RecentPostComponent.idPlace=id;
+		RandomPostComponent.idPlace=undefined;
+		TopPostComponent.idPlace=undefined;
+		GetTownComponent.idPlace=undefined;
+		SearchComponent.idPlace=undefined;
+	}
+	goDepart(id: number) {
+		RecentPostComponent.idDepart=id;
+		DepartmentsComponent.idDepart=undefined;
+		GetPlacesComponent.idDepart=undefined;
+		GetTownComponent.idDepart=undefined;
+		RandomPostComponent.idDepart=undefined;
+		TopPostComponent.idDepart=undefined;
+		SearchComponent.idDepart=undefined;
+	}
+	goTown(id: number) {
+		RecentPostComponent.idTown=id;
+		ToptownComponent.idTown=undefined;
+		GetDepartsComponent.idTown=undefined;
+		GetPlacesComponent.idTown=undefined;
+		RandomPostComponent.idTown=undefined;
+		TopPostComponent.idTown=undefined;
+		SearchComponent.idTown=undefined;
 	}
 }

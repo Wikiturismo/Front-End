@@ -1,34 +1,38 @@
-<div class="row">
-    <div >
+<div class="row" style="float: left; width: 100%;">
+    <div style="float: left; width: 100%;">
 
-    <div class="card" align="center" >
+    <div class="card" align="center" style="float: left; width: 100%;">
         <div class="card-block">
 
 
-              <div class="jumbotron jumbotron-fluid">
+              <div class="jumbotron jumbotron-fluid" style="float: left; width: 100%;">
  <h1 >Departamentos</h1>
-</div>
-</div>
-</div>
 <div  *ngFor="let dep of departs; let i = index" style=" margin-left: 30px" >
 
-
-  <div  style="background:#f5f5f5; float:left; width: 200px; height: 200px; margin: 5px">
-     <h1 style="text-align: center; font-size: 1.2em"><font color="black"> {{dep.name}}</font></h1>
-     <p style="font-size: 1.0em">Capital: {{dep.capital}}</p>
-  <!--<p>valoracion: {{place.valoration}}</p>-->
-      <img width="100%" src="assets/images/cartagena-3.jpg">
+  <div  style="background:#f5f5f5; float:left; width: 320px;height: 300px; margin: 5px">
+    <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
+      <a routerLink="../getdeparts" (click) ="goDepart(dep.id)"><h1 class="card-title" style="text-align: center; font-size: 1.4em"><font color="black"> <b>{{dep.name}}</b></font></h1></a>
+    </div>
+      <div *ngFor="let img of dep.imagedeparts; let index=index">
+        <a routerLink="../getdeparts" (click) ="goDepart(dep.id)"><img src="{{img.image.url}}" style="margin:auto;  height:120px"></a>
+      </div>
+      <a routerLink="../getdeparts" (click) ="goDepart(dep.id)">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                <div class="card-header card-default">
+                    <h5 class="card-title" style="text-align: center; font-size: 1.2em"> Capital
+                    </h5>
+                    <p style="text-align: center; font-size: 1.2em">{{dep.capital}}</p>
+                </div>
+                    </div>
+                </div>
+            </div>
+          </a>
   </div>
-
-
-
-
 </div>
-<ul>
-  <!--<div>{{departs}}</div>-->
-  <!--<li *ngFor="let place of places">
-    {{place.name}}</li>-->
-</ul>
-
+</div>
+</div>
+</div>
 </div>
 </div>

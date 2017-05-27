@@ -6,5 +6,5 @@ export class User {
         public kind: string,
         public email: string,
         public ubication: string
-       ){}
+       ) {}
 }

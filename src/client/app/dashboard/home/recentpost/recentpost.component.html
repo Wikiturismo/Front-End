@@ -10,32 +10,36 @@
                       <div *ngFor="let placeL of placesLast; let i = index" >
                             <!--<slide active="slide.active" >-->
                               <div class="card-header card-info card-inverse" style="background:#f5f5f5;" >
-                                  <a routerLink="../getplaces" (click) ="goPlace(placeL.name)" ><h3 class="card-title" style="text-align: center"><font color="black">{{placeL.name}}</font></h3></a>
+                                  <a routerLink="../getplaces" (click) ="goPlace(placeL.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>{{placeL.name}}</b></font></h3></a>
                               </div>
-                              <div class="carousel">
-                                 <ul class="slides">
-                                   <li *ngFor="let img of placeL.imageplaces">
-                                     <img src="{{img.image.url}}">
-                                   </li>
-                                 </ul>
-                               </div>
-                                <br>
-                                <br>
+                              <carousel class="carousel" [interval]=2500 [noWrap]=false>
+                                <slide *ngFor="let img of placeL.imageplaces; let index=index" [active]="img.active">
+                                  <a routerLink="../getplaces" (click) ="goPlace(placeL.id)"><img src="{{img.image.url}}" style="margin:auto;"></a>
+                                </slide>
+                              </carousel>
+                              <a routerLink="../getplaces" (click) ="goPlace(placeL.id)">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <div class="card">
                                             <div class="card-header card-default">
-                                                <h5 class="card-title"> Descripcion
+                                                <h5 class="card-title"> Descripción
                                                 </h5>
                                                 <p>{{placeL.description}}</p>
+                                                <div class="card-header card-info card-inverse" style="background:#f5f5f5; width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
+                                                  <div class="card-header card-info card-inverse" style="background:#B9B8B8; width: 50%; display:flex; flex-wrap: wrap; justify-content: center;" >
+                                                    <a routerLink="../getdeparts" (click) ="goDepart(placeL.depart.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>Departamento</b><br>{{placeL.depart.name}}</font></h3></a>
+                                                  </div>
+                                                  <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 50%; display:flex; flex-wrap: wrap; justify-content: center;" >
+                                                    <a routerLink="../getown" (click) ="goTown(placeL.town.id)"><h3 class="card-title" style="text-align: center"><font color="black"><b>Ciudad/Pueblo</b><br>{{placeL.town.name}}</font></h3></a>
+                                                  </div>
+                                                </div>
                                             </div>
                                                 </div>
                                             </div>
                                         </div>
-                          <!--  </slide>-->
 
-</div>
-                        <!--</carousel>-->
+                                      </a>
+                                      <br>
                       </div>
                     </div>
                 </div>

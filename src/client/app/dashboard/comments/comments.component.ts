@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { Http } from '@angular/http';
 import { Commentsservice } from './comments.service';
 
 @Component({
@@ -11,7 +10,8 @@ import { Commentsservice } from './comments.service';
 
 export class CommentsComponent {
 	CommsPlace;
-	constructor(private commentsservice: Commentsservice) { 
+	constructor(private commentsservice: Commentsservice) {
+
        this.commentsservice.getPlace99Com().subscribe(res => this.CommsPlace = res);
       }
 

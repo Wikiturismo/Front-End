@@ -12,5 +12,5 @@ export class Place {
         public town_id: number,
         public depart_id: number,
         public user_id: number
-       ){}
+       ) {}
 }

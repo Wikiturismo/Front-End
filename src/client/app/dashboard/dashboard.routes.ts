@@ -13,6 +13,9 @@ import { CreateTownRoutes } from './createtown/index';
 import { GetTownRoutes } from './getown/index';
 import { DepartmentsRoutes } from './departments/index';
 import { ToptownRoutes } from './toptown/index';
+import { GetDepartsRoutes } from './getdeparts/index';
+import { SearchRoutes } from './search/index';
+import { ImgupdateRoutes } from './imgupdate/index';
 
 export const DashboardRoutes: Route[] = [
   	{
@@ -29,9 +32,11 @@ export const DashboardRoutes: Route[] = [
         ...RandomPostRoutes,
         ...CreateTownRoutes,
         ...GetTownRoutes,
+        ...GetDepartsRoutes,
         ...DepartmentsRoutes,
         ...ToptownRoutes,
-
+        ...SearchRoutes,
+        ...ImgupdateRoutes,
     	]
   	}
 ];
