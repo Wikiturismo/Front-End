@@ -49,7 +49,7 @@ export class GetTownComponent {
 	user = [];
 	Explace=[];
 	namePlace : String;
-	CommentCreat = new Commenttowns(undefined,true,'',undefined,2,undefined,);
+	CommentCreat = new Commenttowns(undefined,true,'',undefined,3,undefined,);
 	comments;
 	paramid;
 	LastPlaces;

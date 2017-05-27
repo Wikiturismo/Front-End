@@ -13,10 +13,12 @@ import { GetTownComponent } from '../getown/getown.component';
 export class ContactUSComponent {
 	constructor(private router: Router){
 		if (GetPlacesComponent.lawea === 1){
+			GetPlacesComponent.lawea = 0;
 			this.router.navigate(['/dashboard/getplaces']);
 		}
 		if (GetTownComponent.lawea2 === 1){
-			this.router.navigate(['/dashboard/getowns']);
+			GetTownComponent.lawea2 = 0;
+			this.router.navigate(['/dashboard/getown']);
 		}
 	}
 }
