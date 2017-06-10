@@ -1,0 +1,65 @@
+<h1 class="container">Comentarios Post</h1>
+<div class="container"   *ngFor="let CommPlace of CommsPlace; let i = index">
+    
+
+    <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
+        <h3 class="card-title" style="text-align: center"><font color="black">{{CommPlace.name}}</font></h3>
+    </div>
+
+
+        <!--IMAGEN TOP-->
+
+    <img width="100%" src="assets/images/cartagena-3.jpg">
+	<!--<div   *ngFor="let comentario of CommPlace.commentplaces; let j = index">
+		<p> {{comentaio.id}}</p>
+		
+	</div>-->
+
+
+    <!--COMENTARIOS-->
+    <div class="row">
+      <div class="col-md-2">
+        <img src="assets/images/user2.jpg" class="user-avatar" style="border: 3px solid green; display: block; margin: auto;" />
+      </div>
+    <div class="col-md-10">
+        <div class="card card-default card-block">
+            <blockquote class="card-blockquote">
+            <h4 class="text-default">Kevin Mendez</h4>
+                <p>Es una ciudad mágica, la visité con mi familia y fue en definitiva una de nuestras mejores vacaciones juntos. Es además una ciudad muy romántica, la recomiendo para un plan en pareja. </p>
+                <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
+            </blockquote>
+        </div>
+    </div>
+    <div class="col-md-2">
+      <img src="assets/images/user3.jpg" class="user-avatar" style="border: 3px solid blue; display: block; margin: auto;" />
+    </div>
+  <div class="col-md-10">
+      <div class="card card-default card-block">
+          <blockquote class="card-blockquote">
+          <h4 class="text-default">Juan Manuel Corredor</h4>
+              <p>Me encantó, quiero reperitlo sin duda alguna. Espero tener la oportunidad de ir nuevamente con mi familia en las próximas vacaiones </p>
+              <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
+          </blockquote>
+      </div>
+  </div>
+
+  <div class="col-md-2">
+    <img src="assets/images/user5.jpg" class="user-avatar" style="border: 3px solid yellow; display: block; margin: auto;" />
+  </div>
+  <div class="col-md-10">
+    <div class="card card-default card-block">
+        <blockquote class="card-blockquote">
+        <h4 class="text-default">Esperanza Perez</h4>
+            <p>Tiene muy buenos y bonitos lugares, pero también otros que pueden llegar a ser incluso peligrosos, hay que saber por donde andar </p>
+            <!--<a href="Javascript:void(0);" class="btn btn-primary">Go somewhere</a>-->
+        </blockquote>
+    </div>
+  </div>
+
+
+
+
+    </div>
+
+
+      </div>

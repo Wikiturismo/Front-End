@@ -1,0 +1,123 @@
+
+
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+		<div class="card" align="center">
+				<div class="card-block">
+
+
+							<div class="jumbotron jumbotron-fluid">
+
+
+								<div class="container">
+
+<div class="container"   *ngFor="let usr of user; let i = index">
+    <h1>Información Personal</h1>
+  	<hr>
+	<div class="row">
+      <!-- left column -->
+      <div class="col-md-3">
+        <div class="text-center">
+          <li *ngFor="let img of usr.imageusers">
+            <img style="width:130px;height:130px;" src="{{img.image.url}}" class="avatar img-circle" />
+          </li>
+          <!--<img src="//placehold.it/100" class="avatar img-circle" alt="avatar">-->
+          <h6><br>Subir una foto diferente...</h6>
+
+          <input type="file" class="form-control" (change)="fileEvent($event)" />
+
+          <!--<h6><br><br><br><br>
+            <br><br><br><br>
+            <br><br><br><br>{{usr.created_at}}</h6>-->
+        </div>
+      </div>
+
+      <!-- edit form column -->
+      <div class="col-md-9 personal-info">
+        <!--<div class="alert alert-info alert-dismissable">
+          <a class="panel-close close" data-dismiss="alert">×</a>
+          <i class="fa fa-coffee"></i>
+          This is an <strong>.alert</strong>. Use this to show important messages to the user.
+        </div>-->
+        <h3>  Información Personal</h3>
+
+        <form class="form-horizontal" id="myform" role="form" (ngSubmit)="updateUser()">
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Nombre de Usuario:</label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" required [(ngModel)]="userCreat.name" name="name"  #name="ngModel">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Tipo de usuario:</label>
+            <div class="col-lg-8">
+              <div class="input-group-btn search-panel">
+                  <select class="form-control"   required [(ngModel)]="userCreat.kind" name="kind"  id="sel1">
+                  	<option>{{usr.kind}}</option>
+                    <option>Dueño de Lugar</option>
+                    <option>Turista</option>
+                    <option>Residente</option>
+                  </select>
+               </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Ubicación: </label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" required [(ngModel)]="userCreat.ubication" name="ubication">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-lg-3 control-label">Correo Electronico: </label>
+            <div class="col-lg-8">
+              <input class="form-control" type="text" required [(ngModel)]="userCreat.email" name="email" >
+            </div>
+          </div>
+          <!--<div class="form-group">
+            <label class="col-md-3 control-label">Nombre de Usuario:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="text" value="mdbelloc">
+            </div>
+          </div>-->
+          <div class="form-group">
+            <label class="col-md-3 control-label">Contraseña:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password" value="11111122333">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-md-3 control-label">Confirmar Contraseña:</label>
+            <div class="col-md-8">
+              <input class="form-control" type="password" value="11111122333">
+            </div>
+          </div>
+          <!--<div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <input type="button" class="btn btn-primary" value="Mis Publicaciones">
+            </div>
+          </div>-->
+          <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+              <!--<input type="button" class="btn btn-primary" value="Guardar Cambios" onclick="updateUser()">-->
+              <!--<button type="submit" class="btn btn-primary" (click)="updateUser" routerLink="../toppost">Guardar cambios</button>-->
+              <button type="submit" class="btn btn-primary" (click)="updateUser" onclick="window.parent.location.reload()">Guardar cambios</button>
+              <!--<a routerLink="../toppost" onclick="document.getElementById('myform').submit()" class="btn btn-primary" (click)="updateUser">Submit</a>-->
+              <span></span>
+              <input type="reset" class="btn btn-default" value="Cancelar">
+            </div>
+          </div>
+        </form>
+      </div>
+  </div>
+</div>
+<hr>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>

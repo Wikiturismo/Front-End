@@ -1,0 +1,144 @@
+
+
+<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+		<div class="card" align="center">
+				<div class="card-block">
+
+
+							<div class="jumbotron jumbotron-fluid">
+
+
+								<div class="container">
+
+
+
+												<h1>Crear post nuevo</h1>
+
+												<form role="form" (ngSubmit)="createPost()">
+
+														<!--<div class="form-group has-error">
+																<label for="slug">Slug <span class="require">*</span> <small>(This field use in url path.)</small></label>
+																<input type="text" class="form-control" name="slug" />
+																<span class="help-block">Field not entered!</span>
+														</div>-->
+														<div class="form-group">
+															 <label class="col-lg-3 control-label">Nombre del lugar <span class="require">*</span></label>
+															 <div class="col-lg-8">
+																 <input class="form-control" type="text" required [(ngModel)]="postCreat.name" name="name">
+															 </div>
+													 </div>
+														<div>
+															<label for="description">Agregar una imagen del lugar <span class="require">*</span></label>
+															 <input type="file" class="form-control" (change)="fileEvent($event)" />
+														 <br>
+														</div>
+														<!--Segundo formulario-->
+														<div class="row">
+																<div class="col-md-6">
+																	<label class="control-label" for="date">Costo de entrada</label>
+																	<input class="form-control" type="number" required [(ngModel)]="postCreat.entrycost" name="entrycost" min="0">
+																</div>
+																<!-- Text input-->
+																<div class="col-md-6">
+																		<div class="form-group">
+																				<label class="control-label" for="time">Tipo de lugar <span class="require">*</span></label>
+																				<select class="form-control"   required [(ngModel)]="postCreat.kind" name="kind">
+																							<option value="Bar">Bar</option>
+																							<option value="Cine">Cine</option>
+																							<option value="Hotel">Hotel</option>
+																							<option value="Parque">Parque</option>
+																							<option value="Restaurante">Restaurante</option>
+																					</select>
+																		</div>
+																</div>
+																<!-- Text input-->
+																<div class="col-md-6">
+																		<div class="form-group">
+																				<label class="control-label" for="date">Departamento <span class="require">*</span></label>
+																				<select class="form-control"   required [(ngModel)]="postCreat.depart_id" name="depart_id" [(ngModel)]="selectedDepart" (ngModelChange)="onChange($event)">
+																							<option value=1>Amazonas</option>
+																							<option value=2>Antioquia</option>
+																							<option value=3>Arauca</option>
+																							<option value=4>Atlantico</option>
+																							<option value=5>Bolivar</option>
+																							<option value=6>Boyaca</option>
+																							<option value=7>Caldas</option>
+																							<option value=8>Caqueta</option>
+																							<option value=9>Casanare</option>
+																							<option value=10>Cauca</option>
+																							<option value=11>Cesar</option>
+																							<option value=12>Choco</option>
+																							<option value=13>Cordoba</option>
+																							<option value=14>Cundinamarca</option>
+																							<option value=15>Guainia</option>
+																							<option value=16>Guaviare</option>
+																							<option value=17>Huila</option>
+																							<option value=18>La Guajira</option>
+																							<option value=19>Magdalena</option>
+																							<option value=20>Meta</option>
+																							<option value=21>Nariño</option>
+																							<option value=22>Norte de Santander</option>
+																							<option value=23>Putumayo</option>
+																							<option value=24>Quindio</option>
+																							<option value=25>Risaralda</option>
+																							<option value=26>San Andres y Providencia</option>
+																							<option value=27>Santander</option>
+																							<option value=28>Sucre</option>
+																							<option value=29>Tolima</option>
+																							<option value=30>Valle del Cauca</option>
+																							<option value=31>Vaupes</option>
+																							<option value=32>Vichada</option>
+																					</select>
+																		</div>
+																</div>
+																<!-- Select Basic -->
+																<div class="col-md-6">
+																		<div class="form-group">
+																				<label class="control-label" for="date">Ciudad <span class="require">*</span></label>
+																				<select class="form-control"   required [(ngModel)]="postCreat.town_id" name="town_id">
+																					<option *ngFor="let twn of towns; let i = index" value={{twn.id}}>{{twn.name}}</option>
+																				</select>
+																		</div>
+																</div>
+																<div class="col-md-6">
+																		<div class="form-group">
+																				<label class="control-label" for="date">Ubicación (Barrio,etc) <span class="require">*</span></label>
+																				<input class="form-control" type="text" required [(ngModel)]="postCreat.ubication" name="ubication">
+																		</div>
+																</div>
+																<!-- Select Basic -->
+																<div class="col-md-6">
+																		<div class="form-group">
+																				<label class="control-label" for="date">Dirección <span class="require">*</span></label>
+																				<input class="form-control" type="text" required [(ngModel)]="postCreat.address" name="address">
+																		</div>
+																</div>
+														</div>
+
+
+														<div class="form-group">
+																<label for="description">Descripción<span class="require">*</span></label>
+																<textarea rows="5" class="form-control" type="text" required [(ngModel)]="postCreat.description" name="description"></textarea>
+														</div>
+
+														<div class="form-group">
+																<p><span class="require">*</span> - Campos requeridos</p>
+														</div>
+
+														<div class="form-group">
+																<button type="submit" class="btn btn-primary">Crear</button>
+																<button class="btn btn-default">Cancelar</button>
+														</div>
+
+												</form>
+
+
+
+								</div>
+							</div>
+				</div>
+		</div>
+	</div>
+</div>

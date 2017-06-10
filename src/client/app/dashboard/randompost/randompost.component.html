@@ -1,0 +1,113 @@
+
+<div class="row" style="float: left; width: 100%;">
+    <div style="float: left; width: 100%;">
+
+    <div class="card" align="center" style="float: left; width: 100%;">
+        <div class="card-block">
+
+
+              <div class="jumbotron jumbotron-fluid" style="float: left; width: 100%;">
+ <h1 >Post aleatorios</h1>
+<div *ngFor="let place of places; let i = index" style=" margin-left: 30px" >
+
+  <div  style="background:#f5f5f5; float:left; width: 320px;height: 370px; margin: 5px">
+    <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
+     <a routerLink="../getplaces" (click) ="goPlace(place.id)"><h3 class="card-title" style="text-align: center"><font color="black"> <b>{{place.name}}</b></font></h3></a>
+    </div>
+      <div>
+
+          <carousel class="carousel" [interval]=2500 [noWrap]=false>
+               <slide *ngFor="let img of place.imageplaces; let index=index" [active]="img.active">
+                 <a routerLink="../getplaces" (click) ="goPlace(place.id)"><img src="{{img.image.url}}" style="margin:auto; max-width: 140px;max-height: 140px"></a>
+               </slide>
+            </carousel>
+              <div class="card-header card-info card-inverse" style="background:#f5f5f5; width: 100%; display: flex; flex-wrap: wrap; justify-content: center;">
+                <div class="card-header card-info card-inverse" style="background:#B9B8B8; width: 50%; display:flex; flex-wrap: wrap; justify-content: center;" >
+                  <a routerLink="../getdeparts" (click) ="goDepart(place.depart.id)" ><h3 class="card-title" style="text-align: center"><font color="black"><b>Departamento</b><br>{{place.depart.name}}</font></h3></a>
+                </div>
+                <div class="card-header card-info card-inverse" style="background:#E1E1E1; width: 50%; display:flex; flex-wrap: wrap; justify-content: center;" >
+                  <a routerLink="../getown" (click) ="goTown(place.town.id)"><h3 class="card-title" style="text-align: center"><font color="black"><b>Ciudad/Pueblo</b><br>{{place.town.name}}</font></h3></a>
+                </div>
+              </div>
+
+      </div>
+      <a routerLink="../getplaces" (click) ="goPlace(place.id)">
+        <!--<div class="row">
+          <div class="col-md-12">
+              <div class="card">-->
+
+              <div class="card-header card-default" style="
+                  height:80px;
+                  float:left;
+                  overflow:hidden;
+                  text-overflow: ellipsis;
+                  ">
+                  <h5 class="card-title"> Descripción
+                  </h5>
+                  <p  style="font-size: 0.9em;" > {{place.description}}</p>
+              </div>
+
+                  <!--  </div>
+                </div>
+            </div>-->
+          </a>
+  </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<!--<div class="row">
+    <div class="col-md-8 col-md-offset-2">
+
+		<div class="card" align="center">
+				<div class="card-block">
+
+
+							<div class="jumbotron jumbotron-fluid">
+
+ <h1 class="container" ></h1>
+<div class="container"  *ngFor="let place of places; let i = index">
+
+
+  <div class="card-header card-info card-inverse" style="background:#f5f5f5;">
+     <a routerLink="../getplaces" (click) ="goPlace(place.id)"><h3 class="card-title" style="text-align: center"><font color="black"> <b>{{place.name}}</b></font></h3></a>
+  </div>
+  <carousel class="carousel" [interval]=2500 [noWrap]=false>
+       <slide *ngFor="let img of place.imageplaces; let index=index" [active]="img.active">
+         <a routerLink="../getplaces" (click) ="goPlace(place.id)"><img src="{{img.image.url}}" style="margin:auto;"></a>
+       </slide>
+    </carousel>
+    <a routerLink="../getplaces" (click) ="goPlace(place.id)">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="card">
+                      <div class="card-header card-default">
+                          <h5 class="card-title"> Descripción
+                          </h5>
+                          <p>{{place.description}}</p>
+                      </div>
+                    </div>
+                </div>
+            </div>
+          </a>
+    <br>
+    <br>
+
+
+
+
+
+</div>
+<ul>
+  <div>{{departs}}</div>
+  <li *ngFor="let place of places">
+  	{{place.name}}</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>-->
